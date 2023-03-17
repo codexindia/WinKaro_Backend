@@ -110,12 +110,12 @@ class ApiAuth extends Controller
         $now = Carbon::now();
         if (!$checkotp) {
             return response()->json([
-                'status' => 'false',
+                'status' => false,
                 'message' => 'Your OTP Is Invalid'
             ]);
         } elseif ($checkotp && $now->isAfter($checkotp->expire_at)) {
             return response()->json([
-                'status' => 'false',
+                'status' => false,
                 'message' => 'Your OTP Has Expired'
             ]);
         } else {
@@ -126,7 +126,7 @@ class ApiAuth extends Controller
             $token = $userdata->createToken($device)->plainTextToken;
             UserVerification::where('user_id', $userid)->delete();
             return response()->json([
-                'status' => 'true',
+                'status' => true,
                 'token' => $token,
                 'message' => 'Your OTP Has Verified SuccessFully'
             ]);
