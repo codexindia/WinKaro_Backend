@@ -32,7 +32,7 @@ class ApiAuth extends Controller
         ]);
 
 
-      
+
         DB::table('access_logs')->insert([
             'user_id' => $user->id,
             'ip' => $request->ip(),
@@ -53,7 +53,11 @@ class ApiAuth extends Controller
         $request->validate([
             'phone' => 'required|numeric|exists:users,phone'
         ]);
-        return $this->sendotp($request->phone);
+        $res = $this->sendotp($request->phone);
+        return response()->json([
+            'status' => true,
+            'message' => $res['message']
+        ]);
     }
 
 
@@ -89,7 +93,7 @@ class ApiAuth extends Controller
                     "numbers" => $number,
                 ]);
 
-            return $response;
+            return json_decode($response, true);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -103,7 +107,7 @@ class ApiAuth extends Controller
             'phone' => 'required|numeric|exists:users,phone'
         ]);
         $userdata = User::where('phone', $request->phone)->first();
-      
+
         $userid = $userdata->id;
         $checkotp = UserVerification::where('user_id', $userid)
             ->where('otp', $request->otp)->latest()->first();
