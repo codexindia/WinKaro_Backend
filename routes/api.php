@@ -23,6 +23,6 @@ Route::post('/register','ApiAuth@register');
 Route::post('/verify_otp','ApiAuth@verifyotp');
 Route::post('/login','ApiAuth@login');
 
-//Route::middleware('auth:sanctum')->group(function () {
-   
-//});
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/get_user','ProfileController@getuser');
+});
