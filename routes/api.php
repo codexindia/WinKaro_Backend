@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register','ApiAuth@register');
 
-Route::post('/verifyotp','ApiAuth@verifyotp');
+Route::post('/verify_otp','ApiAuth@verifyotp');
 Route::post('/login','ApiAuth@login');
 
 //Route::middleware('auth:sanctum')->group(function () {
