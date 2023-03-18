@@ -20,7 +20,7 @@ class ApiAuth extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users,id',
+            'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone',
         ]);
         $refer_code = 'WIN' . rand('100000', '999999');
