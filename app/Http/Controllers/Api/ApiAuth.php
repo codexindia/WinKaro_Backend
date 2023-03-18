@@ -40,7 +40,7 @@ class ApiAuth extends Controller
         ]);
 
         #sending An OTP To Verify User
-        $res = $this->sendotp($user->phone);
+          $this->sendotp($user->phone);
         return response()->json([
             'status' => true,
             'message' => 'User Registration SuccessFully',
