@@ -14,15 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::controller('ApiAuth')->group(function () {
+    Route::post('/register', 'register');
+    Route::post('/verify_otp', 'verifyotp');
+    Route::post('/login', 'login');
 });
 
-Route::post('/register','ApiAuth@register');
-
-Route::post('/verify_otp','ApiAuth@verifyotp');
-Route::post('/login','ApiAuth@login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/get_user','ProfileController@getuser');
+
+    Route::controller('ProfileController')->group(function () {
+        Route::post('/get_user', 'getuser');
+    });
+
+    Route::controller('WalletSection')->prefix('wallet')->group(function () {
+        Route::post('/bind_account', 'bind_ac');
+        Route::post('/get_account', 'get_account');
+    });
+
 });

@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('email')->unique();
+            $table->integer('balance')->default(0);
             $table->string('refer_code')->unique();
-            $table->string('refered_by')->nullable();
+            $table->string('referred_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
