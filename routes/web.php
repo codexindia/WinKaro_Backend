@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login_index'));
 });
+Route::controller('AuthManage')->group(function(){
+    Route::get('/Login','index')->name('login_index');
+    Route::post('/Login','login_attempt')->name('login_attempt');
+});
+

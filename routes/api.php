@@ -22,6 +22,7 @@ Route::controller('ApiAuth')->group(function () {
     Route::post('/register', 'register');
     Route::post('/verify_otp', 'verifyotp');
     Route::post('/login', 'login');
+    Route::post('/logout', 'logout')->middleware('auth:sanctum');
 });
 
 

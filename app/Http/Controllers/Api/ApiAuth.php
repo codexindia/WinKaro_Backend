@@ -136,4 +136,19 @@ class ApiAuth extends Controller
             ]);
         }
     }
+    public function logout(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+        DB::table('access_logs')->insert([
+            'user_id' => $user->id,
+            'ip' => $request->ip(),
+            'action' => 'User Logged Out',
+        ]);
+        return response()->json([
+         'status' => true,
+         'message' => 'User Logged Out SuccessFully',
+        ]);
+
+    }
 }
