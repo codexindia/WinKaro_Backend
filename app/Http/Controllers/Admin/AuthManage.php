@@ -14,7 +14,7 @@ class AuthManage extends Controller
    public function login_attempt(Request $request)
    {
    $request->validate([
-   'first_name' => 'required|min:6',
+   'user_name' => 'required|min:6',
    ]);
    }
 }
