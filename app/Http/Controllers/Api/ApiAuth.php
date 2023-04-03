@@ -22,7 +22,18 @@ class ApiAuth extends Controller
             'name' => 'required',
             'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone',
+            'device_id' => 'required'
         ]);
+        $device_id = $request->device_id;
+        $detect = DB::table('device_detection')->where([
+            'device_id' => $device_id,
+        ]);
+        if ($detect->exists()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Your Device Already Registered With Different Number xxxxxx' . substr($detect->first()->phone_number, 6),
+            ]);
+        }
         $refer_code = 'WIN' . rand('100000', '999999');
         $user = User::create([
             'name' => $request->name,
@@ -40,7 +51,7 @@ class ApiAuth extends Controller
         ]);
 
         #sending An OTP To Verify User
-           $this->sendotp($user->phone);
+        $this->sendotp($user->phone);
         return response()->json([
             'status' => true,
             'message' => 'User Registration SuccessFully '
@@ -50,14 +61,24 @@ class ApiAuth extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'phone' => 'required|numeric|exists:users,phone'
-        ]);
+        $request->validate(
+            [
+                'phone' => 'required|numeric|digits:10|exists:users,phone',
+
+            ],
+            ([
+                'phone.exists' => 'Phone Number Has Not Registered'
+            ])
+        );
+
+
         $res = $this->sendotp($request->phone);
         return response()->json([
             'status' => true,
             'message' => $res['message']
         ]);
+
+
     }
 
 
@@ -146,8 +167,8 @@ class ApiAuth extends Controller
             'action' => 'User Logged Out',
         ]);
         return response()->json([
-         'status' => true,
-         'message' => 'User Logged Out SuccessFully',
+            'status' => true,
+            'message' => 'User Logged Out SuccessFully',
         ]);
 
     }

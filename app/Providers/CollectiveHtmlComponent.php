@@ -19,6 +19,9 @@ class CollectiveHtmlComponent extends ServiceProvider
      */
     public function boot(): void
     {
-        Form::component('TextBox', 'admin.components.textbox', ['name', 'value' => null, 'attributes' => []]);
+        Form::component('wtextbox', 'admin.components.textbox', ['name', 'value' => null, 'attributes' => []]);
+        Form::component('wpassword', 'admin.components.password', ['name', 'value' => null, 'attributes' => []]);
+        Form::component('wsubmit', 'admin.components.button', ['name','attributes' => []]);
+        Form::component('wcheckbox', 'admin.components.checkbox', ['name','label','attributes' => []]);
     }
 }
