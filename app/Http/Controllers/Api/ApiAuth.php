@@ -22,8 +22,10 @@ class ApiAuth extends Controller
             'name' => 'required',
             'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone',
-            'device_id' => 'required'
+            'device_id' => 'required',
+            'refer_code' => 'min:6|max:6'
         ]);
+        //checking if device already registerd
         $device_id = $request->device_id;
         $detect = DB::table('device_detection')->where([
             'device_id' => $device_id,
@@ -34,6 +36,7 @@ class ApiAuth extends Controller
                 'message' => 'Your Device Already Registered With Different Number xxxxxx' . substr($detect->first()->phone_number, 6),
             ]);
         }
+        //creating account
         $refer_code = 'WIN' . rand('100000', '999999');
         $user = User::create([
             'name' => $request->name,
@@ -41,7 +44,11 @@ class ApiAuth extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
         ]);
-
+        //adding data to device detection to prevent spam registration
+        DB::table('device_detection')->insert([
+            'device_id' => $device_id,
+            'phone_number' => $request->phone,
+        ]);
 
 
         DB::table('access_logs')->insert([
