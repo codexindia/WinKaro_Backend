@@ -24,7 +24,7 @@ class SpinAndEarn extends Controller
     }
     public function get_spin_coin(Request $request)
     {
-     $coin = rand(1,6);
+     $coin = rand(6,10);
      return response()->json([
         'status' => true,
         'data' => $coin,
