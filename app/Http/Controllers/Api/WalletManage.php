@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\WalletBinds;
-class WalletSection extends Controller
+use Illuminate\Http\Request;
+use App\Models\WalletTransaction;
+use App\Models\User;
+class WalletManage extends Controller
 {
-    
+    public function AddLog($user_id,$amount,$description,$status)
+    {
+        $new = new WalletTransaction;
+        $new->user_id = $user_id;
+        $new->amount = $amount;
+        $new->description = $description;
+        $new->status = $status;
+        $new->ref_id = 'WNKR'.rand(1000000,9999999);
+        if($new->save())
+        {
+            User::find($user_id)->increment('balance',$amount);
+        }
+        
+    }
     public function bind_ac(Request $request)
     {
         $request->validate([
@@ -44,4 +59,16 @@ class WalletSection extends Controller
             'message' => 'User Account Retrieve SuccessFully',
         ]);
     }
+
+    public function get_transactions(Request $request)
+    {
+        $userid = $request->user()->id;
+       $data = WalletTransaction::where('user_id',$userid)->orderBy('id','desc')->get();
+       return response()->json([
+           'status' => true,
+           'data' => $data,
+           'message' => 'Transaction Log Retrieve SuccessFully',
+       ]);
+    }
+
 }

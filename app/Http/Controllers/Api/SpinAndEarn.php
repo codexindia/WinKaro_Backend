@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Api\WalletTransactionLog;
+use App\Http\Controllers\Api\WalletManage;
 class SpinAndEarn extends Controller
 {
     public function add_reward(Request $request)
@@ -13,10 +13,10 @@ class SpinAndEarn extends Controller
         'coin' => 'required|in:6,7,8,9,10',
         ]);
         $user_id = $request->user()->id;
-        $amount = $request->amount;
+        $amount = $request->coin;
         $description = 'Wining Through Spin And Earn';
         $status = 'added';
-        $result = (new WalletTransactionLog)->AddLog($user_id,$amount,$description,$status);
+        $result = (new WalletManage)->AddLog($user_id,$amount,$description,$status);
         return response()->json([
           'status' => true,
           'message' => 'Reward Has Been Added',
