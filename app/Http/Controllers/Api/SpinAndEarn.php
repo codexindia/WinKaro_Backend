@@ -36,7 +36,7 @@ class SpinAndEarn extends Controller
       if($check->count() >= 10)
       {
         return response()->json([
-          'status' => true,
+          'status' => false,
           'message' => 'Todays Limit Exceeds'
         ]);
       }
