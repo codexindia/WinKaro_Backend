@@ -36,5 +36,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/bind_account', 'bind_ac');
         Route::post('/get_account', 'get_account');
     });
-
+    Route::controller('SpinAndEarn')->prefix('spin_and_earn')->group(function () {
+        Route::post('/add_reward', 'add_reward');
+        Route::post('/get_spin_coin', 'get_spin_coin');
+    });
 });
