@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\WalletManage;
+use App\Models\GameLimit;
 class SpinAndEarn extends Controller
 {
     public function add_reward(Request $request)
@@ -24,7 +26,25 @@ class SpinAndEarn extends Controller
     }
     public function get_spin_coin(Request $request)
     {
+      $user_id = $request->user()->id;
+      $check = GameLimit::whereDate(
+       'created_at', Carbon::today(),
+      )->where([
+        'user_id' => $user_id,
+        'type' => 'spin_and_earn',
+    ]);
+      if($check->count() >= 10)
+      {
+        return response()->json([
+          'status' => true,
+          'message' => 'Todays Limit Exceeds'
+        ]);
+      }
      $coin = rand(6,10);
+     GameLimit::create([
+      'user_id' => $user_id,
+      'type' => 'spin_and_earn',
+     ]);
      return response()->json([
         'status' => true,
         'data' => $coin,
