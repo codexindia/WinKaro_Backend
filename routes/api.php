@@ -37,9 +37,15 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/get_account', 'get_account');
         Route::post('/get_transactions','get_transactions');
     });
+
     Route::controller('SpinAndEarn')->prefix('spin_and_earn')->group(function () {
         Route::post('/add_reward', 'add_reward');
         Route::post('/get_spin_coin', 'get_spin_coin');
+    });
+
+    Route::controller('WatchAndEarn')->prefix('watch_and_earn')->group(function () {
+        Route::post('/add_reward', 'add_reward');
+        Route::post('/get_reward_video', 'get_reward_video');
     });
    
 });
