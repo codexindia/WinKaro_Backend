@@ -34,5 +34,8 @@ class NotificationManage extends Controller
         ]);
         $user = User::find($request->user()->id);
         $user->notifications->where('id', $request->alert_id)->markAsRead($request->alert_id);
+     return response()->json([
+        'status' => true,
+     ]);
     }
 }
