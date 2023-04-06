@@ -24,10 +24,7 @@ class WatchAndEarn extends Controller
                 'message' => 'Todays Limit Exceeds'
             ]);
         }
-        GameLimit::create([
-            'user_id' => $user_id,
-            'type' => 'watch_and_earn',
-        ]);
+       
         return response()->json([
             'status' => true,
             'message' => 'Reward Videos Available',
@@ -36,7 +33,23 @@ class WatchAndEarn extends Controller
     public function add_reward(Request $request)
     {
         $user_id = $request->user()->id;
-        $amount = 10;
+        $check = GameLimit::whereDate(
+            'created_at', Carbon::today(),
+        )->where([
+                'user_id' => $user_id,
+                'type' => 'watch_and_earn',
+            ]);
+        if ($check->count() >= 10) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Todays Limit Exceeds'
+            ]);
+        }
+        GameLimit::create([
+            'user_id' => $user_id,
+            'type' => 'watch_and_earn',
+        ]);
+        $amount = 5;
         $description = 'Reward Added For Watch And Earn Program';
         $status = 'added';
         $result = (new WalletManage)->AddLog($user_id,$amount,$description,$status);
