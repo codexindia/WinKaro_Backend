@@ -51,10 +51,12 @@ class WalletManage extends Controller
     }
     public function get_account(Request $request)
     {
-        $user_id = $request->user()->id;
-        $data = WalletBinds::where('user_id',$user_id)->get();
+        $user = $request->user();
+        $data = WalletBinds::where('user_id',$user->id)->get();
         return response()->json([
             'status' => true,
+            'coins' => $user->balance,
+            'coin_to_inr' => $user->balance/100,
             'data' => $data,
             'message' => 'User Account Retrieve SuccessFully',
         ]);
