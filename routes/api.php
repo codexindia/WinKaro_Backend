@@ -49,5 +49,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/add_reward', 'add_reward');
         Route::post('/get_reward_video', 'get_reward_video');
     });
-   
+    Route::controller('NotificationManage')->prefix('notifications')->group(function () {
+        Route::post('/get_notification', 'get_notification');
+        Route::post('/mark_read', 'mark_read');
+    });
 });

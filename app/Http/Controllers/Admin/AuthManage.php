@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\UserAllNotifications;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Notification;
+use App\Models\User;
 class AuthManage extends Controller
 {
    public function index(Request $request)
@@ -31,5 +33,20 @@ class AuthManage extends Controller
          return redirect(route('admin.dashboard'));
      }
      return back()->withErrors(['msg' => 'Opps! You have entered invalid credentials']);
+   }
+
+
+
+
+
+
+
+
+   public function test()
+   {
+      $users = User::all();
+      $param['title'] = "demo2";
+      $param['subtitle'] = "demo2";
+    Notification::send($users, new UserAllNotifications($param));
    }
 }

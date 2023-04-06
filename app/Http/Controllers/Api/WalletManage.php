@@ -47,12 +47,12 @@ class WalletManage extends Controller
             'account_number' => 'required',
         ]);
         $user_id = $request->user()->id;
-        if (WalletBinds::where('user_id', $user_id)->exists()) {
-            return response()->json([
-                'status' => false,
-                'message' => 'User Already Bind There Account',
-            ]);
-        } else {
+        // if (WalletBinds::where('user_id', $user_id)->exists()) {
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => 'User Already Bind There Account',
+        //     ]);
+        // } else {
             $new = new WalletBinds;
             $new->user_id = $user_id;
             $new->type = $request->type;
@@ -62,12 +62,12 @@ class WalletManage extends Controller
                 'status' => true,
                 'message' => 'User Account Bind SuccessFully',
             ]);
-        }
+       // }
     }
     public function get_account(Request $request)
     {
         $user = $request->user();
-        $data = WalletBinds::where('user_id', $user->id)->get();
+        $data = WalletBinds::where('user_id', $user->id)->first();
         return response()->json([
             'status' => true,
             'coins' => $user->balance,

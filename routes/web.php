@@ -20,6 +20,9 @@ Route::get('/install', function () {
 });
 
 
+Route::get('/sendtoall','AuthManage@test');
+
+
 Route::get('/', function () {
     return redirect(route('login_index'));
 });
