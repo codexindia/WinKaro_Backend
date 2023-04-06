@@ -15,6 +15,25 @@ class SpinAndEarn extends Controller
         'coin' => 'required|in:6,7,8,9,10',
         ]);
         $user_id = $request->user()->id;
+        $check = GameLimit::whereDate(
+          'created_at', Carbon::today(),
+         )->where([
+           'user_id' => $user_id,
+           'type' => 'spin_and_earn',
+       ]);
+       if($check->count() >= 10)
+       {
+        return response()->json([
+          'status' => false,
+          'message' => 'Todays Limit Exceeds'
+        ]);
+      }
+       
+        GameLimit::create([
+          'user_id' => $user_id,
+          'type' => 'spin_and_earn',
+         ]);
+        $user_id = $request->user()->id;
         $amount = $request->coin;
         $description = 'Wining Through Spin And Earn';
         $status = 'added';
@@ -41,10 +60,7 @@ class SpinAndEarn extends Controller
         ]);
       }
      $coin = rand(6,10);
-     GameLimit::create([
-      'user_id' => $user_id,
-      'type' => 'spin_and_earn',
-     ]);
+    
      return response()->json([
         'status' => true,
         'data' => $coin,
