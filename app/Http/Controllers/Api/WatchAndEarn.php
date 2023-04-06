@@ -52,7 +52,7 @@ class WatchAndEarn extends Controller
         $amount = 5;
         $description = 'Reward Added For Watch And Earn Program';
         $status = 'added';
-        $result = (new WalletManage)->AddLog($user_id,$amount,$description,$status);
+        $result = (new WalletManage)->AddPayment($user_id,$amount,$description,$status,'reward');
        return response()->json([
         'status' => true,
         'amount' => $amount,

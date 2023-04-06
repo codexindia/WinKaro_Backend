@@ -35,7 +35,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::controller('WalletManage')->prefix('wallet')->group(function () {
         Route::post('/bind_account', 'bind_ac');
         Route::post('/get_account', 'get_account');
-        Route::post('/get_transactions','get_transactions');
+        Route::post('/get_transactions/{type}','get_transactions');
+        Route::post('/withdraw','withdraw');
         
     });
 

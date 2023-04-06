@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('status');
+            $table->string('type');
             $table->string('ref_id');
             $table->integer('amount');
             $table->string('description');
