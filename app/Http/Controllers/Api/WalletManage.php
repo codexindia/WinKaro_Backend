@@ -7,6 +7,7 @@ use App\Models\WalletBinds;
 use Illuminate\Http\Request;
 use App\Models\WalletTransaction;
 use App\Models\User;
+use App\Models\WithdrawRequest;
 
 class WalletManage extends Controller
 {
@@ -80,12 +81,22 @@ class WalletManage extends Controller
     {
         $type = $request->type;
         $userid = $request->user()->id;
-        $data = WalletTransaction::where(['user_id' => $userid,'type'=> $type])->orderBy('id', 'desc')->get();
-        return response()->json([
-            'status' => true,
-            'data' => $data,
-            'message' => 'Transaction Log Retrieve SuccessFully',
-        ]);
+        if ($request->type == 'withdraw') {
+
+            $data = WithdrawRequest::where(['user_id' => $userid])->orderBy('id', 'desc')->get();
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+                'message' => 'Transaction Log Retrieve SuccessFully',
+            ]);
+        } else {
+            $data = WalletTransaction::where(['user_id' => $userid])->orderBy('id', 'desc')->get();
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+                'message' => 'Transaction Log Retrieve SuccessFully',
+            ]);
+        }
     }
     public function withdraw(Request $request)
     {
@@ -100,7 +111,20 @@ class WalletManage extends Controller
             ]);
         }
         if ($user->balance >= $request->coin) {
-            $this->CutPayment($user->id, $request->coin, 'Payment Withdraw Request', 'processing', 'withdraw');
+            $walletdata = WalletBinds::where('user_id', $user->id)->first();
+
+            $this->CutPayment($user->id, $request->coin, 'Payment Withdraw Request', 'debit', 'withdraw');
+            $account = json_encode([
+                'type' => $walletdata->type,
+                'account_number' => $walletdata->account_number
+            ]);
+            WithdrawRequest::create([
+                'user_id' => $user->id,
+                'coins' => $request->coin,
+                'status' => 'processing',
+                'ref_id' => 'WINCASH' . rand(100000, 999999),
+                'account_data' => $account,
+            ]);
             return response()->json([
                 'status' => true,
                 'message' => 'Withdraw Requested SuccessFully',
