@@ -55,7 +55,7 @@ class WatchAndEarn extends Controller
         $result = (new WalletManage)->AddLog($user_id,$amount,$description,$status);
        return response()->json([
         'status' => true,
-        'amount' => $amount
+        'amount' => $amount,
         'message' => 'Reward Has Been Added In Your Wallet'
        ]);
     }
