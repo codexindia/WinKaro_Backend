@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\AllTasks;
 use App\Notifications\UserAllNotifications;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +45,9 @@ class AuthManage extends Controller
    public function test()
    {
      
-   //    $users = User::all();
-   //    $param['title'] = "demo2";
-   //    $param['subtitle'] = "demo2";
-   //  Notification::send($users, new UserAllNotifications($param));
+      $users = User::all();
+      $param['title'] = "Hello Here Is Demo Title";
+      $param['subtitle'] = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+    Notification::send($users, new UserAllNotifications($param));
    }
 }
