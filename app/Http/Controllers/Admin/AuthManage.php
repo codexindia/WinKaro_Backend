@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AllTasks;
 use App\Notifications\UserAllNotifications;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
@@ -28,9 +30,9 @@ class AuthManage extends Controller
       //   'password' => Hash::make($request->password),
 
       //   ]);
-        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password],$request->remember)) {
+        if (Auth::guard('admin')->attempt(['username' => $request->user_name, 'password' => $request->password],$request->remember)) {
          $request->session()->regenerate();
-         return redirect(route('admin.dashboard'));
+         return redirect(route('dashboard'));
      }
      return back()->withErrors(['msg' => 'Opps! You have entered invalid credentials']);
    }
@@ -44,9 +46,10 @@ class AuthManage extends Controller
 
    public function test()
    {
-      $users = User::all();
-      $param['title'] = "demo2";
-      $param['subtitle'] = "demo2";
-    Notification::send($users, new UserAllNotifications($param));
+     
+   //    $users = User::all();
+   //    $param['title'] = "demo2";
+   //    $param['subtitle'] = "demo2";
+   //  Notification::send($users, new UserAllNotifications($param));
    }
 }

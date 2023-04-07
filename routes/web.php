@@ -20,14 +20,23 @@ Route::get('/install', function () {
 });
 
 
-Route::get('/sendtoall','AuthManage@test');
+Route::get('/sendtoall', 'AuthManage@test');
 
 
 Route::get('/', function () {
     return redirect(route('login_index'));
 });
-Route::controller('AuthManage')->group(function(){
-    Route::get('/Login','index')->name('login_index');
-    Route::post('/Login','login_attempt')->name('login_attempt');
+Route::controller('AuthManage')->middleware('admin.guest')->group(function () {
+    Route::get('/Login', 'index')->name('login_index');
+    Route::post('/Login', 'login_attempt')->name('login_attempt');
 });
 
+Route::middleware('admin.auth')->group(function () {
+    Route::controller('DashboardManage')->group(function () {
+        Route::get('/Dashboard', 'index')->name('dashboard');
+    });
+    Route::controller('TaskManage')->prefix('Tasks')->group(function () {
+        Route::get('/', 'index')->name('task.index');
+    });
+
+});
