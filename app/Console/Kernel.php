@@ -10,6 +10,9 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      */
+    protected $commands = [
+        Commands\TaskStatus::class
+    ];
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:task-status')->everyMinute();
@@ -19,9 +22,7 @@ class Kernel extends ConsoleKernel
     /**
      * Register the commands for the application.
      */
-    protected $commands = [
-        Commands\TaskStatus::class
-    ];
+   
     protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
