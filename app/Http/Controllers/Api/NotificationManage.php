@@ -29,11 +29,9 @@ class NotificationManage extends Controller
         ]);
     }
     public function mark_read(Request $request){
-        $request->validate([
-            'alert_id' => 'required',
-        ]);
+        
         $user = User::find($request->user()->id);
-        $user->notifications->where('id', $request->alert_id)->markAsRead($request->alert_id);
+        $user->unreadNotifications->markAsRead();
      return response()->json([
         'status' => true,
      ]);
