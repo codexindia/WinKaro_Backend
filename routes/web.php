@@ -37,6 +37,8 @@ Route::middleware('admin.auth')->group(function () {
     });
     Route::controller('TaskManage')->prefix('Tasks')->group(function () {
         Route::get('/', 'index')->name('task.index');
+        Route::get('/New', 'new')->name('task.new');
+        Route::post('/Create', 'create')->name('task.create');
     });
 
 });

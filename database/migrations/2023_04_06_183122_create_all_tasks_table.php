@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('task_name');
             $table->string('title');
             $table->string('thumbnail_image')->nullable();
+            $table->string('action_url');
             $table->string('publisher')->nullable();
             $table->integer('reward_coin');
             $table->string('status');
