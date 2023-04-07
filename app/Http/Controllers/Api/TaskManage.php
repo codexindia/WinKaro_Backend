@@ -46,7 +46,7 @@ class TaskManage extends Controller
             'task_id' => 'required|numeric|exists:all_tasks,id',
             'proof_src' => 'required'
         ]);
-        $proof_src = Storage::put('public/users/proof', $request->file('proof'));
+        $proof_src = Storage::put('public/users/proof', $request->file('proof_src'));
         $get_task = AllTasks::find($request->task_id);
         CompleteTask::create([
             'user_id' => $request->user()->id,
