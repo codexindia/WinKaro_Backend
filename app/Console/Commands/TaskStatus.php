@@ -27,7 +27,7 @@ class TaskStatus extends Command
     public function handle()
     {
         AllTasks::where('expire_at','<', Carbon::now())->where('status','active')->update([
-            'status' => 'deactive',
+            'status' => 'expired',
          ]);
          return "Task Complete";
     }

@@ -55,6 +55,6 @@ Route::middleware('auth:sanctum')->group(function () {
     });
     Route::controller('TaskManage')->prefix('tasks')->group(function () {
         Route::post('/get/{type}', 'get_tasks');
-      
+        Route::post('/submit/task', 'submit_task');
     });
 });
