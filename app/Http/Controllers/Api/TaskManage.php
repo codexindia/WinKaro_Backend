@@ -13,6 +13,7 @@ class TaskManage extends Controller
 {
     public function get_tasks(Request $request)
     {
+        //for task submit
         $user = $request->user();
         $type = $request->type;
         $taskdata = AllTasks::where('type', $type)->whereDate('created_at', Carbon::today())->get();
