@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel
      * Define the application's command schedule.
      */
     protected $commands = [
-        Commands\TaskStatus::class
+        Commands\TaskStatus::class,
     ];
     protected function schedule(Schedule $schedule): void
     {
