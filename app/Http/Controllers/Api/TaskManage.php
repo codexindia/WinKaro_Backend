@@ -16,22 +16,28 @@ class TaskManage extends Controller
         //for task submit
         $user = $request->user();
         $type = $request->type;
-        $taskdata = AllTasks::where('type', $type)->whereDate('created_at', Carbon::today())->get();
+        $taskdata = AllTasks::where('type', $type)->get();
         $data = [];
+        $i = 0;
         foreach ($taskdata as $collection) {
+            $i++;
             $check = CompleteTask::where([
                 'task_id' => $collection->id,
                 'user_id' => $request->user()->id,
             ])->latest()->first();
             if ($check != null) {
-                $data['task_raw']['data'] = $collection;
-                $data['task_raw']['status'] = $check->status;
-                $data['task_raw']['remarks'] = $check->remarks;
+                
+                $data[] = [
+                    'data' => $collection,
+                    'status' => $check->status,
+                    'remarks' => $check->remarks
+                ];
             } else {
-                $data['task_raw']['data'] = $collection;
+                $data[] = [
+                    'data' => $collection,
+                    
+                ];
             }
-
-
 
         }
         return response()->json([
