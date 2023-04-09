@@ -54,17 +54,17 @@ class TaskManage extends Controller
         ]);
         $proof_src = Storage::put('public/users/proof', $request->file('proof_src'));
         $get_task = AllTasks::find($request->task_id);
-        // CompleteTask::create([
-        //     'user_id' => $request->user()->id,
-        //     'task_id' => $request->task_id,
-        //     'type' => $get_task->type,
-        //     'reward_coin' => $get_task->reward_coin,
-        //     'proof_src' => $proof_src,
-        //     'status' => 'processing',
-        // ]);
+        CompleteTask::create([
+            'user_id' => $request->user()->id,
+            'task_id' => $request->task_id,
+            'type' => $get_task->type,
+            'reward_coin' => $get_task->reward_coin,
+            'proof_src' => $proof_src,
+            'status' => 'processing',
+        ]);
         return response()->json([
             'status' => true,
-            'message' => 'Task Submited SuccessFully',
+            'message' => 'Task Submitted SuccessFully',
         ]);
     }
 }

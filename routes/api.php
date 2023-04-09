@@ -28,8 +28,9 @@ Route::controller('ApiAuth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::controller('ProfileController')->group(function () {
+    Route::controller('ProfileController')->prefix('profile')->group(function () {
         Route::post('/get_user', 'getuser');
+        Route::post('/update_profile', 'update_profile');
     });
 
     Route::controller('WalletManage')->prefix('wallet')->group(function () {
