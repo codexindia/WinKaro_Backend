@@ -94,7 +94,12 @@
                             <div data-i18n="Analytics">Tasks Manage</div>
                         </a>
                     </li>
-                  
+                    <li class="menu-item {{ (request()->is('Admin/Banners*')) ? 'active' : '' }}">
+                        <a href="{{ route('banners.index') }}" class="menu-link">
+                            <i class="menu-icon uil uil-image"></i>
+                            <div data-i18n="Analytics">Banners</div>
+                        </a>
+                    </li>
 
                 </ul>
             </aside>

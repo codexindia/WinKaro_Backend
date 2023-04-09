@@ -40,5 +40,9 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/New', 'new')->name('task.new');
         Route::post('/Create', 'create')->name('task.create');
     });
-
+    Route::controller('BannersController')->prefix('Banners')->group(function () {
+        Route::get('/', 'index')->name('banners.index');
+        Route::post('/', 'upload')->name('banners.upload');
+        Route::get('/delete/{id}', 'delete')->name('banners.delete');
+    });
 });

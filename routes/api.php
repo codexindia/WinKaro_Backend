@@ -58,4 +58,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/get/{type}', 'get_tasks');
         Route::post('/submit/task', 'submit_task');
     });
+    Route::controller('BannersManage')->prefix('banners')->group(function () {
+        Route::post('/get', 'get_banner');
+       
+    });
 });
