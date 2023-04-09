@@ -30,11 +30,12 @@ class ProfileController extends Controller
       ]);
 
       $main = User::find($request->user()->id);
+      if ($request->hasFile('profile_pic')) {
       $image_path = Storage::put('public/users/profiles', $request->file('profile_pic'));
       $main->update([
          'profile_pic' => $image_path,
       ]);
-
+   }
       $main->update([
          'email' => $request->email,
          'name' => $request->name,
