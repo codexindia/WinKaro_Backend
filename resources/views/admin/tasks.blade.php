@@ -25,36 +25,41 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                  <th>#</th>
+                                    <th>#</th>
                                     <th>Task Name</th>
                                     <th>Type</th>
+                                  
                                     <th>Coins</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Expire At</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                              @php
-                                 $i = 0; 
-                              @endphp
-                              @foreach ($data as $item)
-                                  
-                              @php
-                                 $i++; 
-                              @endphp
-                                <tr>
-                                  <td>{{ $i }}</td>
-                                    <td>{{ $item->task_name }}</td>
-                                    <td>{{ ucwords($item->type) }}</td>
-                                    <td>
-                                      {{ $item->reward_coin }}
-                                    </td>
-                                    <td><span class="badge bg-label-primary me-1"> {{ $item->status }}</span></td>
-                                    <td>
-
-
-                                    </td>
-                                </tr>
+                                @php
+                                    $i = 0;
+                                    
+                                @endphp
+                                @foreach ($data as $item)
+                                   @php
+$i++;
+                                   @endphp
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $item->task_name }}</td>
+                                        <td>{{ ucwords($item->type) }}</td>
+                                      
+                                        <td>
+                                            {{ $item->reward_coin }}
+                                        </td>
+                                        @if($item->status == 'active')
+                                        <td><span class="badge bg-label-primary me-1"> {{ $item->status }}</span></td>
+                                       @else
+                                       <td><span class="badge bg-label-danger me-1"> {{ $item->status }}</span></td>
+                                        @endif
+                                        <td>{{ date("m-d-Y h:i:s a", strtotime($item->expire_at)) }}</td>
+                                       
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -67,19 +72,19 @@
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div class="row">
                     <div class="col-md-12">
-                      @if (session('success'))
-                      <div class="alert alert-success">
-                          {{ session('success') }}
-                      </div>
-                  @endif
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div class="card mb-4">
                             <h5 class="card-header">Create New Task</h5>
-                            
-                           
+
+
                             <div class="card-body">
-                                {!! form::open(['route' => 'task.create']) !!}
+                                {!! form::open(['route' => 'task.create', 'files' => true]) !!}
                                 <div class="row">
-                                   
+
                                     <div class="col-md-6">
                                         {!! form::wtextbox('title') !!}
                                     </div>
@@ -90,8 +95,8 @@
                                         {!! form::wtextbox('reward_coin') !!}
                                     </div>
                                     <div class="col-md-6">
-                                      {!! form::wtextbox('action_url') !!}
-                                  </div>
+                                        {!! form::wtextbox('action_url') !!}
+                                    </div>
                                     <div class="col-md-6">
                                         {!! form::wtextbox('expire_after_hour') !!}
                                     </div>
@@ -105,11 +110,21 @@
                                             <option value="yt_shorts">Youtube Shorts Task</option>
                                         </select>
                                         @error('task_type')
-                                        <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
+                                            <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    {!! form::wsubmit('Create') !!}
+                                   
                                 </div>
+                                <div class="form-group mx-auto">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Choose Thumbnail To Upload</label>
+                                        <input class="form-control" type="file" id="formFile" name="thumbnail">
+                                      </div>
+                                      @error('thumbnail')
+                                      <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
+                                  @enderror
+                                </div>
+                                {!! form::wsubmit('Create') !!}
                                 {!! form::close() !!}
                             </div>
                         </div>

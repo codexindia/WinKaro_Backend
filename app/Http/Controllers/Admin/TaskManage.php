@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AllTasks;
+use Illuminate\Support\Facades\Storage;
 
 class TaskManage extends Controller
 {
@@ -30,7 +31,8 @@ class TaskManage extends Controller
          'action_url' => 'required|url',
          'reward_coin' => 'required|numeric',
          'expire_after_hour' => 'required|numeric',
-         'task_type' => 'required|in:youtube,instagram,yt_shorts'
+         'task_type' => 'required|in:youtube,instagram,yt_shorts',
+         'thumbnail' => 'required|image',
       ]);
       if ($request->task_type == 'youtube') {
          $count = AllTasks::where('type', 'youtube')->count();
@@ -43,6 +45,7 @@ class TaskManage extends Controller
          $count = AllTasks::where('type', 'yt_shorts')->count();
          $task_name = 'Shorts Task ' . $count;
       }
+      $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
       AllTasks::create([
          'task_name' =>  $task_name,
          'type' => $request->task_type,
@@ -51,7 +54,7 @@ class TaskManage extends Controller
          'reward_coin' => $request->reward_coin,
          'expire_at' => Carbon::now()->addHour($request->expire_after_hour),
          'status' => 'active',
-         'thumbnail_image' => 'demo',
+         'thumbnail_image' => $thumbnail_path,
          'action_url' => $request->action_url,
       ]);
       return back()->with(['success' => 'Task Created SuccessFully']);
