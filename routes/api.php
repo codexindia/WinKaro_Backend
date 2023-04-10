@@ -32,13 +32,17 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/get_user', 'getuser');
         Route::post('/update_profile', 'update_profile');
     });
+    Route::controller('ReferManage')->prefix('refer')->group(function () {
+        Route::post('/get_history', 'get_history');
+       
+    });
 
     Route::controller('WalletManage')->prefix('wallet')->group(function () {
         Route::post('/bind_account', 'bind_ac');
         Route::post('/get_account', 'get_account');
-        Route::post('/get_transactions/{type}','get_transactions');
-        Route::post('/withdraw','withdraw');
-        
+        Route::post('/get_transactions/{type}', 'get_transactions');
+        Route::post('/withdraw', 'withdraw');
+
     });
 
     Route::controller('SpinAndEarn')->prefix('spin_and_earn')->group(function () {
@@ -60,6 +64,6 @@ Route::middleware('auth:sanctum')->group(function () {
     });
     Route::controller('BannersManage')->prefix('banners')->group(function () {
         Route::post('/get', 'get_banner');
-       
+
     });
 });

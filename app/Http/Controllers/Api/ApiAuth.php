@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Api\WalletManage;
+use App\Models\ReferHistory;
 
 class ApiAuth extends Controller
 {
@@ -38,12 +40,35 @@ class ApiAuth extends Controller
         }
         //creating account
         $refer_code = 'WIN' . rand('100000', '999999');
+        $balance = 0;
+        if ($request->has('refer_code')) {
+            
+            $main_user = User::where('refer_code', $request->refer_code)->first();
+            // $newpay = (new WalletManage)->AddPayment($user_id,$amount,$description,$status,'reward');
+        }
+
+
         $user = User::create([
             'name' => $request->name,
             'refer_code' => $refer_code,
             'email' => $request->email,
             'phone' => $request->phone,
+            'referred_by' => $request->refer_code,
         ]);
+        //for new user
+        if ($request->has('refer_code')) {
+            $balance = 100;
+            $newpay = (new WalletManage)->AddPayment($user->id, $balance, 'Reward For Refer Code', 'credit', 'reward');
+
+            ReferHistory::create([
+                'refer_by_user_id' => $main_user->id,
+                'referred_user_id' => $user->id,
+                'reward_coin' => 200,
+                'status' => 'pending',
+            ]);
+        }
+
+
         //adding data to device detection to prevent spam registration
         DB::table('device_detection')->insert([
             'device_id' => $device_id,
