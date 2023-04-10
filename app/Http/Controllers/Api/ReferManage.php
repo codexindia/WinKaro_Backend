@@ -9,7 +9,7 @@ class ReferManage extends Controller
 {
     public function get_history(Request $request)
     {
-    $main = ReferHistory::where('refer_by_user_id',$request->user()->id)->get(['refer_by_user_id','referred_user_id','status']);
+    $main = ReferHistory::where('refer_by_user_id',$request->user()->id)->get(['refer_by_user_id','referred_user_id','status','created_at']);
     $data = [];
    
    foreach($main as $item)
