@@ -9,15 +9,15 @@ class ReferManage extends Controller
 {
     public function get_history(Request $request)
     {
-    $main = ReferHistory::where('refer_by_user_id',$request->user()->id)->get();
-    $main->makeHidden('updated_at','created_at','refer_by_user_id');
+    $main = ReferHistory::where('refer_by_user_id',$request->user()->id)->get(['refer_by_user_id','referred_user_id','status']);
     $data = [];
    
    foreach($main as $item)
    {
     
-    $item->GetName->makeHidden('updated_at','created_at','phone','email','balance','refer_code','referred_by');
-    $data = $item;
+  //  $item->GetName->makeHidden('updated_at','created_at','phone','email','balance','refer_code','referred_by');
+  $item->GetName->makeHidden('updated_at','created_at','phone','email','balance','refer_code','referred_by');
+  $data = $item;
    }
     return response()->json([
         'status' => true,
