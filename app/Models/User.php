@@ -49,7 +49,11 @@ class User extends Authenticatable
     ];
     public function getProfilePicAttribute($value)
     {
-        return asset(Storage::url($value));
+        if(!$value == null)
+        {
+            return asset(Storage::url($value));
+        }
+       
 
     }
 }
