@@ -53,7 +53,6 @@ class User extends Authenticatable
         {
             return asset(Storage::url($value));
         }
-       
-
+       return null;
     }
 }
