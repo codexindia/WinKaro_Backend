@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/privacy_policy','ExtraPages@privacy_policy');
+Route::get('/terms_and_conditions','ExtraPages@terms_and_conditions');
