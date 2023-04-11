@@ -160,6 +160,20 @@ class ApiAuth extends Controller
             'phone' => 'required|numeric|exists:users,phone'
         ]);
         $userdata = User::where('phone', $request->phone)->first();
+        //for temporary playsotre rules
+       if($request->phone == '1234567890')
+       {
+        $device = 'Auth_Token';
+        $token = $userdata->createToken($device)->plainTextToken;
+        return response()->json([
+            'status' => true,
+            'token' => $token,
+            'message' => 'Your OTP Has Verified SuccessFully'
+        ]);
+       }
+
+       //remove after published at play store
+        
 
         $userid = $userdata->id;
         $checkotp = UserVerification::where('user_id', $userid)

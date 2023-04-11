@@ -15,7 +15,8 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">You
-            are required to provide the following information for the registration/ login process:-</span></p>
+            are required to provide the following information for the registration/ login process:-</span>
+    </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -80,21 +81,24 @@
     </ul>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
-        <br /></p>
+        <br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">This
             information is stored in an encrypted format. All required information is service dependent and the Company
             may use the above said user Information to maintain, protect, and improve the Win Karo App Services and for
-            developing new services.</span></p>
+            developing new services.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">In
             case you choose to decline to submit your mobile number &amp; email address information on the app during
             registration, we will not be able to provide services on the app to you. We will make reasonable efforts to
-            notify you of the same at the time of opening your account.</span></p>
+            notify you of the same at the time of opening your account.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -102,13 +106,15 @@
             you register with the Win Karo App Services, we contact you from time to time about updating your personal
             information to provide you features that we believe may benefit / interest you. By agreeing to this privacy
             policy, you explicitly give us consent to use your information as described in this privacy
-            policy.&nbsp;<b>If you do not agree, please do not use or access Win Karo App services.</b></span></p>
+            policy.&nbsp;<b>If you do not agree, please do not use or access Win Karo App services.</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">After
             registration is complete, users can optionally choose to furnish below information via the Profile section
-            within Win Karo App:-</span></p>
+            within Win Karo App:-</span>
+    </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -134,7 +140,8 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Above
             information is completely voluntary and you can choose to not provide the same. The above Information as
-            supplied by you enables us to improve the Win Karo App services and provide you custom offers.</span></p>
+            supplied by you enables us to improve the Win Karo App services and provide you custom offers.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -145,7 +152,8 @@
             used to provide best &amp; customized service to each of our users, improve overall service delivery, devise
             new services, identify and reduce fraud or unauthorized use of our services and other purposes. All this
             information is captured after your explicit confirmation and permissions wherever required. Information
-            tracked has been mentioned below to give details of the same.</span></p>
+            tracked has been mentioned below to give details of the same.</span>
+    </p>
     <ol style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Device
@@ -237,13 +245,15 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 16px; font-stretch: normal; line-height: normal;"><b>Information
-                we share</b></span></p>
+                we share</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">We
             do not share your personal information with companies, organizations and individuals outside of Win Karo App
-            &amp; its partner companies unless one of the following circumstances applies:</span></p>
+            &amp; its partner companies unless one of the following circumstances applies:</span>
+    </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -343,7 +353,8 @@
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">We
             may share non-personally identifiable information with our partners like publishers, advertisers or
             connected sites. For example, we may share information publicly to show trends about the general use of our
-            services.</span></p>
+            services.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -353,7 +364,8 @@
             as part of a corporate reorganization, stock sale, or other change in control. Your visit and any dispute
             over privacy are subject to this policy and our terms and conditions, including limitations on
             damages.<br /><br />We will only share your personal information with other companies or individuals outside
-            of Win Karo App &amp; its partner companies in the following circumstances:</span></p>
+            of Win Karo App &amp; its partner companies in the following circumstances:</span>
+    </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -366,7 +378,8 @@
     </ul>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
-        <br /></p>
+        <br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -374,12 +387,14 @@
             information that we collect, including information obtained from third parties, is shared with our
             affiliates, meaning other companies owned, controlled or are in partnership with Win Karo App. Our
             affiliates, which can be financial and non-financial entities, will use such information for their everyday
-            business purposes.</span></p>
+            business purposes.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 16px; font-stretch: normal; line-height: normal;"><b>Links
-                to third party sites / services</b></span></p>
+                to third party sites / services</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -388,7 +403,8 @@
             privacy policies, which are beyond our control. Once you click on those links, use of any information you
             provide is governed by the privacy policy of the operator of the site you are visiting. That policy may
             differ from ours. If you can't find the privacy policy of any of these sites via a link from the site's
-            homepage, you should contact the site directly for more information.</span></p>
+            homepage, you should contact the site directly for more information.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -402,7 +418,8 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 16px; font-stretch: normal; line-height: normal;"><b>Information
-                Security</b></span></p>
+                Security</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -410,17 +427,20 @@
             Karo App has security measures in place to protect the loss, misuse, and alteration of the information under
             our control. Whenever you change or access your account information, we offer the use of a secure server.
             Once your information is in our possession we adhere to strict security guidelines, protecting it against
-            unauthorized access.</span></p>
+            unauthorized access.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 16px; font-stretch: normal; line-height: normal;"><b>Permissions
-                that we require</b></span></p>
+                that we require</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Win
-            Karo App app for Android requires following permissions to perform normally on your device:-</span></p>
+            Karo App app for Android requires following permissions to perform normally on your device:-</span>
+    </p>
     <ol style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Device
@@ -461,35 +481,41 @@
     </ol>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
-        <br /></p>
+        <br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Money
-                Earning Option / Transaction Rules</b></span></p>
+                Earning Option / Transaction Rules</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">a)&nbsp;When
             you log in the first time, you will earn Welcome Bonus Coins , if you used any refer code or referral
-            link.</span></p>
+            link.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">b)&nbsp;If
             you invite your friends and he/she enter your Invite / Referral code, he/she will earn Bonus Coins (One time
-            only) and you will also earn referral Coins when he/she completes the following tasks:</span></p>
+            only) and you will also earn referral Coins when he/she completes the following tasks:</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">1)
-            Install the App 2) Open The App 3) Register Using your Referral Code or Referral link .</span></p>
+            Install the App 2) Open The App 3) Register Using your Referral Code or Referral link .</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">c)
             Youtube videos , YouTube shorts &amp; Instagram reels Offers - Users have a great opportunity to earn money
-            by watching youtube videos, youtube short and instagram reels .</span></p>
+            by watching youtube videos, youtube short and instagram reels .</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -500,12 +526,14 @@
             in the Offer/ Tasks. Each Opportunity&nbsp; &nbsp;&nbsp;listing contains a description of the Requirements
             and the corresponding Reward to be provided by the Advertiser. Win Karo App provides the Service to
             facilitate the relationship between Advertisers and Users. Advertisers are solely responsible for the
-            content of their Offers listings and for the payment of any identified Rewards to Users.</span></p>
+            content of their Offers listings and for the payment of any identified Rewards to Users.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">e)
-            Watch and earn &amp; Spin and earn&nbsp;</span></p>
+            Watch and earn &amp; Spin and earn&nbsp;</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -514,73 +542,94 @@
     </p>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
-        <br /></p>
+        <br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Common
-                Points to be aware in Transaction Rules</b></span></p>
+                Points to be aware in Transaction Rules</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">a)&nbsp;We
             are not responsible if you provide us with the wrong information regarding your Wallets account registered
             Mobile Number . Authenticity is your own responsibility. Payment done to wrong account numbers will be your
-            loss &amp; Earn Money App will not be liable to Pay again.</span></p>
+            loss &amp; Earn Money App will not be liable to Pay again.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">b)&nbsp;If
             you use the same phone or emulator to fill in a number of Invitations and If you are logging in with
             multiple accounts repeatedly with the same cell phone or by using app-dividing software, These actions are
-            subjected to Illegal activities and we may take legal actions against the user if applicable.</span></p>
+            subjected to Illegal activities and we may take legal actions against the user if applicable.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 16px;">
-        <b></b><br /></p>
+        <b></b><br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Money
-                Withdrawal Rules &amp; Process:</b></span></p>
+                Withdrawal Rules &amp; Process:</b></span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">a)&nbsp;To
             be able to Withdraw your earned coins to Wallet Cash , you need to earn the minimum number of required
-            coins. You can check the minimum required coins from the Withdrawal Screen in Profile Page.</span></p>
+            coins. You can check the minimum required coins from the Withdrawal Screen in Profile Page.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">b)&nbsp;After
             you collect the required number of coins, “Withdraw” button will be automatically enabled in the Withdrawal
-            Screen in Profile Page.</span></p>
+            Screen in Profile Page.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">c)
             You can withdraw coins for Wallet Cash in your Wallets wallet or upi id . Your registered mobile number will
-            be used to make payment to your Wallets Wallet or upi id .</span></p>
+            be used to make payment to your Wallets Wallet or upi id .</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">d)
             Withdrawals will take upto 24 Hours to process after submission of request. All Withdrawals are processed
-            only after validation of your account for security checks.</span></p>
+            only after validation of your account for security checks.</span>
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
-        <br /></p>
+        <br />
+    </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 16px; font-stretch: normal; line-height: normal;"><b>Grievance
-                Contact information</b></span></p>
+                Contact information</b></span>
+    </p>
+
+    <p
+        style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
+        <span
+            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">If You Want To Delete Your Data From Our App Then Please Email Us On - &nbsp;<a href="mailto:winkaro@yourexpand.in" style="color: #1155cc;"
+                target="_blank">winkaro@yourexpand.in</a></span>
+    </p>
+
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">In
             the event you have any grievance relating to the processing of information provided by you, you may contact
             us at&nbsp;<a href="mailto:winkaro@yourexpand.in" style="color: #1155cc;"
-                target="_blank">winkaro@yourexpand.in</a></span></p>
+                target="_blank">winkaro@yourexpand.in</a></span>
+    </p>
 </body>
 
 </html>
