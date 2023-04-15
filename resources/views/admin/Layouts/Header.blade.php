@@ -100,6 +100,12 @@
                             <div data-i18n="Analytics">Banners</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ (request()->is('Admin/Notifications*')) ? 'active' : '' }}">
+                        <a href="{{ route('notification.index') }}" class="menu-link">
+                            <i class="menu-icon uil uil-bell"></i>
+                            <div data-i18n="Analytics">Notificaions</div>
+                        </a>
+                    </li>
 
                 </ul>
             </aside>

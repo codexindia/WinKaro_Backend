@@ -45,4 +45,8 @@ Route::middleware('admin.auth')->group(function () {
         Route::post('/', 'upload')->name('banners.upload');
         Route::get('/delete/{id}', 'delete')->name('banners.delete');
     });
+    Route::controller('NotificationManage')->prefix('Notifications')->group(function () {
+        Route::get('/', 'index')->name('notification.index');
+        Route::post('/Push', 'push_alert')->name('notification.push_alert');
+    });
 });
