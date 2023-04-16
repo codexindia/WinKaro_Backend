@@ -16,7 +16,10 @@ class TaskManage extends Controller
         //for task submit
         $user = $request->user();
         $type = $request->type;
-        $taskdata = AllTasks::where('type', $type)->orderBy('id', 'desc')->get();
+        $taskdata = AllTasks::where([
+            'type'=> $type,
+            'status' => 'active'
+            ])->orderBy('id', 'desc')->get();
         $data = [];
         $i = 0;
         foreach ($taskdata as $collection) {
