@@ -99,6 +99,7 @@ class TaskManage extends Controller
          $data = CompleteTask::findOrFail($request->proof_id);
          $data->update([
             'status' => 'rejected',
+            'remarks' => $request->reason,
          ]);
          return response()->json([
             'status' => 'true',
