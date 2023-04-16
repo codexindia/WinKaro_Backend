@@ -29,17 +29,11 @@
                                 @csrf
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label for="Title" class="form-label">Title</label>
-                                        <input class="form-control @error('title') is-invalid @enderror" type="text"
-                                            value="{{ old('title') }}" id="Title" name="title"
-                                            placeholder="This Is A Title" autofocus />
+                                       {{ Form::wtextbox('title') }}
                                     </div>
 
                                     <div class="mb-3 col-md-6">
-                                        <label for="Meassage" class="form-label">Meassage</label>
-                                        <input class="form-control @error('message') is-invalid @enderror" type="text"
-                                            id="Meassage" name="message" value="{{ old('message') }}"
-                                            placeholder="Todays Best Offers" />
+                                        {{ Form::wtextbox('message') }}
                                     </div>
 
 
