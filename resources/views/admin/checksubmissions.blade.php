@@ -146,7 +146,7 @@
                                         </table>
                                     </div>
                                     <div class="col">
-                                        <video id="player" playsinline controls>
+                                        <video id="player" style="max-height:17rem;" playsinline controls>
                                             <source src="{{ $data->proof_src }}" type="video/mp4" />
                                         </video>
                                     </div>
