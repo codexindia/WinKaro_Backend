@@ -39,10 +39,18 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('task.index');
         Route::get('/New', 'new')->name('task.new');
         Route::post('/Create', 'create')->name('task.create');
+        //submission checks
+        Route::get('/Submissions', 'submission_list')->name('task.submission_list');
+        Route::get('/Submissions/View/{id}', 'submission_details')->name('task.submission_details');
+        Route::post('/Submissions/Status/{Action}', 'change_status')->name('task.change_status');
     });
     Route::controller('BannersController')->prefix('Banners')->group(function () {
         Route::get('/', 'index')->name('banners.index');
         Route::post('/', 'upload')->name('banners.upload');
         Route::get('/delete/{id}', 'delete')->name('banners.delete');
+    });
+    Route::controller('NotificationManage')->prefix('Notifications')->group(function () {
+        Route::get('/', 'index')->name('notification.index');
+        Route::post('/Push', 'push_alert')->name('notification.push_alert');
     });
 });

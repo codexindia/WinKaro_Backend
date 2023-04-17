@@ -17,7 +17,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url('AdminAssets/assets/img/favicon/favicon.ico') }}" />
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,16 +88,29 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ (request()->is('Admin/Tasks*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ (request()->is(['Admin/Tasks','Admin/Tasks/New'])) ? 'active' : '' }}">
                         <a href="{{ route('task.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-signal-alt"></i>
                             <div data-i18n="Analytics">Tasks Manage</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ (request()->is('Admin/Tasks/Submissions*')) ? 'active' : '' }}">
+                        <a href="{{ route('task.submission_list') }}" class="menu-link">
+                            <i class="menu-icon uil uil-envelope-check"></i>
+                            <div data-i18n="Analytics">Tasks Submissions</div>
+                        </a>
+                    </li>
+
                     <li class="menu-item {{ (request()->is('Admin/Banners*')) ? 'active' : '' }}">
                         <a href="{{ route('banners.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-image"></i>
                             <div data-i18n="Analytics">Banners</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ (request()->is('Admin/Notifications*')) ? 'active' : '' }}">
+                        <a href="{{ route('notification.index') }}" class="menu-link">
+                            <i class="menu-icon uil uil-bell"></i>
+                            <div data-i18n="Analytics">Notificaions</div>
                         </a>
                     </li>
 
