@@ -28,7 +28,7 @@ class AuthManage extends Controller
       //   'password' => Hash::make($request->password),
 
       //   ]);
-        if (Auth::guard('admin')->attempt(['username' => $request->user_name, 'password' => $request->password],$request->remember)) {
+        if (Auth::guard('admin')->attempt(['username' => $request->user_name, 'password' => $request->password],$request->remember_me)) {
          $request->session()->regenerate();
          return redirect(route('dashboard'));
      }
