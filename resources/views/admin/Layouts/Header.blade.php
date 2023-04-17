@@ -107,6 +107,12 @@
                             <div data-i18n="Analytics">Tasks Submissions</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ (request()->is('Admin/Withdrawls*')) ? 'active' : '' }}">
+                        <a href="{{ route('withdraw.index') }}" class="menu-link">
+                            <i class="menu-icon uil uil-money-withdraw"></i>
+                            <div data-i18n="Analytics">Withdraw Requests</div>
+                        </a>
+                    </li>
 
                     <li class="menu-item {{ (request()->is('Admin/Banners*')) ? 'active' : '' }}">
                         <a href="{{ route('banners.index') }}" class="menu-link">

@@ -53,6 +53,14 @@ class User extends Authenticatable
         {
             return asset(Storage::url($value));
         }
-       return null;
+       return asset('AdminAssets/assets/img/user.png.png');
+    }
+    public function GetReferredBy()
+    {
+        return $this->hasOne(User::class,'refer_code','referred_by');
+    }
+    public function UserBlocked()
+    {
+        return $this->hasOne(BlockedUser::class, 'user_id', 'id');
     }
 }

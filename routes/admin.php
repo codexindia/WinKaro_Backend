@@ -56,6 +56,11 @@ Route::middleware('admin.auth')->group(function () {
 
     Route::controller('UsersManage')->prefix('Users')->group(function () {
         Route::get('/', 'index')->name('users.list');
-        Route::post('/view/{id}', 'view_details')->name('users.view_details');
+        Route::get('/view/{id}', 'view_details')->name('users.view_details');
+        Route::get('/Action/{Action}/{id}', 'action_perform')->name('users.action_perform');
+    });
+    Route::controller('WithdrawManage')->prefix('Withdrawls')->group(function () {
+        Route::get('/', 'index')->name('withdraw.index');
+        Route::get('/Action/{Action}/{id}', 'action')->name('withdraw.action');
     });
 });

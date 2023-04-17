@@ -26,7 +26,7 @@ Route::controller('ApiAuth')->group(function () {
 });
 
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum','user.check')->group(function () {
 
     Route::controller('ProfileController')->prefix('profile')->group(function () {
         Route::post('/get_user', 'getuser');
