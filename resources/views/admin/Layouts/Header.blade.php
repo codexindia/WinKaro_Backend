@@ -88,6 +88,13 @@
                         </a>
                     </li>
 
+                    <li class="menu-item {{ (request()->is('Admin/Users*')) ? 'active' : '' }}">
+                        <a href="{{ route('users.list') }}" class="menu-link">
+                            <i class="menu-icon uil uil-users-alt"></i>
+                            <div data-i18n="Analytics">Users List</div>
+                        </a>
+                    </li>
+
                     <li class="menu-item {{ (request()->is(['Admin/Tasks','Admin/Tasks/New'])) ? 'active' : '' }}">
                         <a href="{{ route('task.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-signal-alt"></i>

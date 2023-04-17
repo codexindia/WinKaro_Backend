@@ -53,4 +53,9 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('notification.index');
         Route::post('/Push', 'push_alert')->name('notification.push_alert');
     });
+
+    Route::controller('UsersManage')->prefix('Users')->group(function () {
+        Route::get('/', 'index')->name('users.list');
+        Route::post('/view/{id}', 'view_details')->name('users.view_details');
+    });
 });

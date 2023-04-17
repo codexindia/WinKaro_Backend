@@ -138,7 +138,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        Task Name
+                                                        Task Type
                                                     </td>
                                                     <td> <strong>{{ ucwords($data->type) }}</strong></td>
                                                 </tr>
