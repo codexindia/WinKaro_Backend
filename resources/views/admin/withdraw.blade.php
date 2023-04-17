@@ -44,7 +44,7 @@
                                     <tr>
                                         <td class="text-center">{{ $i }}</td>
                                         <td class="text-center">{{ $item->GetName->name }}</td>
-                                        <td class="text-center">{{ $item->coins }}<strong>(INR :{{ $item->coins/100 }})</strong></td>
+                                        <td class="text-center">{{ $item->coins }} <strong> &nbsp;(INR : {{ $item->coins/100 }})</strong></td>
                                         <td class="text-center">{{ $item->ref_id }}</td>
 
                                         @if ($item->status == 'processing')
