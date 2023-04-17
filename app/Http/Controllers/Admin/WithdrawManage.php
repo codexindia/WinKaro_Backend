@@ -20,8 +20,9 @@ class WithdrawManage extends Controller
         if ($request->Action == 'Reject') {
             $main = WithdrawRequest::where('id',$request->id);
             $main->update([
-               'status' => 'rejected',
+               'status' => 'failed',
             ]);
+            $main = $main->first();
             $user_id = $main->user_id;
             $amount = $main->coins;
             $description = 'Refund For Rejected Requests If WWithdraws';
