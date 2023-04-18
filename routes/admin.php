@@ -56,6 +56,7 @@ Route::middleware('admin.auth')->group(function () {
     Route::controller('NotificationManage')->prefix('Notifications')->group(function () {
         Route::get('/', 'index')->name('notification.index');
         Route::post('/Push', 'push_alert')->name('notification.push_alert');
+        Route::post('/Popup', 'push_popup')->name('notification.push_popup');
     });
 
     Route::controller('UsersManage')->prefix('Users')->group(function () {

@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Notifications\UserAllNotifications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
-
+use OneSignal;
 class NotificationManage extends Controller
 {
     public function push_alert(Request $request)
@@ -16,7 +16,16 @@ class NotificationManage extends Controller
         'title' => 'required',
         'message' => 'required',
     ]);
-     
+  
+    OneSignal::sendNotificationToAll(
+        $request->message, 
+        $url = null, 
+        $data = null, 
+        $buttons = null, 
+        $schedule = null,
+        $subtitle = $request->title
+    );
+
       $users = User::all();
       $param['title'] = $request->title;
       $param['subtitle'] = $request->message;
@@ -26,5 +35,15 @@ class NotificationManage extends Controller
     public function index()
     {
         return view('admin.notification');
+    }
+    public function push_popup(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg',
+            'action_url' => 'required',
+           
+        ]);
+
     }
 }

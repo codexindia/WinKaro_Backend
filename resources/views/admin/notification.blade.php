@@ -18,18 +18,12 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                            @if ($errors->any())
-                                <div class="alert alert-danger" role="alert">
-                                    @foreach ($errors->all() as $error)
-                                        {{ $error }}<br />
-                                    @endforeach
-                                </div>
-                            @endif
+                           
                             <form id="formAccountSettings" method="POST" action="{{ route('notification.push_alert') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                       {{ Form::wtextbox('title') }}
+                                        {{ Form::wtextbox('title') }}
                                     </div>
 
                                     <div class="mb-3 col-md-6">
@@ -95,6 +89,48 @@
                     {{ $getlist->links('pagination::bootstrap-5') }}
                 </div>
             </div> --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h5 class="card-header">App Popup Message</h5>
+                        <!-- Account -->
+
+                        <hr class="my-0" />
+                        <div class="card-body">
+
+                            {!! Form::open(['route' => 'notification.push_popup' , 'files' => true]) !!}
+                                
+                                <div class="row">
+
+                                    <div class="mb-3 col-md-6">
+                                        {{ Form::wtextbox('description') }}
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        {{ Form::wtextbox('action_url','#') }}
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="formFile" class="form-label">Choose Image To Upload</label>
+                                        <input class="form-control" type="file" id="formFile" name="image">
+                                        @error('image')
+                                        <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                        {{ Form::wcheckbox('active', 'Active') }}
+                                     
+                                    
+                                </div>
+                                <div class="mt-2">
+                                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                                    <a href="{{ url()->previous() }}"> <button type="button"
+                                            class="btn btn-outline-secondary">Cancel</button></a>
+                                </div>
+                           {!! Form::close() !!}
+                        </div>
+                        <!-- /Account -->
+                    </div>
+
+                </div>
+            </div>
         </div>
 
     </div>
