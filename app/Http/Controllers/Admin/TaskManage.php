@@ -20,6 +20,7 @@ class TaskManage extends Controller
    }
    public function new()
    {
+
       $view = "add";
 
       return view('admin.tasks', compact('view'));
@@ -59,6 +60,48 @@ class TaskManage extends Controller
          'action_url' => $request->action_url,
       ]);
       return back()->with(['success' => 'Task Created SuccessFully']);
+   }
+
+   //task edit
+
+   public function task_edit(Request $request)
+   {
+      $view = "add";
+      $main = AllTasks::FindorFail($request->id);
+
+      return view('admin.tasks', compact('view', 'main'));
+   }
+   public function task_update(Request $request)
+   {
+      $request->validate([
+
+         'title' => 'required',
+         'publisher' => 'required',
+         'action_url' => 'required|url',
+         'reward_coin' => 'required|numeric',
+         'expire_after_hour' => 'required|numeric',
+         'task_type' => 'required|in:youtube,instagram,yt_shorts',
+
+      ]);
+      $get =  AllTasks::find($request->id);
+      if ($request->has('thumbnail')) {
+         $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
+         $get->update([
+            'thumbnail_image' => $thumbnail_path,
+         ]);
+      }
+      $created_at =  $get->created_at;
+
+      $get->update([
+
+         'type' => $request->task_type,
+         'title' => $request->title,
+         'publisher' => $request->publisher,
+         'reward_coin' => $request->reward_coin,
+         'expire_at' => Carbon::createFromFormat('Y-m-d H:i:s', $created_at)->addHour($request->expire_after_hour),
+         'action_url' => $request->action_url,
+      ]);
+      return back()->with(['success' => 'Task Update SuccessFully']);
    }
    public function submission_list(Request $request)
    {

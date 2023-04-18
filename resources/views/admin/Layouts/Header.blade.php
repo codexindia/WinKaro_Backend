@@ -95,7 +95,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ (request()->is(['Admin/Tasks','Admin/Tasks/New'])) ? 'active' : '' }}">
+                    <li class="menu-item {{ (request()->is(['Admin/Tasks','Admin/Tasks/New','Admin/Tasks/Edit*'])) ? 'active' : '' }}">
                         <a href="{{ route('task.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-signal-alt"></i>
                             <div data-i18n="Analytics">Tasks Manage</div>

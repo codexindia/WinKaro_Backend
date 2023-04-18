@@ -25,14 +25,14 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Task Name</th>
-                                    <th>Type</th>
-                                  
-                                    <th>Coins</th>
-                                    <th>Status</th>
-                                    <th>Expire At</th>
-                                   
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Task Name</th>
+                                    <th class="text-center">Type</th>
+
+                                    <th class="text-center">Coins</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Expire At</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -41,24 +41,28 @@
                                     
                                 @endphp
                                 @foreach ($data as $item)
-                                   @php
-$i++;
-                                   @endphp
+                                    @php
+                                        $i++;
+                                    @endphp
                                     <tr>
-                                        <td>{{ $i }}</td>
-                                        <td>{{ $item->task_name }}</td>
-                                        <td>{{ ucwords($item->type) }}</td>
-                                      
-                                        <td>
+                                        <td class="text-center">{{ $i }}</td>
+                                        <td class="text-center">{{ $item->task_name }}</td>
+                                        <td class="text-center">{{ ucwords($item->type) }}</td>
+
+                                        <td class="text-center">
                                             {{ $item->reward_coin }}
                                         </td>
-                                        @if($item->status == 'active')
-                                        <td><span class="badge bg-label-primary me-1"> {{ $item->status }}</span></td>
-                                       @else
-                                       <td><span class="badge bg-label-danger me-1"> {{ $item->status }}</span></td>
+                                        @if ($item->status == 'active')
+                                            <td class="text-center"><span class="badge bg-label-primary me-1">
+                                                    {{ $item->status }}</span></td>
+                                        @else
+                                            <td class="text-center"><span class="badge bg-label-danger me-1">
+                                                    {{ $item->status }}</span></td>
                                         @endif
-                                        <td>{{ date("m-d-Y h:i:s a", strtotime($item->expire_at)) }}</td>
-                                       
+                                        <td class="text-center">{{ date('m-d-Y h:i:s a', strtotime($item->expire_at)) }}
+                                        </td>
+                                        <td class="text-center"><a href="{{ route('task.edit', $item->id) }}"><i
+                                                    class="uil uil-edit text-success" style="font-size: 25px;"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -82,49 +86,114 @@ $i++;
 
 
                             <div class="card-body">
-                                {!! form::open(['route' => 'task.create', 'files' => true]) !!}
+                                @if (isset($main))
+                                    {!! form::open(['route' => 'task.update', 'files' => true]) !!}
+                                @else
+                                    {!! form::open(['route' => 'task.create', 'files' => true]) !!}
+                                @endif
                                 <div class="row">
 
                                     <div class="col-md-6">
-                                        {!! form::wtextbox('title') !!}
+                                        @if (isset($main))
+                                            <input type="hidden" name="id" value="{{ $main->id }}">
+                                        @endif
+                                        @if (isset($main))
+                                            {!! form::wtextbox('title', $main->title) !!}
+                                        @else
+                                            {!! form::wtextbox('title') !!}
+                                        @endif
                                     </div>
                                     <div class="col-md-6">
-                                        {!! form::wtextbox('publisher') !!}
+                                        @if (isset($main))
+                                            {!! form::wtextbox('publisher', $main->publisher) !!}
+                                        @else
+                                            {!! form::wtextbox('publisher') !!}
+                                        @endif
+
+
                                     </div>
                                     <div class="col-md-6">
-                                        {!! form::wtextbox('reward_coin') !!}
+                                        @if (isset($main))
+                                            {!! form::wtextbox('reward_coin', $main->reward_coin) !!}
+                                        @else
+                                            {!! form::wtextbox('reward_coin') !!}
+                                        @endif
+
+
                                     </div>
                                     <div class="col-md-6">
-                                        {!! form::wtextbox('action_url') !!}
+                                        @if (isset($main))
+                                            {!! form::wtextbox('action_url', $main->action_url) !!}
+                                        @else
+                                            {!! form::wtextbox('action_url') !!}
+                                        @endif
                                     </div>
                                     <div class="col-md-6">
-                                        {!! form::wtextbox('expire_after_hour') !!}
+                                        @if (isset($main))
+                                            @php
+                                                $from = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $main->created_at);
+                                                $to = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $main->expire_at);
+                                                $diff_in_hours = $from->diffInHours($to);
+                                            @endphp
+                                            {!! form::wtextbox('expire_after_hour', $diff_in_hours) !!}
+                                        @else
+                                            {!! form::wtextbox('expire_after_hour') !!}
+                                        @endif
+
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="exampleFormControlSelect1" class="form-label">Choose Task Type</label>
-                                        <select class="form-select" name="task_type" id="exampleFormControlSelect1"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Choose One</option>
-                                            <option value="youtube">Youtube Task</option>
-                                            <option value="instagram">Instagram Task</option>
-                                            <option value="yt_shorts">Youtube Shorts Task</option>
-                                        </select>
+                                        @if (isset($main))
+                                            <label for="exampleFormControlSelect1" class="form-label">Choose Task
+                                                Type</label>
+                                            <select class="form-select" name="task_type" id="exampleFormControlSelect1"
+                                                aria-label="Default select example">
+                                                <option selected disabled>Choose One</option>
+                                                <option @if ($main->type == 'youtube') selected @endif value="youtube">
+                                                    Youtube Task</option>
+                                                <option @if ($main->type == 'instagram') selected @endif
+                                                    value="instagram">Instagram Task</option>
+                                                <option @if ($main->type == 'yt_shorts') selected @endif
+                                                    value="yt_shorts">Youtube Shorts Task</option>
+                                            </select>
+                                        @else
+                                            <label for="exampleFormControlSelect1" class="form-label">Choose Task
+                                                Type</label>
+                                            <select class="form-select" name="task_type" id="exampleFormControlSelect1"
+                                                aria-label="Default select example">
+                                                <option selected disabled>Choose One</option>
+                                                <option value="youtube">Youtube Task</option>
+                                                <option value="instagram">Instagram Task</option>
+                                                <option value="yt_shorts">Youtube Shorts Task</option>
+                                            </select>
+                                        @endif
                                         @error('task_type')
                                             <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                   
+
                                 </div>
+                                @if (isset($main))
+                                    <div class="col-md-6 mb-2">
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Thumbnail </label>
+                                        </div>
+                                        <img src="{{ $main->thumbnail_image }}" style="max-height:18rem;" alt="">
+                                    </div>
+                                @endif
                                 <div class="form-group mx-auto">
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Choose Thumbnail To Upload</label>
                                         <input class="form-control" type="file" id="formFile" name="thumbnail">
-                                      </div>
-                                      @error('thumbnail')
-                                      <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
-                                  @enderror
+                                    </div>
+                                    @error('thumbnail')
+                                        <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
+                                    @enderror
                                 </div>
-                                {!! form::wsubmit('Create') !!}
+                                @if (isset($main))
+                                    {!! form::wsubmit('Update') !!}
+                                @else
+                                    {!! form::wsubmit('Create') !!}
+                                @endif
                                 {!! form::close() !!}
                             </div>
                         </div>
