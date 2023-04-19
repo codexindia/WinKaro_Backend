@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\AppPopupMessage;
 class NotificationManage extends Controller
 {
     public function get_notification(Request $request)
@@ -35,5 +36,14 @@ class NotificationManage extends Controller
      return response()->json([
         'status' => true,
      ]);
+    }
+    public function get_popup(Request $request)
+    {
+  $main = AppPopupMessage::latest()->first();
+  return response()->json([
+    'status' => true,
+    'data' => $main,
+    'message' => 'Popup Retrieve Successfully',
+  ]);
     }
 }

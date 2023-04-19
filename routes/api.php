@@ -56,7 +56,9 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     });
     Route::controller('NotificationManage')->prefix('notifications')->group(function () {
         Route::post('/get_notification', 'get_notification');
+        Route::post('/get_popup', 'get_popup');
         Route::post('/mark_read', 'mark_read');
+
     });
     Route::controller('TaskManage')->prefix('tasks')->group(function () {
         Route::post('/get/{type}', 'get_tasks');

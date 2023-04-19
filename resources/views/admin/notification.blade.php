@@ -18,7 +18,7 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                           
+
                             <form id="formAccountSettings" method="POST" action="{{ route('notification.push_alert') }}">
                                 @csrf
                                 <div class="row">
@@ -97,34 +97,45 @@
 
                         <hr class="my-0" />
                         <div class="card-body">
+                            @if (session('success_popup'))
+                                <div class="alert alert-success">
+                                    {{ session('success_popup') }}
+                                </div>
+                            @endif
+                            {!! Form::open(['route' => 'notification.push_popup', 'files' => true]) !!}
 
-                            {!! Form::open(['route' => 'notification.push_popup' , 'files' => true]) !!}
-                                
-                                <div class="row">
+                            <div class="row">
 
-                                    <div class="mb-3 col-md-6">
-                                        {{ Form::wtextbox('description') }}
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        {{ Form::wtextbox('action_url','#') }}
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="formFile" class="form-label">Choose Image To Upload</label>
-                                        <input class="form-control" type="file" id="formFile" name="image">
-                                        @error('image')
+                                <div class="mb-3 col-md-6">
+                                    {{ Form::wtextbox('description', $old != null ? $old->description : '') }}
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    {{ Form::wtextbox('action_url', $old != null ? $old->action_url : '') }}
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="formFile" class="form-label">Choose Image To Upload</label>
+                                    <input class="form-control" type="file" id="formFile" name="image">
+                                    @error('image')
                                         <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
-                                        @enderror
+                                    @enderror
+                                </div>
+                                @if ($old->image_src != null)
+                                    <div class="mb-3 col-md-6">
+                                        <label for="formFile" class="form-label">Image</label>
+                                        <img src="{{ $old->image_src }}" class="form-control"
+                                            style="max-height:12rem; max-width:13rem;" alt="" srcset="">
                                     </div>
-                                        {{ Form::wcheckbox('active', 'Active') }}
-                                     
-                                    
-                                </div>
-                                <div class="mt-2">
-                                    <button type="submit" class="btn btn-primary me-2">Save</button>
-                                    <a href="{{ url()->previous() }}"> <button type="button"
-                                            class="btn btn-outline-secondary">Cancel</button></a>
-                                </div>
-                           {!! Form::close() !!}
+                                @endif
+                                {{ Form::wcheckbox('active', 'Active', $old != null ? $old->status : '') }}
+
+
+                            </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary me-2">Save</button>
+                                <a href="{{ url()->previous() }}"> <button type="button"
+                                        class="btn btn-outline-secondary">Cancel</button></a>
+                            </div>
+                            {!! Form::close() !!}
                         </div>
                         <!-- /Account -->
                     </div>
