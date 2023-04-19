@@ -119,7 +119,7 @@
                                         <p class="text-danger" style="text-transform:capitalize;">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                @if ($old->image_src != null)
+                                @if ($old != null && $old->image_src != null)
                                     <div class="mb-3 col-md-6">
                                         <label for="formFile" class="form-label">Image</label>
                                         <img src="{{ $old->image_src }}" class="form-control"
