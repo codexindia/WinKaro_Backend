@@ -6,7 +6,7 @@
              <script>
                  document.write(new Date().getFullYear());
              </script>
-             , WinKaro Print All Right Reserved
+             , WinKaro All Right Reserved
          </div>
 
      </div>
