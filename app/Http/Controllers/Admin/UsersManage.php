@@ -10,7 +10,7 @@ class UsersManage extends Controller
 {
     public function index()
     {
-        $list = User::orderBy('id', 'desc')->get();
+        $list = User::orderBy('id', 'desc')->paginate(10);
         $view = 'List';
         return view('admin.users', compact('list', 'view'));
     }

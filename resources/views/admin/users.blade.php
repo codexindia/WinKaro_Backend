@@ -50,6 +50,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="container d-flex justify-content-end mt-3">
+                        {!! $list->links() !!}
+                      </div>
                 </div>
             @elseif ($view == 'details')
                 <div class="row">
