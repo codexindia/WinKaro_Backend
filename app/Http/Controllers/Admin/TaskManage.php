@@ -14,7 +14,7 @@ class TaskManage extends Controller
 {
    public function index()
    {
-      $data = AllTasks::orderBy('id', 'desc')->get();
+      $data = AllTasks::orderBy('id', 'desc')->paginate(10);
       $view = "list";
       return view('admin.tasks', compact('view', 'data'));
    }
