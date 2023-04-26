@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AllTasks;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Models\CompleteTask;
 use App\Http\Controllers\Api\WalletManage;
@@ -121,12 +122,16 @@ class TaskManage extends Controller
          $request->validate([
             'proof_id' => 'required|exists:complete_tasks,id'
          ]);
-         $data = CompleteTask::findOrFail($request->proof_id);
+         $data = DB::table('complete_tasks')->where('id',$request->proof_id);
          $data->update([
             'status' => 'complete',
          ]);
-         $user_id = $data->user_id;
-         $amount = $data->reward_coin;
+         
+        $user_datas = $data->get();
+        Storage::delete($user_datas->proof_src);
+
+         $user_id = $user_datas->user_id;
+         $amount = $user_datas->reward_coin;
          $description = 'Wining For Complete Task';
          $status = 'credit';
          $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
@@ -139,11 +144,13 @@ class TaskManage extends Controller
             'proof_id' => 'required|exists:complete_tasks,id',
             'reason' => 'required',
          ]);
-         $data = CompleteTask::findOrFail($request->proof_id);
+         $data = DB::table('complete_tasks')->where('id',$request->proof_id);
          $data->update([
             'status' => 'rejected',
-            'remarks' => $request->reason,
          ]);
+         
+        $user_datas = $data->get();
+        Storage::delete($user_datas->proof_src);
          return response()->json([
             'status' => 'true',
             'message' => 'Task Reject SuccessFully',
