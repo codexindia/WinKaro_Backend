@@ -125,7 +125,10 @@ class TaskManage extends Controller
          $data->update([
             'status' => 'complete',
          ]);
-         
+         //deleting proof
+        $src = str_replace(request()->getSchemeAndHttpHost(),"/public", $data->proof_src);
+        Storage::delete($src);
+//
          $user_id = $data->user_id;
          $amount = $data->reward_coin;
          $description = 'Wining For Complete Task';
