@@ -126,7 +126,7 @@ class TaskManage extends Controller
             'status' => 'complete',
          ]);
          //deleting proof
-        $src = str_replace(request()->getSchemeAndHttpHost(),"public", $data->proof_src);
+        $src = str_replace(request()->getSchemeAndHttpHost().'/storage',"public", $data->proof_src);
         Storage::delete($src);
 //
          $user_id = $data->user_id;
