@@ -122,13 +122,13 @@ class TaskManage extends Controller
          $request->validate([
             'proof_id' => 'required|exists:complete_tasks,id'
          ]);
-         $data = DB::table('complete_tasks')->where('id',$request->proof_id);
+         $data = DB::table('complete_tasks')->where('id',$request->proof_id)->get();
          $data->update([
             'status' => 'complete',
          ]);
          
-        $user_datas = $data->get();
-       // Storage::delete($user_datas->proof_src);
+        $user_datas = $data;
+        Storage::delete($user_datas->proof_src);
 
          $user_id = $user_datas->user_id;
          $amount = $user_datas->reward_coin;
