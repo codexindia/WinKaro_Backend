@@ -136,7 +136,7 @@ class TaskManage extends Controller
          $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
          return response()->json([
             'status' => 'true',
-            'message' => 'Task Approved SuccessFully'.$src,
+            'message' => 'Task Approved SuccessFully',
          ]);
       } elseif ($request->Action == "Reject") {
          $request->validate([
@@ -144,6 +144,8 @@ class TaskManage extends Controller
             'reason' => 'required',
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
+         $src = str_replace(request()->getSchemeAndHttpHost().'/storage',"public", $data->proof_src);
+         Storage::delete($src);
          $data->update([
             'status' => 'rejected',
             'remarks' => $request->reason,
