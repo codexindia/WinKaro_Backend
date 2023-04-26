@@ -128,7 +128,7 @@ class TaskManage extends Controller
          ]);
          
         $user_datas = $data->get();
-        Storage::delete($user_datas->proof_src);
+       // Storage::delete($user_datas->proof_src);
 
          $user_id = $user_datas->user_id;
          $amount = $user_datas->reward_coin;
