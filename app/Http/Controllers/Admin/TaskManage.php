@@ -63,7 +63,6 @@ class TaskManage extends Controller
    }
 
    //task edit
-
    public function task_edit(Request $request)
    {
       $view = "add";
@@ -83,6 +82,7 @@ class TaskManage extends Controller
          'task_type' => 'required|in:youtube,instagram,yt_shorts',
 
       ]);
+
       $get =  AllTasks::find($request->id);
       if ($request->has('thumbnail')) {
          $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
@@ -91,7 +91,6 @@ class TaskManage extends Controller
          ]);
       }
       $created_at =  $get->created_at;
-
       $get->update([
 
          'type' => $request->task_type,
@@ -122,38 +121,56 @@ class TaskManage extends Controller
             'proof_id' => 'required|exists:complete_tasks,id'
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
-         $data->update([
-            'status' => 'complete',
-         ]);
-         //deleting proof
-        $src = str_replace(request()->getSchemeAndHttpHost().'/storage',"public", $data->proof_src);
-        Storage::delete($src);
-//
-         $user_id = $data->user_id;
-         $amount = $data->reward_coin;
-         $description = 'Wining For Complete Task';
-         $status = 'credit';
-         $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
-         return response()->json([
-            'status' => 'true',
-            'message' => 'Task Approved SuccessFully',
-         ]);
+         if ($data->status == 'processing') {
+
+
+            $data->update([
+               'status' => 'complete',
+            ]);
+
+            //deleting proof
+            $src = str_replace(request()->getSchemeAndHttpHost() . '/storage', "public", $data->proof_src);
+            Storage::delete($src);
+            //deleting
+
+            $user_id = $data->user_id;
+            $amount = $data->reward_coin;
+            $description = 'Wining For Complete Task';
+            $status = 'credit';
+            $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
+            return response()->json([
+               'status' => 'true',
+               'message' => 'Task Approved SuccessFully',
+            ]);
+         } else {
+            return response()->json([
+               'status' => 'false',
+               'message' => 'Task Already Processed',
+            ]);
+         }
       } elseif ($request->Action == "Reject") {
          $request->validate([
             'proof_id' => 'required|exists:complete_tasks,id',
             'reason' => 'required',
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
-         $src = str_replace(request()->getSchemeAndHttpHost().'/storage',"public", $data->proof_src);
-         Storage::delete($src);
-         $data->update([
-            'status' => 'rejected',
-            'remarks' => $request->reason,
-         ]);
-         return response()->json([
-            'status' => 'true',
-            'message' => 'Task Reject SuccessFully',
-         ]);
+         if ($data->status == 'processing') {
+            $src = str_replace(request()->getSchemeAndHttpHost() . '/storage', "public", $data->proof_src);
+            Storage::delete($src);
+            $data->update([
+               'status' => 'rejected',
+               'remarks' => $request->reason,
+            ]);
+            return response()->json([
+               'status' => 'true',
+               'message' => 'Task Reject SuccessFully',
+            ]);
+         } else {
+            return response()->json([
+               'status' => 'false',
+               'message' => 'Task Already Processed',
+            ]);
+         }
       }
    }
 }

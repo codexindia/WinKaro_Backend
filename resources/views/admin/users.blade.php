@@ -35,13 +35,12 @@
 
                                         </td>
                                         <td class="text-center">
-                                           <strong>   <i style="font-size:1.3rem;"
-                                            class="uil uil-coins text-warning"></i>
+                                            <strong> <i style="font-size:1.3rem;" class="uil uil-coins text-warning"></i>
                                                 &nbsp;{{ $lists->balance }}</strong>
                                         </td>
-                                      
+
                                         <td class="text-center">
-                                            <a href="{{ route('users.view_details',$lists->id) }}">
+                                            <a href="{{ route('users.view_details', $lists->id) }}">
                                                 <i class="fa-regular fa-eye text-primary" style="font-size:20px;"></i>
                                             </a>
                                         </td>
@@ -52,7 +51,7 @@
                     </div>
                     <div class="container d-flex justify-content-end mt-3">
                         {!! $list->links() !!}
-                      </div>
+                    </div>
                 </div>
             @elseif ($view == 'details')
                 <div class="row">
@@ -72,15 +71,15 @@
                                     <img src="{{ $data->profile_pic }}" alt="user-avatar" class="d-block rounded"
                                         height="100" width="100" id="uploadedAvatar" />
                                     <div class="button-wrapper">
-    
+
                                         <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0"
                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="This Feture Will Available On Next Update">
                                             <span class="d-none d-sm-block">Upload new photo</span>
                                             <i class="bx bx-upload d-block d-sm-none"></i>
-                                           
+
                                         </label>
-                                       
+
                                         <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                                     </div>
                                 </div>
@@ -121,15 +120,18 @@
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label for="organization" class="form-label">Registered At</label>
-                                            <input type="text" class="form-control" id="organization" name="organization"
-                                                value="{{ $data->created_at->format('d-m-Y') }}" readonly />
+                                            <input type="text" class="form-control" id="organization"
+                                                name="organization" value="{{ $data->created_at->format('d-m-Y') }}"
+                                                readonly />
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label for="organization" class="form-label">Refered By</label>
-                                            <input type="text" class="form-control" id="organization" name="organization"
-                                                value="@if($data->GetReferredBy != null){{ $data->GetReferredBy->name }}@else Not Referred @endif" readonly />
+                                            <input type="text" class="form-control" id="organization"
+                                                name="organization"
+                                                value="@if ($data->GetReferredBy != null) {{ $data->GetReferredBy->name }}@else Not Referred @endif"
+                                                readonly />
                                         </div>
-                                        
+
                                     </div>
                                     {{-- <div class="mt-2">
                                         <button type="submit" class="btn btn-primary me-2">Save changes</button>
@@ -160,8 +162,10 @@
                                         <label class="form-check-label" for="accountActivation">I confirm account
                                             Activation</label>
                                     </div>
-                                    <a href="{{ route('users.action_perform',['Action' => 'Active','id'=>$data->id]) }}">
-                                        <button type="submit" class="btn btn-success deactivate-account">Activate
+                                    <a
+                                        href="{{ route('users.action_perform', ['Action' => 'Active', 'id' => $data->id]) }}">
+                                        <button type="button" onclick="return checkbox()" id="block_un_btn"
+                                            class="btn btn-success deactivate-account">Activate
                                             Account</button></a>
                                 @else
                                     <div class="mb-3 col-12 mb-0">
@@ -180,18 +184,31 @@
                                         <label class="form-check-label" for="accountActivation">I confirm account
                                             deactivation</label>
                                     </div>
-                                    <a href="{{ route('users.action_perform',['Action' => 'Deactive','id'=>$data->id]) }}">
-                                        <button type="submit" class="btn btn-danger deactivate-account">Deactivate
+                                    <a
+                                        href="{{ route('users.action_perform', ['Action' => 'Deactive', 'id' => $data->id]) }}">
+                                        <button type="button" id="block_un_btn" onclick="return checkbox()"
+                                            class="btn btn-danger deactivate-account">Deactivate
                                             Account</button></a>
                                 @endif
-                               
+
                             </div>
                         </div>
                     </div>
                 </div>
+                @section('scripts')
+                    <script type="text/javascript">
+                        function checkbox() {
+                            if (!$('#accountActivation').is(':checked')) {
+                                swal( "Opps!!","Please Tick The Checkbox To Perform This Action","warning");
+                                return false;
+                            } else {
+                               return true;
+                            }
+
+                        }
+                    </script>
+                @endsection
+            @endif
         </div>
-        @endif
-
-
     </div>
 @endsection
