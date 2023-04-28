@@ -104,7 +104,7 @@ class TaskManage extends Controller
    }
    public function submission_list(Request $request)
    {
-      $getmain = CompleteTask::where('status', 'processing')->get();
+      $getmain = CompleteTask::where('status', 'processing')->paginate(10);
       $view = "list";
       return view('admin.checksubmissions', compact('view', 'getmain'));
    }
