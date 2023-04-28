@@ -68,7 +68,7 @@
                         </table>
                     </div>
                     <div class="container d-flex justify-content-end mt-3">
-                        {!! $data->links() !!}
+                        {!! $getmain->links() !!}
                       </div>
                 </div>
             </div>
