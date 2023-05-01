@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\UserAllNotifications;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AllTasks;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use App\Models\CompleteTask;
 use App\Http\Controllers\Api\WalletManage;
-
+use App\Models\User;
 class TaskManage extends Controller
 {
    public function index()
@@ -122,7 +124,7 @@ class TaskManage extends Controller
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
          if ($data->status == 'processing') {
-
+         
 
             $data->update([
                'status' => 'complete',
@@ -132,8 +134,12 @@ class TaskManage extends Controller
             $src = str_replace(request()->getSchemeAndHttpHost() . '/storage', "public", $data->proof_src);
             Storage::delete($src);
             //deleting
-
             $user_id = $data->user_id;
+           
+            $param['title'] = 'Task Status';
+            $param['subtitle'] = 'Congratulations Your Task '.$data->GetTask->task_name.' Has Been Approved. And '.$data->reward_coin.' Coins Credited Into Your Wallet';
+            Notification::send(User::find($user_id), new UserAllNotifications($param));
+
             $amount = $data->reward_coin;
             $description = 'Wining For Complete Task';
             $status = 'credit';
@@ -157,6 +163,12 @@ class TaskManage extends Controller
          if ($data->status == 'processing') {
             $src = str_replace(request()->getSchemeAndHttpHost() . '/storage', "public", $data->proof_src);
             Storage::delete($src);
+            $user_id = $data->user_id;
+
+            $param['title'] = 'Task Status';
+            $param['subtitle'] = 'Opps! Your Task '.$data->GetTask->task_name.' Not Approved . Reason '.$request->reason;
+            Notification::send(User::find($user_id), new UserAllNotifications($param));
+
             $data->update([
                'status' => 'rejected',
                'remarks' => $request->reason,
