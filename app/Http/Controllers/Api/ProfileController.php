@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use App\Models\CompleteTask;
+use App\Models\ReferHistory;
 
 class ProfileController extends Controller
 {
@@ -17,9 +18,22 @@ class ProfileController extends Controller
          'status' => 'complete',
          'user_id'  => $request->user()->id,
       ])->count();
+      $refer_data['pending'] = ReferHistory::where([
+         'refer_by_user_id' => $request->user()->id,
+         'status' => 'pending'
+      ])->count();
+      $refer_data['success'] = ReferHistory::where([
+         'refer_by_user_id' => $request->user()->id,
+         'status' => 'success'
+      ])->count();
+      $total_refer_counts = [
+         'pending' => $refer_data['pending'],
+         'success' => $refer_data['success'],
+      ];
       $data['alert_count'] = $user->unreadNotifications->count();
       return response()->json([
          'status' => true,
+         'refer_counts' => $total_refer_counts,
          'complete_tasks' => $data['complete_tasks'],
          'unread_alert' => $data['alert_count'],
          'data' => $request->user(),
@@ -36,11 +50,11 @@ class ProfileController extends Controller
 
       $main = User::find($request->user()->id);
       if ($request->hasFile('profile_pic')) {
-      $image_path = Storage::put('public/users/profiles', $request->file('profile_pic'));
-      $main->update([
-         'profile_pic' => $image_path,
-      ]);
-   }
+         $image_path = Storage::put('public/users/profiles', $request->file('profile_pic'));
+         $main->update([
+            'profile_pic' => $image_path,
+         ]);
+      }
       $main->update([
          'email' => $request->email,
          'name' => $request->name,
