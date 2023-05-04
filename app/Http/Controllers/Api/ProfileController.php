@@ -14,7 +14,7 @@ class ProfileController extends Controller
    {
       $user = User::find($request->user()->id);
       $data['complete_tasks'] = CompleteTask::where([
-         'status' => 'success',
+         'status' => 'complete',
          'user_id'  => $request->user()->id,
       ])->count();
       $data['alert_count'] = $user->unreadNotifications->count();
