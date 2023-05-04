@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/foo', function () {
     Artisan::call('storage:link');
 });
@@ -68,4 +69,10 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('withdraw.index');
         Route::get('/Action/{Action}/{id}', 'action')->name('withdraw.action');
     });
+
+    Route::controller('Settingsmanage')->name('settings.')->prefix('Settings')->group(function () {
+        Route::get('/App_update', 'app_update')->name('appupdate');
+        Route::post('/App_update', 'app_update_push')->name('appupdate.push');
+    });
+    
 });

@@ -17,7 +17,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url('AdminAssets/assets/img/favicon/favicon.ico') }}" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,8 +40,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet"
-        href="{{ url('AdminAssets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="{{ url('AdminAssets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <link rel="stylesheet" href="{{ url('AdminAssets/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
@@ -67,7 +66,7 @@
                 <div class="app-brand demo">
                     <a href="{{ route('dashboard') }}" class="app-brand-link">
                         <img style="max-width:50px;border-radius:50%;"
-                        src="{{ asset('AdminAssets/assets/img/logo.png') }}" alt="">
+                            src="{{ asset('AdminAssets/assets/img/logo.png') }}" alt="">
                         <span class="app-brand-text demo menu-text fw-bolder ms-2">WinKaro</span>
                     </a>
 
@@ -81,52 +80,68 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item {{ (request()->is('Admin/Dashboard*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Dashboard*') ? 'active' : '' }}">
                         <a href="{{ route('dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ (request()->is('Admin/Users*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Users*') ? 'active' : '' }}">
                         <a href="{{ route('users.list') }}" class="menu-link">
                             <i class="menu-icon uil uil-users-alt"></i>
                             <div data-i18n="Analytics">Users List</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ (request()->is(['Admin/Tasks','Admin/Tasks/New','Admin/Tasks/Edit*'])) ? 'active' : '' }}">
+                    <li
+                        class="menu-item {{ request()->is(['Admin/Tasks', 'Admin/Tasks/New', 'Admin/Tasks/Edit*']) ? 'active' : '' }}">
                         <a href="{{ route('task.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-signal-alt"></i>
                             <div data-i18n="Analytics">Tasks Manage</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ (request()->is('Admin/Tasks/Submissions*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Tasks/Submissions*') ? 'active' : '' }}">
                         <a href="{{ route('task.submission_list') }}" class="menu-link">
                             <i class="menu-icon uil uil-envelope-check"></i>
                             <div data-i18n="Analytics">Tasks Submissions</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ (request()->is('Admin/Withdrawls*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Withdrawls*') ? 'active' : '' }}">
                         <a href="{{ route('withdraw.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-money-withdraw"></i>
                             <div data-i18n="Analytics">Withdraw Requests</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ (request()->is('Admin/Banners*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Banners*') ? 'active' : '' }}">
                         <a href="{{ route('banners.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-image"></i>
                             <div data-i18n="Analytics">Banners</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ (request()->is('Admin/Notifications*')) ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('Admin/Notifications*') ? 'active' : '' }}">
                         <a href="{{ route('notification.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-bell"></i>
                             <div data-i18n="Analytics">Notificaions</div>
                         </a>
                     </li>
-
+                    {{-- setting menu --}}
+                    <li class="menu-item {{ request()->is('Admin/Settings*') ? 'active' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon uil uil-cog"></i>
+                            <div data-i18n="Account Settings">Settings</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('Admin/Settings/App_update') ? 'active' : '' }}">
+                                <a href="{{ route('settings.appupdate') }}" class="menu-link">
+                                    <div data-i18n="Account">App Update</div>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    {{-- end of setting menu --}}
                 </ul>
             </aside>
             <!-- / Menu -->
