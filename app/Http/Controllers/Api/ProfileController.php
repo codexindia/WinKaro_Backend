@@ -18,18 +18,19 @@ class ProfileController extends Controller
          'status' => 'complete',
          'user_id'  => $request->user()->id,
       ])->count();
-      $refer_data['pending'] = ReferHistory::where([
+
+
+      $refer_data = ReferHistory::where([
          'refer_by_user_id' => $request->user()->id,
-         'status' => 'pending'
-      ])->count();
-      $refer_data['success'] = ReferHistory::where([
-         'refer_by_user_id' => $request->user()->id,
-         'status' => 'success'
-      ])->count();
+      ])->get('status');
+
+      $ref_collection = collect($refer_data);
+
       $total_refer_counts = [
-         'pending' => $refer_data['pending'],
-         'success' => $refer_data['success'],
+         'pending' => $ref_collection->where('status', 'pending')->count(),
+         'success' => $ref_collection->where('status', 'success')->count(),
       ];
+
       $data['alert_count'] = $user->unreadNotifications->count();
       return response()->json([
          'status' => true,
