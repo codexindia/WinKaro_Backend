@@ -24,7 +24,9 @@ Route::controller('ApiAuth')->group(function () {
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->middleware('auth:sanctum');
 });
-
+Route::controller('AppManage')->prefix('app')->group(function () {
+    Route::post('/get_update', 'get_update');
+});
 
 Route::middleware('auth:sanctum','user.check')->group(function () {
 
@@ -67,7 +69,5 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     Route::controller('BannersManage')->prefix('banners')->group(function () {
         Route::post('/get', 'get_banner');
     });
-    Route::controller('AppManage')->prefix('app')->group(function () {
-        Route::post('/get_update', 'get_update');
-    });
+   
 });
