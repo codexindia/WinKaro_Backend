@@ -104,10 +104,10 @@ class WalletManage extends Controller
             'coin' => 'required|numeric',
         ]);
         $user = $request->user();
-        if (2500 > $request->coin) {
+        if (500 > $request->coin) {
             return response()->json([
                 'status' => false,
-                'message' => 'Amount Can Withdraw Minimum 2500 Coins'
+                'message' => 'Amount Can Withdraw Minimum 5 INR (500 Coins)',
             ]);
         }
         if ($user->balance >= $request->coin) {
