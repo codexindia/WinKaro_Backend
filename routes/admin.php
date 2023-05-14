@@ -42,7 +42,6 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/Edit/{id}', 'task_edit')->name('task.edit');
 
         Route::post('/Edit/Submit', 'task_update')->name('task.update');
-
         Route::post('/Create', 'create')->name('task.create');
         //submission checks
         Route::get('/Submissions', 'submission_list')->name('task.submission_list');
@@ -74,5 +73,8 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/App_update', 'app_update')->name('appupdate');
         Route::post('/App_update', 'app_update_push')->name('appupdate.push');
     });
-    
+    Route::controller('OfferManage')->name('offers.')->prefix('Offers')->group(function () {
+        Route::get('/', 'index')->name('index');
+       // Route::post('/App_update', 'app_update_push')->name('appupdate.push');
+    });
 });

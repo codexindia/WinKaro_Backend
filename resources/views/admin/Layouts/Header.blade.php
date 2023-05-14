@@ -107,6 +107,12 @@
                             <div data-i18n="Analytics">Tasks Submissions</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->is('Admin/Offers*') ? 'active' : '' }}">
+                        <a href="{{ route('offers.index') }}" class="menu-link">
+                            <i class="menu-icon uil uil-tag-alt"></i>
+                            <div data-i18n="Analytics">Offers Tab</div>
+                        </a>
+                    </li>
                     <li class="menu-item {{ request()->is('Admin/Withdrawls*') ? 'active' : '' }}">
                         <a href="{{ route('withdraw.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-money-withdraw"></i>
@@ -120,6 +126,7 @@
                             <div data-i18n="Analytics">Banners</div>
                         </a>
                     </li>
+
                     <li class="menu-item {{ request()->is('Admin/Notifications*') ? 'active' : '' }}">
                         <a href="{{ route('notification.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-bell"></i>

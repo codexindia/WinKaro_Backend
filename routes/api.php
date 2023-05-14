@@ -69,5 +69,7 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     Route::controller('BannersManage')->prefix('banners')->group(function () {
         Route::post('/get', 'get_banner');
     });
-   
+    Route::controller('OffersController')->prefix('offers')->group(function () {
+        Route::post('/check_status', 'check_status');
+    });
 });
