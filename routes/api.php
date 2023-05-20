@@ -75,8 +75,3 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
         Route::post('/check_status', 'check_status');
     });
 });
-Route::controller('TaskManage')->prefix('test')->group(function () {
-    
-    Route::post('/v2/submit/task', 'submit_task_v2');
-
-});
