@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AllTasks;
 use App\Models\CompleteTask;
 use Illuminate\Support\Facades\Storage;
+use Wester\ChunkUpload\Chunk;
+use Wester\ChunkUpload\Validation\Exceptions\ValidationException;
 
 class TaskManage extends Controller
 {
@@ -69,5 +70,72 @@ class TaskManage extends Controller
             'status' => true,
             'message' => 'Task Submitted SuccessFully',
         ]);
+    }
+
+
+
+
+    public function submit_task_v2(Request $request)
+    {
+       
+
+        try {
+            $chunk = new Chunk([
+                'name' => 'video', // same as    $_FILES['video']
+                'chunk_size' => 1000000, // must be equal to the value specified on the client side
+        
+                // Driver
+                'driver' => 'local', // [local, ftp]
+        
+                // Local driver details
+                'local_driver' => [
+                    'path' => public_path('/storage/users/proof/'), // where to upload the final file
+                    'tmp_path' => public_path('/storage/users/proof/temp/'), // where to store the temp chunks
+                ],
+        
+                // File details
+                'file_name' => Chunk::RANDOM_FILE_NAME,
+                'file_extension' => Chunk::ORIGINAL_FILE_EXTENSION,
+        
+                // File validation
+                'validation' => ['extension:mp4,avi,3gp'],
+            ]);
+        
+            $chunk->validate()->store();
+        
+            if ($chunk->isLast()) {
+                $proof_src = '/public/users/proof/'.$chunk->createFileName();
+                $get_task = AllTasks::findOrFail(18);
+                CompleteTask::create([
+                    'user_id' => 63,
+                    'task_id' => $get_task->id,
+                    'type' => $get_task->type,
+                    'reward_coin' => $get_task->reward_coin,
+                    'proof_src' => $proof_src,
+                    'status' => 'processing',
+                ]);
+               
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Task Submitted SuccessFully',
+                ]);
+                
+                
+            } else {
+                $chunk->response()->json([
+                    'progress' => $chunk->getProgress()
+                ]);
+            }
+        
+        } catch (ValidationException $e) {
+            $e->response(422)->json([
+                'message' => $e->getMessage(),
+                'data' => $e->getErrors(),
+            ]);
+        } 
+
+
+      
+       
     }
 }

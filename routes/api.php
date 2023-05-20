@@ -65,6 +65,8 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     Route::controller('TaskManage')->prefix('tasks')->group(function () {
         Route::post('/get/{type}', 'get_tasks');
         Route::post('/submit/task', 'submit_task');
+        Route::post('/v2/submit/task', 'submit_task_v2');
+
     });
     Route::controller('BannersManage')->prefix('banners')->group(function () {
         Route::post('/get', 'get_banner');
@@ -72,4 +74,9 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     Route::controller('OffersController')->prefix('offers')->group(function () {
         Route::post('/check_status', 'check_status');
     });
+});
+Route::controller('TaskManage')->prefix('test')->group(function () {
+   
+    Route::post('/v2/submit/task', 'submit_task_v2');
+
 });
