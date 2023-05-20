@@ -106,7 +106,7 @@ class TaskManage extends Controller
             $chunk->validate()->store();
 
             if ($chunk->isLast()) {
-                $proof_src = '/public/users/proof/' . $chunk->createFileName();
+                $proof_src = 'users/proof/' . $chunk->createFileName();
                 $get_task = AllTasks::findOrFail($request->task_id);
                 CompleteTask::create([
                     'user_id' => $request->user()->id,
