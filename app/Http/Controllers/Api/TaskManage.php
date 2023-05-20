@@ -84,7 +84,7 @@ class TaskManage extends Controller
         try {
             $chunk = new Chunk([
                 'name' => 'video', // same as    $_FILES['video']
-                'chunk_size' => 1000000, // must be equal to the value specified on the client side
+                'chunk_size' => 4000, // must be equal to the value specified on the client side
 
                 // Driver
                 'driver' => 'local', // [local, ftp]
