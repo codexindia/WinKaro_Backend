@@ -76,10 +76,10 @@ class TaskManage extends Controller
 
     public function submit_task_v2(Request $request)
     {
-        $request->validate([
-            'task_id' => 'required|numeric|exists:all_tasks,id',
+        // $request->validate([
+        //     'task_id' => 'required|numeric|exists:all_tasks,id',
 
-        ]);
+        // ]);
 
         try {
             $chunk = new Chunk([

@@ -110,7 +110,7 @@ const upload = () => {
     if (file) {
         const chunk = new Chunk({
             name: 'video', // request name
-            size: 1000000, // chunk size
+            size: 4000, // chunk size
             url: 'http://127.0.0.1:8000/api/test/v2/submit/task', // destination
         });
 
