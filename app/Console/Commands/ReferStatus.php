@@ -28,7 +28,7 @@ class ReferStatus extends Command
      */
     public function handle(): void
     {
-        $get_pendings = ReferHistory::where(['status' => 'pending'])->limit(10)->get();
+        $get_pendings = ReferHistory::where(['status' => 'pending'])->get();
         //loop for origin users only
         foreach ($get_pendings as $get) {
             $get_completed_task  = CompleteTask::where([
