@@ -12,10 +12,12 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\TaskStatus::class,
+        Commands\ReferStatus::class,
     ];
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:task-status')->everyMinute();
+        $schedule->command('app:refer-status')->everyMinute();
 
     }
 
