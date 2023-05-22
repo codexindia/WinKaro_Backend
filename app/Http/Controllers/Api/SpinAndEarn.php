@@ -36,8 +36,8 @@ class SpinAndEarn extends Controller
         $user_id = $request->user()->id;
         $amount = $request->coin;
         $description = 'Wining Through Spin And Earn';
-        $status = 'credit';
-        $result = (new WalletManage)->AddPayment($user_id,$amount,$description,$status,'reward');
+       
+        $result = (new WalletManage)->AddPayment($user_id,$amount,$description,'reward');
         return response()->json([
           'status' => true,
           'message' => 'Reward Has Been Added',

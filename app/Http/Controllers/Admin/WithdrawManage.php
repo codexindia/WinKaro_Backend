@@ -26,8 +26,8 @@ class WithdrawManage extends Controller
             $user_id = $main->user_id;
             $amount = $main->coins;
             $description = 'Refund For Rejected Requests If WWithdraws';
-            $status = 'credit';
-            $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
+           
+            $result = (new WalletManage)->AddPayment($user_id, $amount, $description,'reward');
             return back()->with(['success' => 'Request Rejected Successfully']);
         } elseif ($request->Action == 'Approve') {
             WithdrawRequest::where('id',$request->id)->update([

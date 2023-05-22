@@ -142,8 +142,8 @@ class TaskManage extends Controller
 
             $amount = $data->reward_coin;
             $description = 'Wining For Complete Task';
-            $status = 'credit';
-            $result = (new WalletManage)->AddPayment($user_id, $amount, $description, $status, 'reward');
+           
+            $result = (new WalletManage)->AddPayment($user_id, $amount, $description,'reward');
             return response()->json([
                'status' => 'true',
                'message' => 'Task Approved SuccessFully',

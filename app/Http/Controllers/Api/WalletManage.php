@@ -11,13 +11,13 @@ use App\Models\WithdrawRequest;
 
 class WalletManage extends Controller
 {
-    public function AddPayment($user_id, $amount, $description, $status, $type)
+    public function AddPayment($user_id, $amount, $description, $type)
     {
         $new = new WalletTransaction;
         $new->user_id = $user_id;
         $new->amount = $amount;
         $new->description = $description;
-        $new->status = $status;
+        $new->status = 'credit';
         $new->type = $type;
         $new->ref_id = 'WNKR' . rand(1000000, 9999999);
         if ($new->save()) {
@@ -25,13 +25,13 @@ class WalletManage extends Controller
         }
 
     }
-    public function CutPayment($user_id, $amount, $description, $status, $type)
+    public function CutPayment($user_id, $amount, $description, $type)
     {
         $new = new WalletTransaction;
         $new->user_id = $user_id;
         $new->amount = $amount;
         $new->description = $description;
-        $new->status = $status;
+        $new->status = 'debit';
         $new->type = $type;
         $new->ref_id = 'WNKR' . rand(1000000, 9999999);
         if ($new->save()) {
