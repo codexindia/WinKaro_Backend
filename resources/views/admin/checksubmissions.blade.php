@@ -18,7 +18,7 @@
 
                     <div class="table-responsive text-nowrap">
 
-                        <table class="table table-striped">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
@@ -40,7 +40,7 @@
                                     @php
                                         $i++;
                                     @endphp
-                                    <tr>
+                                    <tr onclick="window.open('{{ route('task.submission_details', $item->id) }}')">
                                         <td class="text-center">{{ $i }}</td>
                                         <td class="text-center">{{ $item->GetName->name }}</td>
                                         <td class="text-center">{{ ucwords($item->GetTask->task_name) }}</td>

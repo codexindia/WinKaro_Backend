@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompleteOffers;
 use App\Models\CompleteTask;
+use App\Models\OfferSubmissions;
 
 class OffersController extends Controller
 {
-  private function claimed_offer($user_id, $task_name, $reward_coins, $status = 'processing')
+  private function claimed_offer($user_id, $task_name, $reward_coins, $status = 'processing', $inputs = null)
   {
 
     $new = new CompleteOffers;
@@ -17,7 +18,7 @@ class OffersController extends Controller
     $new->name = $task_name;
     $new->reward_coins = $reward_coins;
     $new->status = $status;
-
+    $new->attributes = $inputs;
     if ($new->save()) {
       return 1;
     } else {
@@ -60,7 +61,7 @@ class OffersController extends Controller
       }
       if ($status == 10) {
         $this->claimed_offer($user_id, 'yt_task_milestone', 1000, 'complete');
-        $result = (new WalletManage)->AddPayment($user_id, 1000, 'YT Task Milestone','reward');
+        $result = (new WalletManage)->AddPayment($user_id, 1000, 'YT Task Milestone', 'reward');
         return response()->json([
           'status' => true,
           'reward_coins' => 1000,
@@ -73,8 +74,32 @@ class OffersController extends Controller
       'status' => false,
       'message' => 'Offer Not FullFiled',
     ]);
-    // $this->claimed_offer($user_id, 'yt_task_milestone', 500, 'complete');
-
-
+  }
+  public function telegram_task(Request $request)
+  {
+    $request->validate([
+      'telegram_username' => 'required',
+    ]);
+    if (CompleteOffers::whereJsonContains('attributes', ['username' => $request->telegram_username])->exists()) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Offer Already Claimed With This Username',
+      ]);
+    }
+    $user_id = $request->user()->id;
+    $input = json_encode([
+      'username' => $request->telegram_username,
+    ]);
+    $this->claimed_offer($user_id, 'telegram_task', 100, 'processing', $input);
+    return response()->json([
+      'status' => true,
+      'message' => 'Offer Is Processing, Wait For Approval',
+    ]);
+  }
+  public function app_install_task(Request $request)
+  {
+    $request->validate([
+      'telegram_username' => 'required',
+    ]);
   }
 }
