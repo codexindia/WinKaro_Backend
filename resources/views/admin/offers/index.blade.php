@@ -107,9 +107,7 @@
                             </table>
                         </div>
                         {{-- pagination --}}
-                        <div class="container d-flex justify-content-end mt-3">
-                            {!! $getalloffers->links() !!}
-                        </div>
+                       
                         {{-- pagination --}}
                     </div>
                 </div>
