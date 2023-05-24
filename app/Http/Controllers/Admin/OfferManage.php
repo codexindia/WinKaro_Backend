@@ -13,7 +13,7 @@ class OfferManage extends Controller
         
         $getalloffers = CompleteOffers::where([
             'status'=>'complete',
-        ])->orderBy('id','desc')->limit(10);
+        ])->orderBy('id','desc')->limit('10')->get();
         $telegram_checklist = CompleteOffers::where(
             [
                 'status'=>'processing',
