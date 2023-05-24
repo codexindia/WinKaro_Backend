@@ -80,6 +80,16 @@ class OffersController extends Controller
     $request->validate([
       'telegram_username' => 'required',
     ]);
+    if (CompleteOffers::where([
+     'user_id' => $request->user()->id,
+     'name' => 'telegram_task',
+    ])->exists()) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Offer Already Claimed',
+      ]);
+    }
+
     if (CompleteOffers::whereJsonContains('attributes', ['username' => $request->telegram_username])->exists()) {
       return response()->json([
         'status' => false,
