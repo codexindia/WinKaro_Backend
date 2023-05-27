@@ -107,12 +107,28 @@
                             <div data-i18n="Analytics">Tasks Submissions</div>
                         </a>
                     </li>
+
                     <li class="menu-item {{ request()->is('Admin/Offers*') ? 'active' : '' }}">
-                        <a href="{{ route('offers.index') }}" class="menu-link">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon uil uil-tag-alt"></i>
                             <div data-i18n="Analytics">Offers Tab</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('Admin/Offers') ? 'active' : '' }}">
+                                <a href="{{ route('offers.index') }}" class="menu-link">
+                                    <div data-i18n="Analytics">Offer Checklist</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('Admin/Offers/app_install') ? 'active' : '' }}">
+                                <a href="{{ route('offers.app_install') }}" class="menu-link">
+                                    <div data-i18n="Analytics">Install Offer</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="menu-item {{ request()->is('Admin/Withdrawls*') ? 'active' : '' }}">
                         <a href="{{ route('withdraw.index') }}" class="menu-link">
                             <i class="menu-icon uil uil-money-withdraw"></i>
@@ -145,7 +161,7 @@
                                     <div data-i18n="Account">App Update</div>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </li>
                     {{-- end of setting menu --}}

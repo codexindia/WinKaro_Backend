@@ -76,5 +76,9 @@ Route::middleware('admin.auth')->group(function () {
     Route::controller('OfferManage')->name('offers.')->prefix('Offers')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/telegram_checklist/status/{id}/{action}', 'telegram_checklist_status')->name('telegram.status');
+        Route::get('/app_install', 'app_install')->name('app_install');
+        Route::post('/app_install', 'app_install_publish')->name('app_install_publish');
+   
     });
+
 });

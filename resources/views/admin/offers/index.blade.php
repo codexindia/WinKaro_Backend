@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="row m-3">
                             <div class="col">
-                                <h5 class="card-header">Telegram Offers Checklist</h5>
+                                <h5 class="card-header">Offers Checklist</h5>
                             </div>
                         </div>
                         <div class="table-responsive text-nowrap">
@@ -25,7 +25,8 @@
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th class="text-center">Full Name</th>
-                                        <th class="text-center">Telegram UserName</th>
+                                        <th class="text-center">Type</th>
+                                        <th class="text-center">Attributes</th>
 
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
@@ -33,16 +34,22 @@
                                 <tbody class="table-border-bottom-0">
                                     @php
                                         $i = 0;
-                                        
                                     @endphp
-                                    @foreach ($telegram_checklist as $item)
+                                    @foreach ($checklist as $item)
                                         @php
                                             $i++;
                                         @endphp
                                         <tr>
                                             <td class="text-center">{{ $i }}</td>
                                             <td class="text-center">{{ $item->Getname->name }}</td>
-                                            <td class="text-center">{{ json_decode($item->attributes, true)['username'] }}
+                                            <td class="text-center">{{ $item->name }}</td>
+                                            <td class="text-center">
+                                                @if($item->name == 'app_install_task')
+                                                <button class="btn btn-primary btn-sm" onclick="alert('{{ json_decode($item->attributes, true)['reward_link'] }}')">view</button>
+                                              
+                                                @elseif($item->name == 'telegram_task') 
+                                                {{ json_decode($item->attributes, true)['username'] }} 
+                                                @endif
                                             </td>
 
                                             <td class="text-center"><a href="{{ route('offers.telegram.status',([$item->id,'reject'])) }}"><i
@@ -59,7 +66,7 @@
                         </div>
                         {{-- pagination --}}
                         <div class="container d-flex justify-content-end mt-3">
-                            {!! $telegram_checklist->links() !!}
+                            {!! $checklist->links() !!}
                         </div>
                         {{-- pagination --}}
                     </div>

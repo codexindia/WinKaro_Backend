@@ -109,7 +109,25 @@ class OffersController extends Controller
   public function app_install_task(Request $request)
   {
     $request->validate([
-      'telegram_username' => 'required',
+      'reward_link' => 'required',
     ]);
+    if (CompleteOffers::where([
+      'user_id' => $request->user()->id,
+      'name' => 'app_install_task',
+     ])->exists()) {
+       return response()->json([
+         'status' => false,
+         'message' => 'Offer Already Claimed',
+       ]);
+     }
+     $user_id = $request->user()->id;
+     $input = json_encode([
+       'reward_link' => $request->reward_link,
+     ]);
+     $this->claimed_offer($user_id, 'app_install_task', 200, 'processing', $input);
+     return response()->json([
+       'status' => true,
+       'message' => 'Offer Is Processing, Wait For Approval',
+     ]);
   }
 }
