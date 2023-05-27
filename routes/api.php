@@ -73,6 +73,8 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
     });
     Route::controller('OffersController')->prefix('offers')->group(function () {
         Route::post('/check_status', 'check_status');
+        Route::post('/get/app_install_task', 'get_install_task');
+
         Route::post('/claim/yt_task_milestone', 'yt_task_milestone');
         Route::post('/claim/telegram_task', 'telegram_task');
         Route::post('/claim/app_install_task', 'app_install_task');

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\CompleteOffers;
 use App\Models\CompleteTask;
 use App\Models\OfferSubmissions;
-
+use App\Models\InstallOffer;
 class OffersController extends Controller
 {
   private function claimed_offer($user_id, $task_name, $reward_coins, $status = 'processing', $inputs = null)
@@ -129,5 +129,14 @@ class OffersController extends Controller
        'status' => true,
        'message' => 'Offer Is Processing, Wait For Approval',
      ]);
+  }
+  public function get_install_task(Request $request)
+  {
+    $main = InstallOffer::latest()->first();
+  return response()->json([
+    'status' => true,
+    'data' => $main,
+    'message' => 'Popup Retrieve Successfully',
+  ]);
   }
 }
