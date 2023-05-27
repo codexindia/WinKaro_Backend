@@ -48,7 +48,8 @@
                                                 <button class="btn btn-primary btn-sm" onclick="alert('{{ json_decode($item->attributes, true)['reward_link'] }}')">view</button>
                                               
                                                 @elseif($item->name == 'telegram_task') 
-                                                {{ json_decode($item->attributes, true)['username'] }} 
+                                                <button class="btn btn-primary btn-sm" onclick="alert('{{ json_decode($item->attributes, true)['username'] }}')">view</button>
+                                               
                                                 @endif
                                             </td>
 
