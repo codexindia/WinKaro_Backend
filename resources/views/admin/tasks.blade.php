@@ -155,8 +155,8 @@
                                                     Youtube Task</option>
                                                 <option @if ($main->type == 'instagram') selected @endif
                                                     value="instagram">Instagram Task</option>
-                                                <option @if ($main->type == 'yt_shorts') selected @endif
-                                                    value="yt_shorts">Youtube Shorts Task</option>
+                                                <option @if ($main->type == 'website_check_in') selected @endif
+                                                    value="yt_shorts">Website Check In</option>
                                             </select>
                                         @else
                                             <label for="exampleFormControlSelect1" class="form-label">Choose Task

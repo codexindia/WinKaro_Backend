@@ -66,7 +66,7 @@
                                 <div class="col mb-0">
                                     <label for="dobBackdrop" class="form-label">Action</label>
                                     <input type="text" name="action" id="dobBackdrop" value="#"
-                                        class="form-control" placeholder="https://winkaro.com" required />
+                                        class="form-control" placeholder="Lrem Ispum" required />
                                 </div>
                             </div>
                             <div class="card mt-2">

@@ -39,7 +39,7 @@ class ApiAuth extends Controller
             ]);
         }
         //creating account
-        $refer_code = 'WIN' . rand('100000', '999999');
+        $refer_code = 'SMYT' . rand('100000', '999999');
         $balance = 0;
         if ($request->has('refer_code')) {
             

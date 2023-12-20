@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('action_url');
             $table->string('publisher')->nullable();
             $table->integer('reward_coin');
+            $table->json('question')->nullable();
             $table->string('status');
             $table->timestamp('expire_at');
             $table->timestamps();

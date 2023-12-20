@@ -10,7 +10,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Winkaro - @yield('title')</title>
+    <title>Pixel Profit - @yield('title')</title>
 
 
     <meta name="description" content="" />
@@ -65,9 +65,9 @@
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
                     <a href="{{ route('dashboard') }}" class="app-brand-link">
-                        <img style="max-width:50px;border-radius:50%;"
+                        <img style="max-width:50px;"
                             src="{{ asset('AdminAssets/assets/img/logo.png') }}" alt="">
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">WinKaro</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Pixel Profit</span>
                     </a>
 
                     <a href="javascript:void(0);"
