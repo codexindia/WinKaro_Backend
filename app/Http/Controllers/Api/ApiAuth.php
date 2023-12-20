@@ -136,7 +136,7 @@ class ApiAuth extends Controller
         }
         try {
             $response = Http::withHeaders([
-                'authorization' => 'PSGTUCfVt35mERb6jgAcJdvzIKkLBwhiaxoXrDWOsuQqHY8n9NVlZ1yH08JAQrXhR2cTBUjuzgCYGbE5',
+                'authorization' => 'xHJicy25FB7MKaRVf6LwkYSIXoluUbOP43zTWCvp8019tgjeAdo90pJ5x6q32dE1ZrCP4aONUmsjtBlD',
                 'accept' => '*/*',
                 'cache-control' => 'no-cache',
                 'content-type' => 'application/json'
