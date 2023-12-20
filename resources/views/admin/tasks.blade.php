@@ -156,7 +156,7 @@
                                                 <option @if ($main->type == 'instagram') selected @endif
                                                     value="instagram">Instagram Task</option>
                                                 <option @if ($main->type == 'website_check_in') selected @endif
-                                                    value="yt_shorts">Website Check In</option>
+                                                    value="website_check_in">Website Check In</option>
                                             </select>
                                         @else
                                             <label for="exampleFormControlSelect1" class="form-label">Choose Task
@@ -166,7 +166,7 @@
                                                 <option selected disabled>Choose One</option>
                                                 <option value="youtube">Youtube Task</option>
                                                 <option value="instagram">Instagram Task</option>
-                                                <option value="yt_shorts">Youtube Shorts Task</option>
+                                                <option value="website_check_in">Website Check In</option>
                                             </select>
                                         @endif
                                         @error('task_type')
