@@ -36,7 +36,7 @@ class TaskManage extends Controller
          'action_url' => 'required|url',
          'reward_coin' => 'required|numeric',
          'expire_after_hour' => 'required|numeric',
-         'task_type' => 'required|in:youtube,instagram,yt_shorts',
+         'task_type' => 'required|in:youtube,instagram,website_check_in',
          'thumbnail' => 'required|image',
       ]);
       if ($request->task_type == 'youtube') {
@@ -45,8 +45,8 @@ class TaskManage extends Controller
       } elseif ($request->task_type == 'instagram') {
          $count = AllTasks::where('type', 'instagram')->count();
          $task_name = 'Instagram Task ' . $count;
-      } elseif ($request->task_type == 'yt_shorts') {
-         $count = AllTasks::where('type', 'yt_shorts')->count();
+      } elseif ($request->task_type == 'website_check_in') {
+         $count = AllTasks::where('type', 'website_check_in')->count();
          $task_name = 'Shorts Task ' . $count;
       }
       $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
@@ -81,7 +81,7 @@ class TaskManage extends Controller
          'action_url' => 'required|url',
          'reward_coin' => 'required|numeric',
          'expire_after_hour' => 'required|numeric',
-         'task_type' => 'required|in:youtube,instagram,yt_shorts',
+         'task_type' => 'required|in:youtube,instagram,website_check_in',
 
       ]);
 
