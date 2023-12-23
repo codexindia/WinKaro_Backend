@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\CompleteTask;
 use App\Http\Controllers\Api\WalletManage;
 use App\Models\User;
+use App\Models\Question;
+
 class TaskManage extends Controller
 {
    public function index()
@@ -29,6 +31,7 @@ class TaskManage extends Controller
    }
    public function create(Request $request)
    {
+     
       $request->validate([
 
          'title' => 'required',
@@ -47,10 +50,10 @@ class TaskManage extends Controller
          $task_name = 'Instagram Task ' . $count;
       } elseif ($request->task_type == 'website_check_in') {
          $count = AllTasks::where('type', 'website_check_in')->count();
-         $task_name = 'Shorts Task ' . $count;
+         $task_name = 'Website Check in ' . $count;
       }
       $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
-      AllTasks::create([
+      $result = AllTasks::create([
          'task_name' =>  $task_name,
          'type' => $request->task_type,
          'title' => $request->title,
@@ -61,6 +64,18 @@ class TaskManage extends Controller
          'thumbnail_image' => $thumbnail_path,
          'action_url' => $request->action_url,
       ]);
+
+      for ($i = 1; $i <= 6; $i++) {
+         if ($request['question_'. $i] != null) {
+            Question::create([
+               'task_id' => $result->id,
+               'question' => $request['question_' .$i],
+               'answer' => $request['answer_'.$i],
+               'required' => $request['check_'.$i] == 1?'yes':'no',
+            ]);
+         }
+      }
+
       return back()->with(['success' => 'Task Created SuccessFully']);
    }
 
@@ -124,7 +139,7 @@ class TaskManage extends Controller
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
          if ($data->status == 'processing') {
-         
+
 
             $data->update([
                'status' => 'complete',
@@ -135,15 +150,15 @@ class TaskManage extends Controller
             Storage::delete($src);
             //deleting
             $user_id = $data->user_id;
-           
+
             $param['title'] = 'Task Status';
-            $param['subtitle'] = 'Congratulations Your Task '.$data->GetTask->task_name.' Has Been Approved. And '.$data->reward_coin.' Coins Credited Into Your Wallet';
+            $param['subtitle'] = 'Congratulations Your Task ' . $data->GetTask->task_name . ' Has Been Approved. And ' . $data->reward_coin . ' Coins Credited Into Your Wallet';
             Notification::send(User::find($user_id), new UserAllNotifications($param));
 
             $amount = $data->reward_coin;
             $description = 'Wining For Complete Task';
-           
-            $result = (new WalletManage)->AddPayment($user_id, $amount, $description,'reward');
+
+            $result = (new WalletManage)->AddPayment($user_id, $amount, $description, 'reward');
             return response()->json([
                'status' => 'true',
                'message' => 'Task Approved SuccessFully',
@@ -166,7 +181,7 @@ class TaskManage extends Controller
             $user_id = $data->user_id;
 
             $param['title'] = 'Task Status';
-            $param['subtitle'] = 'Opps! Your Task '.$data->GetTask->task_name.' Not Approved . Reason '.$request->reason;
+            $param['subtitle'] = 'Opps! Your Task ' . $data->GetTask->task_name . ' Not Approved . Reason ' . $request->reason;
             Notification::send(User::find($user_id), new UserAllNotifications($param));
 
             $data->update([

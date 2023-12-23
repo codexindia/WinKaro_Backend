@@ -27,7 +27,7 @@
                                     <th class="text-center">Type</th>
                                     <th class="text-center">Coins</th>
                                     <th class="text-center">Status</th>
-                                    <th class="text-center">Action</th>
+                                    {{-- <th class="text-center">Action</th> --}}
 
                                 </tr>
                             </thead>
@@ -40,7 +40,8 @@
                                     @php
                                         $i++;
                                     @endphp
-                                    <tr onclick="window.open('{{ route('task.submission_details', $item->id) }}')">
+                                    {{-- <tr onclick="window.open('{{ route('task.submission_details', $item->id) }}')"> --}}
+                                       <tr>
                                         <td class="text-center">{{ $i }}</td>
                                         <td class="text-center">{{ $item->GetName->name }}</td>
                                         <td class="text-center">{{ ucwords($item->GetTask->task_name) }}</td>
@@ -57,10 +58,10 @@
                                             <td class="text-center"><span class="badge bg-label-danger">
                                                     {{ $item->status }}</span></td>
                                         @endif
-                                        <td class="text-center"><a
+                                        {{-- <td class="text-center"><a
                                                 href="{{ route('task.submission_details', $item->id) }}"><i
                                                     class="uil uil-arrow-circle-right text-success"
-                                                    style="font-size:1.4rem;"></i></a></td>
+                                                    style="font-size:1.4rem;"></i></a></td> --}}
 
                                     </tr>
                                 @endforeach
