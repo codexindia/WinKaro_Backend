@@ -8,6 +8,7 @@ use App\Models\AllTasks;
 use App\Models\CompleteTask;
 use Illuminate\Support\Facades\Storage;
 use Wester\ChunkUpload\Chunk;
+use App\Models\Question;
 use Wester\ChunkUpload\Validation\Exceptions\ValidationException;
 
 class TaskManage extends Controller
@@ -20,24 +21,29 @@ class TaskManage extends Controller
         $taskdata = AllTasks::where([
             'type' => $type,
             'status' => 'active'
-        ])->orderBy('id', 'desc')->get();
+        ])->inRandomOrder()->get();
         $data = [];
         $i = 0;
+        
         foreach ($taskdata as $collection) {
             $i++;
+            $ques = Question::where('task_id' , $collection->id)->get(['id','question','required']);
             $check = CompleteTask::where([
                 'task_id' => $collection->id,
                 'user_id' => $request->user()->id,
             ])->latest()->first();
+            
             if ($check != null) {
 
                 $data[] = [
+                    'question' => $ques,
                     'data' => $collection,
                     'status' => $check->status,
                     'remarks' => $check->remarks
                 ];
             } else {
                 $data[] = [
+                    'question' => $ques,
                     'data' => $collection,
 
                 ];

@@ -14,6 +14,10 @@ class AllTasks extends Model
     {
         return $this->hasOne(CompleteTask::class.'task_id', 'id');
     }
+    public function Question()
+    {
+        return $this->hasMany(Question::class.'task_id', 'id');
+    }
     public function getThumbnailImageAttribute($value)
     {
         return asset(Storage::url($value));
