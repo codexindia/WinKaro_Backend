@@ -66,6 +66,8 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
         Route::post('/get/{type}', 'get_tasks');
         Route::post('/submit/task', 'submit_task');
         Route::post('/v2/submit/task', 'submit_task_v2');
+        Route::post('/v3/submit/task', 'submit_task_v3');
+
 
     });
     Route::controller('BannersManage')->prefix('banners')->group(function () {

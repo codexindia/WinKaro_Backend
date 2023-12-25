@@ -24,15 +24,15 @@ class TaskManage extends Controller
         ])->inRandomOrder()->get();
         $data = [];
         $i = 0;
-        
+
         foreach ($taskdata as $collection) {
             $i++;
-            $ques = Question::where('task_id' , $collection->id)->get(['id','question','required']);
+            $ques = Question::where('task_id', $collection->id)->get(['id', 'question', 'required']);
             $check = CompleteTask::where([
                 'task_id' => $collection->id,
                 'user_id' => $request->user()->id,
             ])->latest()->first();
-            
+
             if ($check != null) {
 
                 $data[] = [
@@ -137,6 +137,46 @@ class TaskManage extends Controller
                 'message' => $e->getMessage(),
                 'data' => $e->getErrors(),
             ]);
+        }
+    }
+
+    public function submit_task_v3(Request $request)
+    {
+        $required = array(
+            'task_id' => 'required',
+        );
+        $question = Question::where('task_id', $request->task_id)->where('required', 'yes')->get();
+        $i = 1;
+
+        foreach ($question as $item) {
+            if ($item->required == "yes") {
+                if ($item->answer == $request['answer_' . $i]) {
+
+                    if ($question->count() == $i) {
+                        $get_task = AllTasks::findOrFail($request->task_id);
+                        CompleteTask::create([
+                            'user_id' => $request->user()->id,
+                            'task_id' => $get_task->id,
+                            'type' => $get_task->type,
+                            'reward_coin' => $get_task->reward_coin,
+                            'proof_src' => "v3tasks",
+                            'status' => 'processing',
+                        ]);
+                        $result = (new WalletManage)->AddPayment($request->user()->id, $get_task->reward_coin, "Coin Added For Completing Task ".$get_task->task_name, 'reward');
+                        return response()->json([
+                            'reward' => $get_task->reward_coin,
+                            'status' => true,
+                            'message' => 'All Answer Done'
+                        ]);
+                    }
+                    $i++;
+                } else {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Answer Wrong'
+                    ]);
+                }
+            }
         }
     }
 }
