@@ -160,7 +160,7 @@ class TaskManage extends Controller
                             'type' => $get_task->type,
                             'reward_coin' => $get_task->reward_coin,
                             'proof_src' => "v3tasks",
-                            'status' => 'processing',
+                            'status' => 'complete',
                         ]);
                         $result = (new WalletManage)->AddPayment($request->user()->id, $get_task->reward_coin, "Coin Added For Completing Task ".$get_task->task_name, 'reward');
                         return response()->json([
