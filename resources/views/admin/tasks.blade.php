@@ -194,90 +194,31 @@
                                 </div>
 
                                 <h6>Question And Answer</h6>
-                                <div class="row">
+                                @for($i = 1; $i <= 10; $i++)
+                                    <div class="row">
+                                        <div class="col-4 mb-2">
+                                            {!! form::wtextbox('question_'.$i) !!}
+                                        </div>
+                                        <div class="col-4">
+                                            {!! form::wtextbox('answer_'.$i) !!}
+                                        </div>
+                                        <div class="col-4 d-flex align-items-center pt-3">
+                                            {!! form::wcheckbox('check_'.$i, 'required') !!}
+                                        </div>
+                                    </div>
+                                @endfor
 
-                                    <div class="col-4">
-                                        {!! form::wtextbox('question_1') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_1') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_1', 'required') !!}
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        {!! form::wtextbox('question_2') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_2') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_2', 'required') !!}
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        {!! form::wtextbox('question_3') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_3') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_3', 'required') !!}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 mb-2">
-                                        {!! form::wtextbox('question_4') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_4') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_4', 'required') !!}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 mb-2">
-                                        {!! form::wtextbox('question_5') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_5') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_5', 'required') !!}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 mb-2">
-                                        {!! form::wtextbox('question_6') !!}
-                                    </div>
-                                    <div class="col-4">
-                                        {!! form::wtextbox('answer_6') !!}
-                                    </div>
-                                    <div class="col-4 d-flex align-items-center pt-3">
-                                        {!! form::wcheckbox('check_6', 'required') !!}
-                                    </div>
-                                </div>
-                            
-
-
-                            @if (isset($main))
-                                {!! form::wsubmit('Update') !!}
-                            @else
-                                {!! form::wsubmit('Create') !!}
-                            @endif
-                            {!! form::close() !!}
+                                @if (isset($main))
+                                    {!! form::wsubmit('Update') !!}
+                                @else
+                                    {!! form::wsubmit('Create') !!}
+                                @endif
+                                {!! form::close() !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     @endif
 @endsection

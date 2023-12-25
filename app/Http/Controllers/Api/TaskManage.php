@@ -150,6 +150,7 @@ class TaskManage extends Controller
 
         foreach ($question as $item) {
             if ($item->required == "yes") {
+               
                 if ($item->answer == $request['answer_' . $i]) {
 
                     if ($question->count() == $i) {

@@ -10,7 +10,7 @@
 
 <body>
     <p>&nbsp;<b style="background-color: white; font-family: &quot;Helvetica Neue&quot;; font-size: 16px;">Information
-            you give us to avail our services on Win Karo App</b></p>
+            you give us to avail our services on PixelProfit App</b></p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
@@ -40,12 +40,12 @@
                     verify your Mobile number through 3</span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 10.8px; font-stretch: normal; line-height: normal;">rd</span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">&nbsp;party
-                    services to detect fraud/ unauthorised usage of Win Karo App.</span></li>
+                    services to detect fraud/ unauthorised usage of PixelProfit App.</span></li>
         </ul>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Email
-                address: Your email address is used to communicate service alerts (your activity on Win Karo App &amp;
+                address: Your email address is used to communicate service alerts (your activity on PixelProfit App &amp;
                 Service related communication). Other uses :</span></li>
         <ul style="list-style-type: disc;">
             <li style="margin: 0px;"><span
@@ -54,7 +54,7 @@
                     verify your email address through 3</span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 10.8px; font-stretch: normal; line-height: normal;">rd</span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">&nbsp;party
-                    services to detect fraud/ unauthorised usage of Win Karo App.</span></li>
+                    services to detect fraud/ unauthorised usage of PixelProfit App.</span></li>
             <li style="margin: 0px;"><span
                     style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">We
@@ -88,7 +88,7 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">This
             information is stored in an encrypted format. All required information is service dependent and the Company
-            may use the above said user Information to maintain, protect, and improve the Win Karo App Services and for
+            may use the above said user Information to maintain, protect, and improve the PixelProfit App Services and for
             developing new services.</span>
     </p>
     <p
@@ -103,17 +103,17 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">When
-            you register with the Win Karo App Services, we contact you from time to time about updating your personal
+            you register with the PixelProfit App Services, we contact you from time to time about updating your personal
             information to provide you features that we believe may benefit / interest you. By agreeing to this privacy
             policy, you explicitly give us consent to use your information as described in this privacy
-            policy.&nbsp;<b>If you do not agree, please do not use or access Win Karo App services.</b></span>
+            policy.&nbsp;<b>If you do not agree, please do not use or access PixelProfit App services.</b></span>
     </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">After
             registration is complete, users can optionally choose to furnish below information via the Profile section
-            within Win Karo App:-</span>
+            within PixelProfit App:-</span>
     </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
@@ -140,14 +140,14 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Above
             information is completely voluntary and you can choose to not provide the same. The above Information as
-            supplied by you enables us to improve the Win Karo App services and provide you custom offers.</span>
+            supplied by you enables us to improve the PixelProfit App services and provide you custom offers.</span>
     </p>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Information
             we capture/ track from use of the services or is obtained from third parties (this information is only
-            captured from your device after you grant permission to Win Karo App). We capture/ track information from
+            captured from your device after you grant permission to PixelProfit App). We capture/ track information from
             your use of services. This information may be obtained from third parties in some cases. This information is
             used to provide best &amp; customized service to each of our users, improve overall service delivery, devise
             new services, identify and reduce fraud or unauthorized use of our services and other purposes. All this
@@ -160,12 +160,12 @@
                     &amp; account information</b><br />We collect device-specific information (such as your hardware
                 model, operating system version, unique device identifiers, and mobile network information including
                 phone number and account information on phone).<br /><b>How we use this information</b><br />We
-                primarily use this information to detect fraud &amp; unauthorized usage of Win Karo App services. Your
-                device level information is also used in tracking your activity on Win Karo App for various actions
+                primarily use this information to detect fraud &amp; unauthorized usage of PixelProfit App services. Your
+                device level information is also used in tracking your activity on PixelProfit App for various actions
                 &amp; tasks.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Log
-                    information</b><br />When you use our services or view content provided by Win Karo App, we
+                    information</b><br />When you use our services or view content provided by PixelProfit App, we
                 automatically collect and store certain information in server logs. This includes:</span></li>
         <ul style="list-style-type: disc;">
             <li style="margin: 0px;"><span
@@ -188,23 +188,23 @@
             <li style="margin: 0px;"><span
                     style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">cookies
-                    that may uniquely identify your browser or your Win Karo App Account.</span></li>
+                    that may uniquely identify your browser or your PixelProfit App Account.</span></li>
         </ul>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>How
                     we use this information</b><br />We read SMS messages &amp; routing information only for mobile
-                number verification purposes for registration/ signup on Win Karo App. We do not read messages sent by
-                any service other than the Win Karo App itself. We use information collected from cookies and other
+                number verification purposes for registration/ signup on PixelProfit App. We do not read messages sent by
+                any service other than the PixelProfit App itself. We use information collected from cookies and other
                 technologies, like pixel tags etc. to improve your user experience and the overall quality of our
                 services. We use multiple such 3rd party services like Google Analytics, Branch metrics etc. We may
                 combine personal information from one service with information, including personal information, from
-                other services to create a rich profile of you , to better your experience on the Win Karo App.</span>
+                other services to create a rich profile of you , to better your experience on the PixelProfit App.</span>
         </li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Location
-                    information</b><br />When you use Win Karo App services, we may collect and process information
+                    information</b><br />When you use PixelProfit App services, we may collect and process information
                 about your location. We use various technologies to determine location, including IP address, GPS, and
-                other sensors that may, for example, provide Win Karo App with information on nearby devices, Wi-Fi
+                other sensors that may, for example, provide PixelProfit App with information on nearby devices, Wi-Fi
                 access points and cell towers.<br /><b>How we use this information</b><br />We use location information
                 to maintain &amp; improve services provided to you, to develop new services. These services include
                 those provided to users within the app and via email communications that we shall send to you as
@@ -214,32 +214,32 @@
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Unique
                     application numbers</b><br />Certain services include a unique application number. This number and
                 information about your installation (for example, the operating system type, application version number,
-                etc..) may be sent to Win Karo App when you install or uninstall that service.<br /><b>How we use this
+                etc..) may be sent to PixelProfit App when you install or uninstall that service.<br /><b>How we use this
                     information</b><br />Operating system type &amp; version helps us in providing the best experience
-                of Win Karo App for your operating system along with customizing offers displayed to you. Information
+                of PixelProfit App for your operating system along with customizing offers displayed to you. Information
                 about Installing and uninstalling of other services helps us in keeping track of offers that are common
-                between these and Win Karo App and thus giving you the best experience and performance within the
+                between these and PixelProfit App and thus giving you the best experience and performance within the
                 app.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Local
                     storage</b><br />We may collect and store information locally on your device using mechanisms such
                 as application data, caches.<br /><b>How we use this information</b><br />This information is used to(a)
-                maintain your login session on Win Karo App (b) this information may also be used from time-to-time to
-                sync with Win Karo App servers and update the tasks and services that we provide to you within the app
+                maintain your login session on PixelProfit App (b) this information may also be used from time-to-time to
+                sync with PixelProfit App servers and update the tasks and services that we provide to you within the app
                 for your next usage.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>Cookies
                     and similar technologies</b><br />We and our partners use various technologies to collect and store
-                information when you visit a Win Karo App service, and this may include using cookies or similar
+                information when you visit a PixelProfit App service, and this may include using cookies or similar
                 technologies to identify your browser or device. We also use these technologies to collect and store
                 information when you interact with the services we offer to our partners, such as advertising services
-                or Win Karo App features that may appear on other sites or various SDKs we use for product Analytics
+                or PixelProfit App features that may appear on other sites or various SDKs we use for product Analytics
                 that help us analyse the traffic.<br /><b>How we use this information</b><br />We use information
                 collected from cookies and other technologies like pixel tags, Postbacks etc. to improve your user
                 experience and the overall quality of our services. We use multiple tools &amp; 3rd party services like
                 Google Analytics, Branch metrics etc. We may combine personal information from one service with
                 information, including personal information, from other services to give you the best experience within
-                the Win Karo App.</span></li>
+                the PixelProfit App.</span></li>
     </ol>
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px 0px 2px;">
@@ -251,7 +251,7 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">We
-            do not share your personal information with companies, organizations and individuals outside of Win Karo App
+            do not share your personal information with companies, organizations and individuals outside of PixelProfit App
             &amp; its partner companies unless one of the following circumstances applies:</span>
     </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
@@ -263,10 +263,10 @@
             <li style="margin: 0px;"><span
                     style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">We
-                    will share device level information with companies, organizations or individuals outside of Win Karo
+                    will share device level information with companies, organizations or individuals outside of PixelProfit
                     App when we have your consent to do so. When you agree to our Privacy Policy, you provide us consent
                     to share your device level information (mainly used for analytics and marketing purpose). We do not
-                    share your personally identifiable information with any entity outside Win Karo App.</span></li>
+                    share your personally identifiable information with any entity outside PixelProfit App.</span></li>
         </ul>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -326,7 +326,7 @@
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>For
                     legal reasons</b><br />We will share personal information with companies, organizations or
-                individuals outside of Win Karo App &amp; its partner companies due to various legal reasons</span></li>
+                individuals outside of PixelProfit App &amp; its partner companies due to various legal reasons</span></li>
         <ul style="list-style-type: disc;">
             <li style="margin: 0px;"><span
                     style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -343,7 +343,7 @@
             <li style="margin: 0px;"><span
                     style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                     style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">protect
-                    against harm to the rights, property or safety of Win Karo App &amp; its partner companies, our
+                    against harm to the rights, property or safety of PixelProfit App &amp; its partner companies, our
                     users or the public as required or permitted by law.</span></li>
         </ul>
     </ul>
@@ -364,7 +364,7 @@
             as part of a corporate reorganization, stock sale, or other change in control. Your visit and any dispute
             over privacy are subject to this policy and our terms and conditions, including limitations on
             damages.<br /><br />We will only share your personal information with other companies or individuals outside
-            of Win Karo App &amp; its partner companies in the following circumstances:</span>
+            of PixelProfit App &amp; its partner companies in the following circumstances:</span>
     </p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
@@ -385,7 +385,7 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">The
             information that we collect, including information obtained from third parties, is shared with our
-            affiliates, meaning other companies owned, controlled or are in partnership with Win Karo App. Our
+            affiliates, meaning other companies owned, controlled or are in partnership with PixelProfit App. Our
             affiliates, which can be financial and non-financial entities, will use such information for their everyday
             business purposes.</span>
     </p>
@@ -398,8 +398,7 @@
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
-            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Win
-            Karo App Site/ App may include links to other websites or apps. Such sites are governed by their respective
+            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">PixelProfit App Site/ App may include links to other websites or apps. Such sites are governed by their respective
             privacy policies, which are beyond our control. Once you click on those links, use of any information you
             provide is governed by the privacy policy of the operator of the site you are visiting. That policy may
             differ from ours. If you can't find the privacy policy of any of these sites via a link from the site's
@@ -423,8 +422,7 @@
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
-            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Win
-            Karo App has security measures in place to protect the loss, misuse, and alteration of the information under
+            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">PixelProfit App has security measures in place to protect the loss, misuse, and alteration of the information under
             our control. Whenever you change or access your account information, we offer the use of a secure server.
             Once your information is in our possession we adhere to strict security guidelines, protecting it against
             unauthorized access.</span>
@@ -438,8 +436,7 @@
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
-            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Win
-            Karo App app for Android requires following permissions to perform normally on your device:-</span>
+            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">PixelProfit App app for Android requires following permissions to perform normally on your device:-</span>
     </p>
     <ol style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
@@ -451,14 +448,14 @@
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Contacts
                 - Find &amp; read email accounts currently associated on your phone and associate them with your account
-                on Win Karo App</span></li>
+                on PixelProfit App</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Location
-                - Get location of your device and associate it with your Win Karo App account so as to improve delivered
+                - Get location of your device and associate it with your PixelProfit App account so as to improve delivered
                 services and get better business leads.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">SMS
-                - Primary to read and Verify OTP SMS for Win Karo App signup and registration process. We may also use
+                - Primary to read and Verify OTP SMS for PixelProfit App signup and registration process. We may also use
                 it for Analytics, Marketing &amp; Targeting purposes.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Phone
@@ -466,18 +463,18 @@
                 status etc.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Photos/Media/Files
-                &amp; Storage Access - We only read and access various files stored by Win Karo App app on your device
+                &amp; Storage Access - We only read and access various files stored by PixelProfit App app on your device
                 to keep the performance optimized.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Wi-Fi
                 connection information - We read the status of Wi-Fi connection on your device to notify you about the
-                same and also intimate you to use Win Karo App at that time so as to save on your data costs</span></li>
+                same and also intimate you to use PixelProfit App at that time so as to save on your data costs</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Other
                 Permissions such as: Receive data from Internet, full network access, prevent device from sleeping,
                 reorder running apps, view network connections, read Google service configuration, control vibration,
                 run at start-up, modify system settings. We use these services to give our users the best possible
-                experience on the Win Karo App and improve our services from time to time.</span></li>
+                experience on the PixelProfit App and improve our services from time to time.</span></li>
     </ol>
     <p
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 15px;">
@@ -524,7 +521,7 @@
             allow Users the chance to receive Rewards from the Advertiser in exchange for performing specific tasks or
             complying with the requirements (such tasks and/or requirements constituting the “Requirements”) set forth
             in the Offer/ Tasks. Each Opportunity&nbsp; &nbsp;&nbsp;listing contains a description of the Requirements
-            and the corresponding Reward to be provided by the Advertiser. Win Karo App provides the Service to
+            and the corresponding Reward to be provided by the Advertiser. PixelProfit App provides the Service to
             facilitate the relationship between Advertisers and Users. Advertisers are solely responsible for the
             content of their Offers listings and for the payment of any identified Rewards to Users.</span>
     </p>
@@ -618,8 +615,8 @@
     <p
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px;">
         <span
-            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">If You Want To Delete Your Data From Our App Then Please Email Us On - &nbsp;<a href="mailto:winkaro@yourexpand.in" style="color: #1155cc;"
-                target="_blank">winkaro@yourexpand.in</a></span>
+            style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">If You Want To Delete Your Data From Our App Then Please Call Us On - &nbsp;<a href="tel:+918339061567" style="color: #1155cc;"
+                target="_blank">+91 83390 61567</a></span>
     </p>
 
     <p
@@ -627,8 +624,8 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">In
             the event you have any grievance relating to the processing of information provided by you, you may contact
-            us at&nbsp;<a href="mailto:winkaro@yourexpand.in" style="color: #1155cc;"
-                target="_blank">winkaro@yourexpand.in</a></span>
+            us at&nbsp;<a href="tel:+918339061567" style="color: #1155cc;"
+                target="_blank">+91 8339061567</a></span>
     </p>
 </body>
 

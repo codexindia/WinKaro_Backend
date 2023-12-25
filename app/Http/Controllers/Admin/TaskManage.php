@@ -65,7 +65,7 @@ class TaskManage extends Controller
          'action_url' => $request->action_url,
       ]);
 
-      for ($i = 1; $i <= 6; $i++) {
+      for ($i = 1; $i <= 10; $i++) {
          if ($request['question_'. $i] != null) {
             Question::create([
                'task_id' => $result->id,

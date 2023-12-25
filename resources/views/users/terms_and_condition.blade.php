@@ -24,20 +24,20 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">These
             Terms and Conditions (the "Terms") are a binding contract between You ("User", "End User", "You",
-            "Customer") and "we", "Win Karo ", "our", and "us"). You must agree to and accept all of the Terms, or you
+            "Customer") and "we", "PixelProfit ", "our", and "us"). You must agree to and accept all of the Terms, or you
             don't have the right to use the Services. Your use of the Services in any way means that you agree to all of
             these Terms, and these Terms will remain in effect while you use the Services.<br /><br />When you register
-            on Win Karo and start using it, these terms will automatically apply to you. You should make sure therefore
+            on PixelProfit and start using it, these terms will automatically apply to you. You should make sure therefore
             that you read them carefully before using the product/service. You are not allowed to copy or modify the
             product/service, any part of the product/service, or our trademarks in any way. You are not allowed to try
             and attempt to extract the source code of the product/service, and you also shouldn't try to translate the
             product/service into other languages or make derivative versions. The product/service itself, and all the
             trademarks, copyright, database rights, and other intellectual property rights related to it, belong to Win
-            Karo., the owner of the product/service - Win Karo. These terms are subject to change, so we urge you to
+            Karo., the owner of the product/service - PixelProfit. These terms are subject to change, so we urge you to
             keep checking them.<br /><br />These terms constitute an electronic record per the provisions of the
             Information Technology Act, 2000 and the Information Technology (Intermediaries guidelines) Rules, 2011
-            thereunder, as amended from time to time.<br />Win Karo is not for use by any minors (defined as those who
-            are not at least 18 years of age), and you must not use or access Win Karo if you are a minor.<br />We
+            thereunder, as amended from time to time.<br />PixelProfit is not for use by any minors (defined as those who
+            are not at least 18 years of age), and you must not use or access PixelProfit if you are a minor.<br />We
             reserve the sole right to make changes to the product/service, at any time and for any reason in the
             future.</span></p>
     <p align="justify"
@@ -53,10 +53,10 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">User's
             earnings or rewards for tasks completed shall be based solely on the number &amp; quality of acceptable
-            reports received by Win Karo from its clients (advertisers). Win Karo is not liable for rewards lost or not
-            credited to the user's wallet due to internet connectivity issues, bugs in the Win Karo system, or any other
-            factor. Win Karo is not liable to make any payment to the user if the pertinent payment from the advertiser
-            is not received by Win Karo.<br />Rewarded coins credited to the user in the Win Karo wallet &amp; cash
+            reports received by PixelProfit from its clients (advertisers). PixelProfit is not liable for rewards lost or not
+            credited to the user's wallet due to internet connectivity issues, bugs in the PixelProfit system, or any other
+            factor. PixelProfit is not liable to make any payment to the user if the pertinent payment from the advertiser
+            is not received by PixelProfit.<br />Rewarded coins credited to the user in the PixelProfit wallet &amp; cash
             converted from reward coins will never expire from the user's wallet.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
@@ -67,8 +67,8 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Users
-            shall have no authority to bind, obligate, or commit Win Karo in any manner, including by any promise or
-            representation, whether oral or written, unless specifically authorized by Win Karo in writing.</span></p>
+            shall have no authority to bind, obligate, or commit PixelProfit in any manner, including by any promise or
+            representation, whether oral or written, unless specifically authorized by PixelProfit in writing.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
@@ -80,11 +80,11 @@
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">In
             the event any dispute, arbitration, or litigation arises out of, in connection with, or as a result of any
             act performed by User according to this agreement, or failure to perform, as the case may be, User shall
-            cooperate fully with Win Karo to resolve the same. User agrees to indemnify and hold Win Karo harmless of
+            cooperate fully with PixelProfit to resolve the same. User agrees to indemnify and hold PixelProfit harmless of
             and from any and all claims, demands, suits, and liabilities, including costs and attorney's fees, to which
-            Win Karo may be subjected because of or in connection with any proceeding arising out of the conduct or
-            omissions of User. It is the policy of Win Karo to avoid litigation whenever possible but the decision of
-            whether or not to enter into or maintain litigation shall be the decision of Win Karo alone. This obligation
+            PixelProfit may be subjected because of or in connection with any proceeding arising out of the conduct or
+            omissions of User. It is the policy of PixelProfit to avoid litigation whenever possible but the decision of
+            whether or not to enter into or maintain litigation shall be the decision of PixelProfit alone. This obligation
             shall survive the termination or expiration of this Agreement.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
@@ -96,7 +96,7 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Win
             Karo will provide the User with instructions and forms designed to assist the user in completing a task for
-            Win Karo, all of which shall remain Win Karo’s sole property.</span></p>
+            PixelProfit, all of which shall remain PixelProfit’s sole property.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
@@ -107,7 +107,7 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Users
             will not, on behalf of himself or any third party, employ, or seek to employ any person employed by or
-            engaged by Win Karo and its team around the world, or otherwise directly or indirectly induce such persons
+            engaged by PixelProfit and its team around the world, or otherwise directly or indirectly induce such persons
             to leave their employment.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
@@ -118,18 +118,18 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">While
-            User is using Win Karo, and thereafter, User will hold in strictest confidence, maintain as confidential,
-            and not disclose to any third party, the following: Any and all information concerning Win Karo's present or
+            User is using PixelProfit, and thereafter, User will hold in strictest confidence, maintain as confidential,
+            and not disclose to any third party, the following: Any and all information concerning PixelProfit's present or
             former customers, including their names and identities, locations and addresses, their employees and
             representatives, business practices, as well as the information sought to be gathered, and actually
-            gathered, in connection with the services provided by Win Karo to its customers; Any and all information
-            concerning Win Karo's employees and representatives, as well as any information designated orally or in
-            writing as confidential by Win Karo regarding Win Karo's sales methods, plans, and records, Win Karo's
+            gathered, in connection with the services provided by PixelProfit to its customers; Any and all information
+            concerning PixelProfit's employees and representatives, as well as any information designated orally or in
+            writing as confidential by PixelProfit regarding PixelProfit's sales methods, plans, and records, PixelProfit's
             collections on behalf of its customers, all written communications, training and marketing materials, and
             all other like documents not disseminated to the general public, including computer programs and printouts,
-            as well as any other confidential information regarded by Win Karo as a trade secret or otherwise protected
+            as well as any other confidential information regarded by PixelProfit as a trade secret or otherwise protected
             from disclosure under applicable law. The user may, in accordance with the foregoing, use such information
-            solely as necessary in the User's use of Win Karo.</span></p>
+            solely as necessary in the User's use of PixelProfit.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
@@ -141,29 +141,28 @@
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">Either
             party may, at any time, terminate this Agreement for any reason or for no reason at all. However, each shall
             continue to comply with any and all obligations of this Agreement that are intended to survive its
-            termination or expiration. Once the user terminates this agreement between the user and Win Karo, the user
-            will not be allowed to use the services of Win Karo. Continue use of Win Karo means that the user has
+            termination or expiration. Once the user terminates this agreement between the user and PixelProfit, the user
+            will not be allowed to use the services of PixelProfit. Continue use of PixelProfit means that the user has
             accepted these terms and the User shall be bound by these terms.<br /><br />In case of any fraudulent
-            activities detected from your end to disrupt, manipulate or hinder the right usage of Win Karo &amp; its
+            activities detected from your end to disrupt, manipulate or hinder the right usage of PixelProfit &amp; its
             services, the company holds the right to terminate your access to the product without notice.<br />In no
             event shall the Company, nor any of its officers, directors, affiliates, employees, agents, and consultants,
-            be liable to you for anything arising out of or in any way connected with your use of Win Karo, whether such
+            be liable to you for anything arising out of or in any way connected with your use of PixelProfit, whether such
             liability is under contract, tort or otherwise, and Company, including its officers, directors, and
             employees shall not be liable for any indirect, consequential or special liability arising out of or in any
-            way related to your use of Win Karo.<br />We cannot control and have no duty to take any action regarding
+            way related to your use of PixelProfit.<br />We cannot control and have no duty to take any action regarding
             how you may interpret and use the Content or what actions you may take as a result of having been exposed to
             the Content, and you hereby release us from all liability for you having acquired or not acquired Content
             through the Services.<br />User understands that in the event of termination or expiration, User will
-            receive the balance recharge due to User for tasks that Win Karo has deemed acceptable. Win Karo and User
+            receive the balance recharge due to User for tasks that PixelProfit has deemed acceptable. PixelProfit and User
             shall deal with each other fairly and in good faith relative to this Agreement. User further understands
             that if User has participated in any incentive promotion pursuant to which User may be entitled to a bonus,
             trip, or any kind of award/ rewards, User will not be entitled to the same if it was not actually received
-            prior to the date of termination. Win Karo may terminate User accounts without prior notice if any
-            suspicious activity is found which comes in the way of the natural or intended functioning of Win Karo. Win
-            Karo may terminate user(s) account(s) if the user is found to be indulging in promoting their Win Karo
-            referral links or any other codes on Facebook, Google Play, or any other public properties along with
+            prior to the date of termination. PixelProfit may terminate User accounts without prior notice if any
+            suspicious activity is found which comes in the way of the natural or intended functioning of PixelProfit. Win
+            Karo may terminate user(s) account(s) if the user is found to be indulging in promoting their PixelProfit           referral links or any other codes on Facebook, Google Play, or any other public properties along with
             misleading or spammy communication of any nature. Termination of user accounts will be at the sole
-            discretion of Win Karo.</span></p>
+            discretion of PixelProfit.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: &quot;Helvetica Neue&quot;; font-size: 13px; font-stretch: normal; line-height: normal; margin: 0px; min-height: 16px; text-align: justify;">
         <b></b><br /></p>
@@ -328,16 +327,15 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">User
             understands and agrees that any breach or threatened breach by User of the non-competition and
-            non-disclosure provisions or any other provision contained in this Agreement will cause Win Karo
-            substantial, irreparable harm which is difficult to measure, and that Win Karo, therefore, may obtain an
+            non-disclosure provisions or any other provision contained in this Agreement will cause PixelProfit           substantial, irreparable harm which is difficult to measure, and that PixelProfit, therefore, may obtain an
             injunction against such conduct and User consents thereto. This right is in addition to any other rights Win
-            Karo may have against User for breach of this Agreement. Therefore, whenever Win Karo may apply for a
+            Karo may have against User for breach of this Agreement. Therefore, whenever PixelProfit may apply for a
             restraining order or injunction against User for breaching or threatening to breach this Agreement as
             described above, User waives any notice to which User may be entitled and consents to such restraining order
-            or injunction. If Win Karo proceeds against User in the state court for Haryana/ Delhi, or the Indian High
+            or injunction. If PixelProfit proceeds against User in the state court for Haryana/ Delhi, or the Indian High
             Courts/ Supreme Court situated in or closest to said area of Gurgaon, on any cause of action arising out of
             this Agreement, User agrees that such court may exercise personal jurisdiction over User. In the event of
-            any breach of this Agreement by the User, the User agrees to pay Win Karo all losses and damages sustained
+            any breach of this Agreement by the User, the User agrees to pay PixelProfit all losses and damages sustained
             as a result thereof, as well as court costs, attorney fees, and related expenses.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
@@ -351,9 +349,9 @@
             Karo services are available only to and can only be used by an individual who can form legally binding
             contracts as per the prevailing laws in India. The term individual shall only include a living person and
             does not include all other legal creations. The services are not available to minors under the age of 18 or
-            to any users suspended or removed from accessing Win Karo for any reason. Each notice to either Win Karo or
+            to any users suspended or removed from accessing PixelProfit for any reason. Each notice to either PixelProfit or
             User required hereunder shall be in writing and emailed to the addresses provided by the parties unless and
-            until any such address is changed in writing. Win Karo and User shall exercise their best efforts to
+            until any such address is changed in writing. PixelProfit and User shall exercise their best efforts to
             communicate to the other any such change in address. Such notices shall be deemed given when mailed by
             certified mail, return receipt requested. Any written notice may be personally delivered, but personally
             delivered notices shall be deemed given on the date of actual receipt.</span></p>
@@ -362,25 +360,24 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">This
             Agreement contains the entire understanding and agreement between the parties and supersedes all prior
-            written agreements, understandings, and negotiations, both written and oral, between the Parties. Win Karo
-            reserves the right to make changes to the Site, related policies, and agreements, the terms of services, and
-            the Privacy Policy at any time without prior notice to the user. Win Karo may assign this Agreement to any
+            written agreements, understandings, and negotiations, both written and oral, between the Parties. PixelProfit           reserves the right to make changes to the Site, related policies, and agreements, the terms of services, and
+            the Privacy Policy at any time without prior notice to the user. PixelProfit may assign this Agreement to any
             successor to all or part of its business or any parent, subsidiary, or an affiliated company. Users may not
-            assign these Terms, or any part thereof, without Win Karo's written consent.</span></p>
+            assign these Terms, or any part thereof, without PixelProfit's written consent.</span></p>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">These
-            terms contemplate the creation of a relationship of independent contractor by and between Win Karo and end
-            users; with User as Contractor, and Win Karo as Contractee. Nothing herein is intended to create, nor should
+            terms contemplate the creation of a relationship of independent contractor by and between PixelProfit and end
+            users; with User as Contractor, and PixelProfit as Contractee. Nothing herein is intended to create, nor should
             be construed as creating, the relationship of employer and employee.<br />These terms shall be governed by
             and construed in accordance with the laws of India without regard to conflicts of laws principles. The Court
             of Gurugram (Haryana-India) shall have the exclusive jurisdiction pertaining to any matter arising out of
             this agreement. If any provision of this Agreement is declared invalid under such laws, the validity of the
             other provisions shall not be affected thereby and that part shall remain enforced. Furthermore, the User
             agrees to abide by all local, state, and national laws where applicable while serving in the capacity of
-            Independent Contractor/ User to Win Karo. It shall be the user's responsibility to read and understand the
-            terms and conditions of the agreement and privacy policy updated from time to time and the Win Karo shall
+            Independent Contractor/ User to PixelProfit. It shall be the user's responsibility to read and understand the
+            terms and conditions of the agreement and privacy policy updated from time to time and the PixelProfit shall
             not be responsible for any failure therein on the part of the user. No agency, partnership, joint venture,
             or employment is created as a result of these Terms and you do not have any authority of any kind to bind
             the Company in any respect whatsoever.</span></p>
@@ -388,7 +385,7 @@
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>PAYMENT
-                TERMS for Win Karo pro platform:</b></span></p>
+                TERMS for PixelProfit pro platform:</b></span></p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -397,13 +394,13 @@
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">For
-                contests and giveaways, Win Karo reserves the right to charge a Platform Fee, which would be specified
-                and notified by Win Karo.</span></li>
+                contests and giveaways, PixelProfit reserves the right to charge a Platform Fee, which would be specified
+                and notified by PixelProfit.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">The
                 User acknowledges that subject to time taken for money transfers and such other external dependencies
-                that Win Karo has on third parties, any transactions on Win Karo Platform may take up to 1 business days
+                that PixelProfit has on third parties, any transactions on PixelProfit Platform may take up to 1 business days
                 to be processed.In rare circumstances it may also take longer.</span></li>
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
@@ -418,13 +415,13 @@
         <span
             style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;"><b>CAMPAIGNS
                 In respect of any campaigns running, to run or to be executed in the future or not to be executed on the
-                Win Karo platform:</b></span></p>
+                PixelProfit platform:</b></span></p>
     <ul style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small;">
         <li style="margin: 0px;"><span
                 style="color: black; font-family: Menlo; font-size: 9px; font-stretch: normal; line-height: normal;"></span><span
                 style="color: black; font-family: Helvetica Neue; font-size: 13px; font-stretch: normal; line-height: normal;">It
-                will be based on the sole and absolute discretion of Win Karo to run or not run a campaign or use
-                complete/ partial information from the campaign as provided to Win Karo.</span></li>
+                will be based on the sole and absolute discretion of PixelProfit to run or not run a campaign or use
+                complete/ partial information from the campaign as provided to PixelProfit.</span></li>
     </ul>
     <p align="justify"
         style="background-color: white; color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0px; text-align: justify;">
