@@ -151,7 +151,7 @@ class TaskManage extends Controller
         foreach ($question as $item) {
             if ($item->required == "yes") {
                
-                if ($item->answer == $request['answer_' . $i]) {
+                if (strcasecmp($item->answer,$request['answer_' . $i]) == 0) {
 
                     if ($question->count() == $i) {
                         $get_task = AllTasks::findOrFail($request->task_id);
