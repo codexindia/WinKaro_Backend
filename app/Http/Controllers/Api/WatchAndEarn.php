@@ -39,7 +39,7 @@ class WatchAndEarn extends Controller
                 'user_id' => $user_id,
                 'type' => 'watch_and_earn',
             ]);
-        if ($check->count() >= 10) {
+        if ($check->count() >= 5) {
             return response()->json([
                 'status' => false,
                 'message' => 'Todays Limit Exceeds'
