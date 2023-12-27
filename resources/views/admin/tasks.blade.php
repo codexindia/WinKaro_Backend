@@ -202,10 +202,10 @@
                                @foreach ($main->Question as $item)
                                <div class="row">
                                    <div class="col-4 mb-2">
-                                       {!! form::wtextbox($item->question,$item->question) !!}
+                                       {!! form::wtextbox('question',$item->question) !!}
                                    </div>
                                    <div class="col-4">
-                                       {!! form::wtextbox($item->answer,$item->answer) !!}
+                                       {!! form::wtextbox('answer',$item->answer) !!}
                                    </div>
                                    <div class="col-4 d-flex align-items-center pt-3">
                                        {!! form::wcheckbox('required','required',$item->required == "yes"?'checked':'') !!}
