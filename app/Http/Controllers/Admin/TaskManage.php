@@ -20,6 +20,7 @@ class TaskManage extends Controller
    //    $request->validate([
    //  'task_id' => 'required|exists:all_tasks,id',
    //    ]);
+      CompleteTask::where('task_id',$request->task_id)->delete();
       AllTasks::find($request->task_id)->delete();
       return back()->with(['success' => 'Task Deleted Success']);
    }
