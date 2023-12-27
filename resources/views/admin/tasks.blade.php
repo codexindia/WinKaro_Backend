@@ -196,6 +196,25 @@
                                 </div>
 
                                 <h6>Question And Answer</h6>
+                               
+                               @if(isset($main))
+                               <span class="text-warning">Question And Answer Cannnot Be Edit</span>
+                               @foreach ($main->Question as $item)
+                               <div class="row">
+                                   <div class="col-4 mb-2">
+                                       {!! form::wtextbox($item->question,$item->question) !!}
+                                   </div>
+                                   <div class="col-4">
+                                       {!! form::wtextbox($item->answer,$item->answer) !!}
+                                   </div>
+                                   <div class="col-4 d-flex align-items-center pt-3">
+                                       {!! form::wcheckbox('required','required',$item->required == "yes"?'checked':'') !!}
+                                   </div>
+                               </div>
+                           @endforeach
+
+                              
+                               @else
                                 @for ($i = 1; $i <= 10; $i++)
                                     <div class="row">
                                         <div class="col-4 mb-2">
@@ -209,7 +228,7 @@
                                         </div>
                                     </div>
                                 @endfor
-
+                                @endif
                                 @if (isset($main))
                                     {!! form::wsubmit('Update') !!}
                                 @else

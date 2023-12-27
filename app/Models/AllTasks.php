@@ -12,11 +12,11 @@ class AllTasks extends Model
     protected $guarded = ['id'];
     public function Check()
     {
-        return $this->hasOne(CompleteTask::class.'task_id', 'id');
+        return $this->hasOne(CompleteTask::class,'task_id', 'id');
     }
     public function Question()
     {
-        return $this->hasMany(Question::class.'task_id', 'id');
+        return $this->hasMany(Question::class,'task_id', 'id');
     }
     public function getThumbnailImageAttribute($value)
     {
