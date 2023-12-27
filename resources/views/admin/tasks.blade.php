@@ -32,7 +32,7 @@
                                     <th class="text-center">Coins</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Expire At</th>
-                                    <th class="text-center">Action</th>
+                                    <th colspan="2" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -63,6 +63,8 @@
                                         </td>
                                         <td class="text-center"><a href="{{ route('task.edit', $item->id) }}"><i
                                                     class="uil uil-edit text-success" style="font-size: 25px;"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('task.delete', $item->id) }}" onclick="return confirm('You Want To Delete')"><i
+                                                    class="uil uil-trash text-danger" style="font-size: 25px;"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -194,16 +196,16 @@
                                 </div>
 
                                 <h6>Question And Answer</h6>
-                                @for($i = 1; $i <= 10; $i++)
+                                @for ($i = 1; $i <= 10; $i++)
                                     <div class="row">
                                         <div class="col-4 mb-2">
-                                            {!! form::wtextbox('question_'.$i) !!}
+                                            {!! form::wtextbox('question_' . $i) !!}
                                         </div>
                                         <div class="col-4">
-                                            {!! form::wtextbox('answer_'.$i) !!}
+                                            {!! form::wtextbox('answer_' . $i) !!}
                                         </div>
                                         <div class="col-4 d-flex align-items-center pt-3">
-                                            {!! form::wcheckbox('check_'.$i, 'required') !!}
+                                            {!! form::wcheckbox('check_' . $i, 'required') !!}
                                         </div>
                                     </div>
                                 @endfor

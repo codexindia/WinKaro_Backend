@@ -40,6 +40,7 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('task.index');
         Route::get('/New', 'new')->name('task.new');
         Route::get('/Edit/{id}', 'task_edit')->name('task.edit');
+        Route::get('/Delete/{task_id}', 'task_delete')->name('task.delete');
 
         Route::post('/Edit/Submit', 'task_update')->name('task.update');
         Route::post('/Create', 'create')->name('task.create');

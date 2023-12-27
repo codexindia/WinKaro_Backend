@@ -142,16 +142,16 @@ class TaskManage extends Controller
 
     public function submit_task_v3(Request $request)
     {
-        $required = array(
-            'task_id' => 'required',
-        );
+        $request->validate([
+            'task_id' => 'required|exists:all_tasks,id'
+        ]);
         $question = Question::where('task_id', $request->task_id)->where('required', 'yes')->get();
         $i = 1;
 
         foreach ($question as $item) {
             if ($item->required == "yes") {
-               
-                if (strcasecmp($item->answer,$request['answer_' . $i]) == 0) {
+
+                if (strcasecmp($item->answer, $request['answer_' . $i]) == 0) {
 
                     if ($question->count() == $i) {
                         $get_task = AllTasks::findOrFail($request->task_id);
@@ -163,7 +163,7 @@ class TaskManage extends Controller
                             'proof_src' => "v3tasks",
                             'status' => 'complete',
                         ]);
-                        $result = (new WalletManage)->AddPayment($request->user()->id, $get_task->reward_coin, "Coin Added For Completing Task ".$get_task->task_name, 'reward');
+                        $result = (new WalletManage)->AddPayment($request->user()->id, $get_task->reward_coin, "Coin Added For Completing Task " . $get_task->task_name, 'reward');
                         return response()->json([
                             'reward' => $get_task->reward_coin,
                             'status' => true,

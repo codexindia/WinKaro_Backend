@@ -16,6 +16,13 @@ use App\Models\Question;
 
 class TaskManage extends Controller
 {
+   public function task_delete(Request $request){
+   //    $request->validate([
+   //  'task_id' => 'required|exists:all_tasks,id',
+   //    ]);
+      AllTasks::find($request->task_id)->delete();
+      return back()->with(['success' => 'Task Deleted Success']);
+   }
    public function index()
    {
       $data = AllTasks::orderBy('id', 'desc')->paginate(10);
