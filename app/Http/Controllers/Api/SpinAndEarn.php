@@ -12,7 +12,7 @@ class SpinAndEarn extends Controller
     public function add_reward(Request $request)
     {
         $request->validate([
-        'coin' => 'required|in:6,7,8,9,10',
+        'coin' => 'required|numeric|in:6,7,8,9,10',
         ]);
         $user_id = $request->user()->id;
         $check = GameLimit::whereDate(
@@ -59,11 +59,13 @@ class SpinAndEarn extends Controller
           'message' => 'Todays Limit Exceeds'
         ]);
       }
-     $coin = rand(6,10);
     
+     
+     $coins = array(6,7,8,9,10,20,30,50);
+     $coins = $coins[rand(0,7)];
      return response()->json([
         'status' => true,
-        'data' => $coin,
+        'data' => $coins,
         'message' => 'Spin Coin Retrieve SuccessFully',
      ]);
     }

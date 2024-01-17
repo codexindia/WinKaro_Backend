@@ -8,11 +8,21 @@
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div class="card">
 
-                    <div class="row m-3">
-                        <div class="col">
+                    <div class="py-2 d-flex justify-content-between">
+                        <div class="">
                             <h5 class="card-header">Task Submissions</h5>
                         </div>
-
+                        <div>
+                            <form class="row g-3 px-3 pt-3" accept="{{ route('task.submission_list') }}">
+                                <div class="col-auto">
+                                  <label for="inputPassword2" class="visually-hidden">Task Name</label>
+                                  <input type="text" class="form-control" value="{{ request()->get('q') }}" name="q" id="inputPassword2" placeholder="Task Name">
+                                </div>
+                                <div class="col-auto">
+                                  <button type="submit" class="btn btn-primary mb-3">Search</button>
+                                </div>
+                              </form>
+                        </div>
                     </div>
 
 
@@ -34,14 +44,14 @@
                             <tbody class="table-border-bottom-0">
                                 @php
                                     $i = 0;
-                                    
+
                                 @endphp
                                 @foreach ($getmain as $item)
                                     @php
                                         $i++;
                                     @endphp
                                     {{-- <tr onclick="window.open('{{ route('task.submission_details', $item->id) }}')"> --}}
-                                       <tr>
+                                    <tr>
                                         <td class="text-center">{{ $i }}</td>
                                         <td class="text-center">{{ $item->GetName->name }}</td>
                                         <td class="text-center">{{ ucwords($item->GetTask->task_name) }}</td>
@@ -70,7 +80,7 @@
                     </div>
                     <div class="container d-flex justify-content-end mt-3">
                         {!! $getmain->links() !!}
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,16 +167,17 @@
 
                                 </div>
                                 <div class="d-flex justify-content-end gap-2 mt-3">
-                                    @if($data->status == "processing")
-                                    <a href="{{ route('dashboard') }}"> <button type="button"
-                                            class="btn btn-secondary">Back</button></a>
-                                    <button type="button" class="btn btn-danger" onclick="reject($(this).attr('proof_id'))"
-                                        proof_id={{ $data->id }}>Reject</button>
+                                    @if ($data->status == 'processing')
+                                        <a href="{{ route('dashboard') }}"> <button type="button"
+                                                class="btn btn-secondary">Back</button></a>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="reject($(this).attr('proof_id'))"
+                                            proof_id={{ $data->id }}>Reject</button>
 
-                                    <button type="button" class="btn btn-success" id="approve"
-                                        onclick="accept($(this).attr('proof_id'))"
-                                        proof_id={{ $data->id }}>Approve</button>
-                                        @endif
+                                        <button type="button" class="btn btn-success" id="approve"
+                                            onclick="accept($(this).attr('proof_id'))"
+                                            proof_id={{ $data->id }}>Approve</button>
+                                    @endif
 
 
                                 </div>

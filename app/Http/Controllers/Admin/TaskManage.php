@@ -16,11 +16,12 @@ use App\Models\Question;
 
 class TaskManage extends Controller
 {
-   public function task_delete(Request $request){
-   //    $request->validate([
-   //  'task_id' => 'required|exists:all_tasks,id',
-   //    ]);
-      CompleteTask::where('task_id',$request->task_id)->delete();
+   public function task_delete(Request $request)
+   {
+      //    $request->validate([
+      //  'task_id' => 'required|exists:all_tasks,id',
+      //    ]);
+      CompleteTask::where('task_id', $request->task_id)->delete();
       AllTasks::find($request->task_id)->delete();
       return back()->with(['success' => 'Task Deleted Success']);
    }
@@ -39,7 +40,7 @@ class TaskManage extends Controller
    }
    public function create(Request $request)
    {
-     
+
       $request->validate([
 
          'title' => 'required',
@@ -50,14 +51,24 @@ class TaskManage extends Controller
          'task_type' => 'required|in:youtube,instagram,website_check_in',
          'thumbnail' => 'required|image',
       ]);
+      $count = 1;
       if ($request->task_type == 'youtube') {
-         $count = AllTasks::where('type', 'youtube')->count();
+         $find = AllTasks::where('type', 'youtube')->latest()->first();
+         if ($find != null) {
+            $count = (int)filter_var($find->task_name, FILTER_SANITIZE_NUMBER_INT) + 1;
+         }
          $task_name = 'Youtube Task ' . $count;
       } elseif ($request->task_type == 'instagram') {
-         $count = AllTasks::where('type', 'instagram')->count();
+         $find = AllTasks::where('type', 'instagram')->latest()->first();
+         if ($find != null) {
+            $count = (int)filter_var($find->task_name, FILTER_SANITIZE_NUMBER_INT) + 1;
+         }
          $task_name = 'Instagram Task ' . $count;
       } elseif ($request->task_type == 'website_check_in') {
-         $count = AllTasks::where('type', 'website_check_in')->count();
+         $find = AllTasks::where('type', 'website_check_in')->latest()->first();
+         if ($find != null) {
+            $count = (int)filter_var($find->task_name, FILTER_SANITIZE_NUMBER_INT) + 1;
+         }
          $task_name = 'Website Check in ' . $count;
       }
       $thumbnail_path = Storage::put('public/tasks/thumbnails', $request->file('thumbnail'));
@@ -74,12 +85,12 @@ class TaskManage extends Controller
       ]);
 
       for ($i = 1; $i <= 10; $i++) {
-         if ($request['question_'. $i] != null) {
+         if ($request['question_' . $i] != null) {
             Question::create([
                'task_id' => $result->id,
-               'question' => $request['question_' .$i],
-               'answer' => $request['answer_'.$i],
-               'required' => $request['check_'.$i] == 1?'yes':'no',
+               'question' => $request['question_' . $i],
+               'answer' => $request['answer_' . $i],
+               'required' => $request['check_' . $i] == 1 ? 'yes' : 'no',
             ]);
          }
       }
@@ -129,7 +140,22 @@ class TaskManage extends Controller
    }
    public function submission_list(Request $request)
    {
-      $getmain = CompleteTask::where('status', 'complete')->orderBy('id','desc')->paginate(10);
+      if ($request->q == '')
+         $getmain = CompleteTask::where('status', 'complete')->orderBy('id', 'desc')->paginate(10);
+      else {
+         $task = AllTasks::where([
+            'task_name' => $request->q
+         ])->first();
+         $taskId = 0;
+         if ($task != null) {
+            $taskId = $task->id;
+         }
+
+         $getmain = CompleteTask::where([
+            'status' => 'complete',
+            'task_id' => $taskId
+         ])->orderBy('id', 'desc')->paginate(10);
+      }
       $view = "list";
       return view('admin.checksubmissions', compact('view', 'getmain'));
    }

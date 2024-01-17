@@ -8,9 +8,16 @@ use App\Models\User;
 
 class UsersManage extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $list = User::orderBy('id', 'desc')->paginate(10);
+        if ($request->q == '')
+            $list = User::orderBy('id', 'desc')->paginate(10);
+        else {
+            $list = User::where('name','LIKE','%'.$request->q.'%')
+            ->orWhere('phone','LIKE','%'.$request->q.'%')
+            ->orWhere('email','LIKE','%'.$request->q.'%')
+            ->orderBy('id', 'desc')->paginate(10);
+        }
         $view = 'List';
         return view('admin.users', compact('list', 'view'));
     }

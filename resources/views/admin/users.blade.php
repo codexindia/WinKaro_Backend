@@ -7,7 +7,22 @@
         <div class="container-xxl flex-grow-1 container-p-y">
             @if ($view == 'List')
                 <div class="card">
-                    <h5 class="card-header">Customers rows</h5>
+                    <div class="py-2 d-flex justify-content-between">
+                        <div class="">
+                            <h5 class="card-header">Users List</h5>
+                        </div>
+                        <div>
+                            <form class="row g-3 px-3 pt-3">
+                                <div class="col-auto">
+                                  <label for="inputPassword2" class="visually-hidden">Search User</label>
+                                  <input type="text" class="form-control" value="{{ request()->get('q') }}" name="q" id="inputPassword2" placeholder="Name, Mobile , Email">
+                                </div>
+                                <div class="col-auto">
+                                  <button type="submit" class="btn btn-primary mb-3">Search</button>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
                     <div class="table-responsive text-nowrap">
                         <table class="table table-striped">
                             <thead>
@@ -16,6 +31,7 @@
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Available Balance</th>
+                                    <th class="text-center">Joined At</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -38,7 +54,9 @@
                                             <strong> <i style="font-size:1.3rem;" class="uil uil-coins text-warning"></i>
                                                 &nbsp;{{ $lists->balance }}</strong>
                                         </td>
-
+                                        <td class="text-center">
+                                            <strong> {{ $lists->created_at->format('d/m/Y h:i:sA') }}</strong>
+                                        </td>
                                         <td class="text-center">
                                             <a href="{{ route('users.view_details', $lists->id) }}">
                                                 <i class="fa-regular fa-eye text-primary" style="font-size:20px;"></i>
