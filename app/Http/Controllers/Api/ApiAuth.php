@@ -80,7 +80,9 @@ class ApiAuth extends Controller
 
         #sending An OTP To Verify User
         $this->sendotp($user->phone);
-        $main_user->increment('balance', 500);
+       
+        $newpay = (new WalletManage)->AddPayment($main_user->id, 500, 'Reward For Refer Users', 'reward');
+
         return response()->json([
             'status' => true,
             'message' => 'User Registration SuccessFully '
