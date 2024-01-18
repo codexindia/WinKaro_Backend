@@ -14,7 +14,7 @@
 
 
     <meta name="description" content="" />
-
+     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url('AdminAssets/assets/img/favicon/favicon.ico') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>

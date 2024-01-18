@@ -42,9 +42,7 @@ class ApiAuth extends Controller
         $refer_code = 'SMYT' . rand('100000', '999999');
         $balance = 0;
         if ($request->has('refer_code')) {
-            
             $main_user = User::where('refer_code', $request->refer_code)->first();
-            
         }
 
 
@@ -58,7 +56,7 @@ class ApiAuth extends Controller
         //for new user
         if ($request->has('refer_code')) {
             $balance = 100;
-            $newpay = (new WalletManage)->AddPayment($user->id, $balance, 'Reward For Refer Code','reward');
+            $newpay = (new WalletManage)->AddPayment($user->id, $balance, 'Reward For Refer Code', 'reward');
 
             ReferHistory::create([
                 'refer_by_user_id' => $main_user->id,
@@ -68,13 +66,11 @@ class ApiAuth extends Controller
             ]);
         }
 
-
         //adding data to device detection to prevent spam registration
         DB::table('device_detection')->insert([
             'device_id' => $device_id,
             'phone_number' => $request->phone,
         ]);
-
 
         DB::table('access_logs')->insert([
             'user_id' => $user->id,
@@ -84,11 +80,11 @@ class ApiAuth extends Controller
 
         #sending An OTP To Verify User
         $this->sendotp($user->phone);
+        $main_user->increment('balance', 500);
         return response()->json([
             'status' => true,
             'message' => 'User Registration SuccessFully '
         ]);
-
     }
 
     public function login(Request $request)
@@ -109,8 +105,6 @@ class ApiAuth extends Controller
             'status' => true,
             'message' => $res['message']
         ]);
-
-
     }
 
 
@@ -141,10 +135,10 @@ class ApiAuth extends Controller
                 'cache-control' => 'no-cache',
                 'content-type' => 'application/json'
             ])->post('https://www.fast2sms.com/dev/bulkV2', [
-                    "variables_values" => $otp,
-                    "route" => "otp",
-                    "numbers" => $number,
-                ]);
+                "variables_values" => $otp,
+                "route" => "otp",
+                "numbers" => $number,
+            ]);
 
             return json_decode($response, true);
         } catch (\Exception $e) {
@@ -161,19 +155,18 @@ class ApiAuth extends Controller
         ]);
         $userdata = User::where('phone', $request->phone)->first();
         //for temporary playsotre rules
-       if($request->phone == '1234567890')
-       {
-        $device = 'Auth_Token';
-        $token = $userdata->createToken($device)->plainTextToken;
-        return response()->json([
-            'status' => true,
-            'token' => $token,
-            'message' => 'Your OTP Has Verified SuccessFully'
-        ]);
-       }
+        if ($request->phone == '1234567890') {
+            $device = 'Auth_Token';
+            $token = $userdata->createToken($device)->plainTextToken;
+            return response()->json([
+                'status' => true,
+                'token' => $token,
+                'message' => 'Your OTP Has Verified SuccessFully'
+            ]);
+        }
 
-       //remove after published at play store
-        
+        //remove after published at play store
+
 
         $userid = $userdata->id;
         $checkotp = UserVerification::where('user_id', $userid)
@@ -216,6 +209,5 @@ class ApiAuth extends Controller
             'status' => true,
             'message' => 'User Logged Out SuccessFully',
         ]);
-
     }
 }
