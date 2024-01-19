@@ -46,6 +46,7 @@ class WatchAndEarn extends Controller
         GameLimit::create([
             'user_id' => $user_id,
             'type' => 'watch_and_earn',
+            'expire_at' => Carbon::now()->addMinute(30)
         ]);
         $amount = 5;
         $description = 'Reward Added For Watch And Earn Program';
