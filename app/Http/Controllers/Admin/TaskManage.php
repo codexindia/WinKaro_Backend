@@ -155,6 +155,7 @@ class TaskManage extends Controller
             'status' => 'complete',
             'task_id' => $taskId
          ])->orderBy('id', 'desc')->paginate(10);
+         $getmain->appends($request->all());
       }
       $view = "list";
       return view('admin.checksubmissions', compact('view', 'getmain'));

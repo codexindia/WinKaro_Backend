@@ -34,6 +34,7 @@ class UsersManage extends Controller
                 ->orderBy('id', 'desc')->paginate(10);
         }
         $view = 'List';
+        $list->appends($request->all());
         return view('admin.users', compact('list', 'view'));
     }
     public function view_details(Request $request)
