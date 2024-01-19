@@ -12,18 +12,17 @@ class WatchAndEarn extends Controller
     public function get_reward_video(Request $request)
     {
         $user_id = $request->user()->id;
-        $check = GameLimit::whereDate(
-            'created_at', Carbon::today(),
-        )->where([
-                'user_id' => $user_id,
-                'type' => 'watch_and_earn',
-            ]);
-        if ($check->count() >= 10) {
+        $check = GameLimit::where([
+            'user_id' => $user_id,
+            'type' => 'watch_and_earn',
+          ])->latest()->first();
+          $now = Carbon::now();
+          if ($check && $now->isAfter($check->expire_at) != 1) {
             return response()->json([
-                'status' => false,
-                'message' => 'Todays Limit Exceeds'
+              'status' => false,
+              'message' => 'Limit Exceeds Try After ' . $now->diffInMinutes($check->expire_at).' Minutes'
             ]);
-        }
+          }
        
         return response()->json([
             'status' => true,
@@ -33,18 +32,17 @@ class WatchAndEarn extends Controller
     public function add_reward(Request $request)
     {
         $user_id = $request->user()->id;
-        $check = GameLimit::whereDate(
-            'created_at', Carbon::today(),
-        )->where([
-                'user_id' => $user_id,
-                'type' => 'watch_and_earn',
-            ]);
-        if ($check->count() >= 5) {
+        $check = GameLimit::where([
+            'user_id' => $user_id,
+            'type' => 'watch_and_earn',
+          ])->latest()->first();
+          $now = Carbon::now();
+          if ($check && $now->isAfter($check->expire_at) != 1) {
             return response()->json([
-                'status' => false,
-                'message' => 'Todays Limit Exceeds'
+              'status' => false,
+              'message' => 'Limit Exceeds Try After ' . $now->diffInMinutes($check->expire_at).' Minutes'
             ]);
-        }
+          }
         GameLimit::create([
             'user_id' => $user_id,
             'type' => 'watch_and_earn',
