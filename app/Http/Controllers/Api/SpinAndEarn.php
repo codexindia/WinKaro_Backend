@@ -55,7 +55,7 @@ class SpinAndEarn extends Controller
     if ($check && $now->isAfter($check->expire_at) != 1) {
       return response()->json([
         'status' => false,
-        'message' => 'Todays Limit Exceeds'
+        'message' => 'Limit Exceeds Try After ' . $now->diffInMinutes($check->expire_at).' Minutes'
       ]);
     }
 
