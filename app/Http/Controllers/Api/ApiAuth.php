@@ -21,7 +21,7 @@ class ApiAuth extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'name' => 'required|alpha_dash|max:255',
             'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'device_id' => 'required',
