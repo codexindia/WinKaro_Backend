@@ -55,7 +55,7 @@ class ApiAuth extends Controller
         ]);
         //for new user
         if ($request->has('refer_code')) {
-            $balance = 100;
+            $balance = 200;
             $newpay = (new WalletManage)->AddPayment($user->id, $balance, 'Reward For Refer Code', 'reward');
 
             ReferHistory::create([
