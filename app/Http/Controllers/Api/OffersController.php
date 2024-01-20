@@ -59,12 +59,12 @@ class OffersController extends Controller
       } else {
         $status = 0;
       }
-      if ($status == 10) {
-        $this->claimed_offer($user_id, 'yt_task_milestone', 1000, 'complete');
-        $result = (new WalletManage)->AddPayment($user_id, 1000, 'YT Task Milestone', 'reward');
+      if ($status == 30) {
+        $this->claimed_offer($user_id, 'yt_task_milestone', 500, 'complete');
+        $result = (new WalletManage)->AddPayment($user_id, 500, 'YT Task Milestone', 'reward');
         return response()->json([
           'status' => true,
-          'reward_coins' => 1000,
+          'reward_coins' => 500,
           'message' => 'Offer Claimed Successfully',
         ]);
       }

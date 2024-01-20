@@ -61,7 +61,7 @@ class ApiAuth extends Controller
             ReferHistory::create([
                 'refer_by_user_id' => $main_user->id,
                 'referred_user_id' => $user->id,
-                'reward_coin' => 200,
+                'reward_coin' => 500,
                 'status' => 'pending',
             ]);
         }
