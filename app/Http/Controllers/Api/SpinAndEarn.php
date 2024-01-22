@@ -13,7 +13,7 @@ class SpinAndEarn extends Controller
   public function add_reward(Request $request)
   {
     $request->validate([
-      'coin' => 'required|numeric|in:6,7,8,9,10',
+      'coin' => 'required|numeric|lte:50',
     ]);
     $user_id = $request->user()->id;
     $check = GameLimit::where([
