@@ -35,7 +35,16 @@ class AuthManage extends Controller
      return back()->withErrors(['msg' => 'Opps! You have entered invalid credentials']);
    }
 
+   public function logout_attempt(Request $request)
+   {
 
+
+       Auth::logout();
+       $request->session()->invalidate();
+
+       $request->session()->regenerateToken();
+       return redirect(route('loginpage'))->with(['success' => 'You have been logged out']);
+   }
 
 
 
