@@ -43,7 +43,7 @@ class AuthManage extends Controller
        $request->session()->invalidate();
 
        $request->session()->regenerateToken();
-       return redirect(route('loginpage'))->with(['success' => 'You have been logged out']);
+       return redirect(route('login_index'))->with(['success' => 'You have been logged out']);
    }
 
 
