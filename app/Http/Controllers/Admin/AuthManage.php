@@ -39,7 +39,7 @@ class AuthManage extends Controller
    {
 
 
-       Auth::logout();
+       Auth::guard('admin')->logout();
        $request->session()->invalidate();
 
        $request->session()->regenerateToken();
