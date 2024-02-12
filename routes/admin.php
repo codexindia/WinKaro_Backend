@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::controller('AuthManage')->middleware('admin.guest')->group(function () {
     Route::get('/Login', 'index')->name('login_index');
     Route::post('/Login', 'login_attempt')->name('login_attempt');
-    Route::post('/Logout', 'logout_attempt')->name('logout_attempt')->withoutMiddleware('admin.guest');
+    Route::get('/Logout', 'logout_attempt')->name('logout_attempt')->withoutMiddleware('admin.guest');
 });
 
 Route::middleware('admin.auth')->group(function () {
