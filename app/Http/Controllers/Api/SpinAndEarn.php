@@ -59,6 +59,11 @@ class SpinAndEarn extends Controller
       ]);
     }
 
+    GameLimit::create([
+      'user_id' => $user_id,
+      'type' => 'spin_and_earn',
+      'expire_at' => Carbon::now()->addMinute(30)
+    ]);
 
     $coins = array(6, 7, 8, 9, 10, 20, 30, 50);
     $coins = $coins[rand(0, 7)];
