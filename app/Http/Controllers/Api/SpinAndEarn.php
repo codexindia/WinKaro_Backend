@@ -49,7 +49,7 @@ class SpinAndEarn extends Controller
 
     $check = GameLimit::where([
       'user_id' => $user_id,
-      'type' => 'spin_and_earn',
+      'type' => 'wheel_spin',
     ])->latest()->first();
     $now = Carbon::now();
     if ($check && $now->isAfter($check->expire_at) != 1) {
@@ -61,7 +61,7 @@ class SpinAndEarn extends Controller
 
     GameLimit::create([
       'user_id' => $user_id,
-      'type' => 'spin_and_earn',
+      'type' => 'wheel_spin',
       'expire_at' => Carbon::now()->addMinute(30)
     ]);
 
