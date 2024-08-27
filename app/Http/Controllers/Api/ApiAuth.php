@@ -64,6 +64,7 @@ class ApiAuth extends Controller
                 'reward_coin' => 500,
                 'status' => 'pending',
             ]);
+            $newpay = (new WalletManage)->AddPayment($main_user->id, 500, 'Reward For Refer Users', 'reward');
         }
 
         //adding data to device detection to prevent spam registration
@@ -81,7 +82,7 @@ class ApiAuth extends Controller
         #sending An OTP To Verify User
         $this->sendotp($user->phone);
        
-        $newpay = (new WalletManage)->AddPayment($main_user->id, 500, 'Reward For Refer Users', 'reward');
+      
 
         return response()->json([
             'status' => true,
