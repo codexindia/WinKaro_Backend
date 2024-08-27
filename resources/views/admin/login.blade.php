@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Welcome Pixel Profit Admin</title>
+    <title>Welcome 1Apportunity Admin</title>
 
     <meta name="description" content="" />
 
@@ -64,7 +64,7 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Welcome to Pixel Profit Admin! 👋</h4>
+                        <h4 class="mb-2">Welcome to 1Apportunity Admin! 👋</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
                         @if (session('success'))
                             <div class="alert alert-success">

@@ -6,7 +6,7 @@
              <script>
                  document.write(new Date().getFullYear());
              </script>
-             , Pixel Profit All Right Reserved
+             , 1Apportunity All Right Reserved
          </div>
 
      </div>

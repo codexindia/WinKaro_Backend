@@ -10,7 +10,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Pixel Profit - @yield('title')</title>
+    <title>1Apportunity - @yield('title')</title>
 
 
     <meta name="description" content="" />
@@ -67,7 +67,7 @@
                     <a href="{{ route('dashboard') }}" class="app-brand-link">
                         <img style="max-width:50px;"
                             src="{{ asset('AdminAssets/assets/img/logo.png') }}" alt="">
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Pixel Profit</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">1Apportunity</span>
                     </a>
 
                     <a href="javascript:void(0);"
