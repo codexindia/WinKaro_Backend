@@ -83,7 +83,7 @@ class ApiAuth extends Controller
         $this->sendotp($user->phone);
         return response()->json([
             'status' => true,
-            'message' => 'User Registration SuccessFully '
+            'message' => 'User Registration SuccessFully'
         ]);
     }
 
