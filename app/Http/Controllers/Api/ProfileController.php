@@ -92,10 +92,12 @@ class ProfileController extends Controller
       if ($data['status'] === 'OK') {
          $address = $data['results'][0]['formatted_address'];
          $pincode = $this->extractPincode($data['results'][0]['address_components']);
-         $city =$this->extractCity($data['results'][0]['address_components']);
+         $city =$this->extractCity($data['results'][0]['address_components'],'locality');
+         $area =$this->extractCity($data['results'][0]['address_components'],'political');
          return [
             'address' => $address,
             'city' => $city,
+            'area' => $area,
             'pincode' => $pincode,
             //'data' => $data
          ];
@@ -113,10 +115,10 @@ class ProfileController extends Controller
       }
       return null; // Return null if no postal code is found
    }
-   private function extractCity($addressComponents)
+   private function extractCity($addressComponents,$code)
    {
       foreach ($addressComponents as $component) {
-         if (in_array('locality', $component['types'])) {
+         if (in_array($code, $component['types'])) {
             return $component['long_name'];
          }
       }
