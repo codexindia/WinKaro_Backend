@@ -94,9 +94,9 @@ class ApiAuth extends Controller
                 'phone' => 'required|numeric|digits:10|exists:users,phone',
 
             ],
-            ([
+            [
                 'phone.exists' => 'Phone Number Has Not Registered'
-            ])
+            ]
         );
 
 
