@@ -39,7 +39,7 @@ class ApiAuth extends Controller
             ]);
         }
         //creating account
-        $refer_code = 'SMYT' . rand('100000', '999999');
+        $refer_code = 'ONEAP' . rand('100000', '999999');
         $balance = 0;
         if ($request->has('refer_code')) {
             $main_user = User::where('refer_code', $request->refer_code)->first();
