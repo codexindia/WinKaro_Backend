@@ -81,9 +81,6 @@ class ApiAuth extends Controller
 
         #sending An OTP To Verify User
         $this->sendotp($user->phone);
-       
-      
-
         return response()->json([
             'status' => true,
             'message' => 'User Registration SuccessFully '
@@ -128,14 +125,14 @@ class ApiAuth extends Controller
             UserVerification::create([
                 'user_id' => $id,
                 'otp' => $otp,
-                'expire_at' => Carbon::now()->addMinute(10)
+                'expire_at' => Carbon::now()->addMinutes(10)
             ]);
         }
         try {
             $response = Http::withHeaders([
-                'authorization' => 'rWvOk6Pfd48Xhna6kUdGzOHb9nnuDd8zas5h5vIXJDgOYyZw5YGD5TFgAKuP',
+                'authorization' => 'xHJicy25FB7MKaRVf6LwkYSIXoluUbOP43zTWCvp8019tgjeAdo90pJ5x6q32dE1ZrCP4aONUmsjtBlD',
                 'accept' => '*/*',
-                'cache-control' => 'no-cache',
+               // 'cache-control' => 'no-cache',
                 'content-type' => 'application/json'
             ])->post('https://www.fast2sms.com/dev/bulkV2', [
                 "variables_values" => $otp,
