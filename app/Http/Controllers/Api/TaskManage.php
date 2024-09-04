@@ -173,7 +173,7 @@ class TaskManage extends Controller
                         $getPin = new GeocodingController;
                         $getPin = $getPin->getPincode($request);
                         if ($getPin) {
-                            $getManager = AreaManager::where('pincode', $getPin)->first();
+                            $getManager = AreaManager::where('assignedPincode', $getPin)->first();
                             $newCom = new ManagerCommision();
                             $newCom->mid = $getManager->id;
                             $newCom->user_id = $request->user()->id;
