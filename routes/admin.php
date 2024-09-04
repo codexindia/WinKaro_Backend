@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/foo', function () {
-    Artisan::call('storage:link');
+    // Artisan::call('storage:link');
 });
 Route::get('/install', function () {
-    Artisan::call('migrate');
+    // Artisan::call('migrate');
 });
 
 
@@ -35,7 +35,7 @@ Route::controller('AuthManage')->middleware('admin.guest')->group(function () {
 });
 
 Route::middleware('admin.auth')->group(function () {
-    
+
     Route::controller('DashboardManage')->group(function () {
         Route::get('/Dashboard', 'index')->name('dashboard');
     });
@@ -85,7 +85,10 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/telegram_checklist/status/{id}/{action}', 'telegram_checklist_status')->name('telegram.status');
         Route::get('/app_install', 'app_install')->name('app_install');
         Route::post('/app_install', 'app_install_publish')->name('app_install_publish');
-   
     });
-
+    Route::controller('AreaManager')->name('manager.')->prefix('Managers')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/createNewPage', 'createNewPage')->name('createNewPage');
+        Route::post('/createNewSubmit', 'createNewSubmit')->name('createNewSubmit');
+    });
 });

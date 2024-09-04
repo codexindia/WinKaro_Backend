@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 use Wester\ChunkUpload\Chunk;
 use App\Models\Question;
 use Wester\ChunkUpload\Validation\Exceptions\ValidationException;
+use App\Models\ManagerCommision;
+use App\Models\AreaManager;
+use App\Http\Controllers\Api\GeocodingController;
 
 class TaskManage extends Controller
 {
@@ -143,7 +146,9 @@ class TaskManage extends Controller
     public function submit_task_v3(Request $request)
     {
         $request->validate([
-            'task_id' => 'required|exists:all_tasks,id'
+            'task_id' => 'required|exists:all_tasks,id',
+            'long' => 'required',
+            'lat' => 'required',
         ]);
         $question = Question::where('task_id', $request->task_id)->where('required', 'yes')->get();
         $i = 1;
@@ -164,6 +169,31 @@ class TaskManage extends Controller
                             'status' => 'complete',
                         ]);
                         $result = (new WalletManage)->AddPayment($request->user()->id, $get_task->reward_coin, "Coin Added For Completing Task " . $get_task->task_name, 'reward');
+                        //share the commission with Area Manager
+                        $getPin = new GeocodingController;
+                        $getPin = $getPin->getPincode($request);
+                        if ($getPin) {
+                            $getManager = AreaManager::where('pincode', $getPin)->first();
+                            $newCom = new ManagerCommision();
+                            $newCom->mid = $getManager->id;
+                            $newCom->user_id = $request->user()->id;
+                            $newCom->coins = $get_task->reward_coin * 0.1;
+                            $newCom->fromPincode = $getPin;
+                            $newCom->claimed = 'yes';
+                            $newCom->save();
+                        } else {
+                            $newCom = new ManagerCommision();
+                            $newCom->mid = null;
+                            $newCom->user_id = $request->user()->id;
+                            $newCom->coins = $get_task->reward_coin * 0.1;
+                            $newCom->fromPincode = $getPin;
+                            $newCom->claimed = 'no';
+                            $newCom->save();
+                        }
+
+
+                        //end commission share
+
                         return response()->json([
                             'reward' => $get_task->reward_coin,
                             'status' => true,
