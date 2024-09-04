@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller; // Add this line
+use Illuminate\Support\Facades\Log; // Add this line
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -64,7 +65,7 @@ class GeocodingController extends Controller
         );
 
         $data = json_decode($response, true);
-
+          Log::info($data);
         if ($data['status'] === 'OK') {
 
             $pincode = $this->extractPincode($data['results'][0]['address_components']);
