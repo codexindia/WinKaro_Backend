@@ -172,7 +172,7 @@ class TaskManage extends Controller
                         //share the commission with Area Manager
                         $getPin = new GeocodingController;
                         $getPin = $getPin->getPincode($request);
-                        if ($getPin) {
+                        if ($getPin && AreaManager::where('assignedPincode', $getPin)->exists()) {
                             $getManager = AreaManager::where('assignedPincode', $getPin)->first();
                             $newCom = new ManagerCommision();
                             $newCom->mid = $getManager->id;
