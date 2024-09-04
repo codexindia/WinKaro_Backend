@@ -65,7 +65,7 @@ class GeocodingController extends Controller
         );
 
         $data = json_decode($response, true);
-          Log::info($data);
+        //  Log::info($data);
         if ($data['status'] === 'OK') {
 
             $pincode = $this->extractPincode($data['results'][0]['address_components']);
