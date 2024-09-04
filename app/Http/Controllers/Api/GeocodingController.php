@@ -53,7 +53,7 @@ class GeocodingController extends Controller
     public function getPincode(Request $request)
     {
         $latitude = $request->input('lat');
-        $longitude = $request->input('lng');
+        $longitude = $request->input('long');
         $apiKey = env('GOOGLE_MAPS_API_KEY');
 
         $response = Http::withOptions(['verify' => false])->get(
