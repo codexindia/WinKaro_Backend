@@ -37,7 +37,7 @@
                         </div>
                         <div class="col">
                             <div class="d-flex justify-content-end">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#basicModal"
+                                <button type="button" 
                                     class="btn btn-primary mt-4"><i class="uil uil-plus"></i> Withdraw</button>
                             </div>
                         </div>
