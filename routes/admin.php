@@ -91,5 +91,6 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/createNewPage', 'createNewPage')->name('createNewPage');
         Route::post('/createNewSubmit', 'createNewSubmit')->name('createNewSubmit');
         Route::get('/withdrawal', 'withdrawalList')->name('withdrawalList');
+        Route::get('/withdrawal/Action/{Action}/{id}', 'withdrawalAction')->name('withdrawalAction');
     });
 });

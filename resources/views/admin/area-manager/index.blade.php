@@ -36,7 +36,7 @@
                                     <th class="text-center">Phone Number</th>
                                     <th class="text-center">Assigned Pincode</th>
                                     <th class="text-center">Registered At</th>
-                                    <th class="text-center" colspan="2">Action</th>
+                                    <th class="text-center">Action</th>
 
                                 </tr>
                             </thead>
@@ -54,13 +54,7 @@
                                         <td class="text-center">{{ date('m-d-Y h:i:s a', strtotime($AreaManagers->created_at)) }}
                                         </td>
                                        
-                                        <td class="text-center"><a
-                                                href="{{ route('withdraw.action', ['Action' => 'Reject', 'id' => $AreaManagers->id]) }}"><i
-                                                    class="uil uil-ban text-danger" style="font-size:20px;"></i></a></td>
-                                        <td class="text-center"><a
-                                                href="{{ route('withdraw.action', ['Action' => 'Approve', 'id' => $AreaManagers->id]) }}"><i
-                                                    class="uil uil-check-circle text-success"
-                                                    style="font-size:20px;"></i></a></td>
+                                        <td class="text-center">Edit</td>
                                     </tr>
 
 

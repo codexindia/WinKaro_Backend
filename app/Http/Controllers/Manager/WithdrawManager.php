@@ -18,6 +18,7 @@ class WithdrawManager extends Controller
     {
         $request->validate([
             'coins' => 'required|numeric|min:1|max:' . auth('manager')->user()->availableBalance,
+            'upi_id' => 'required'
         ]);
         $user = AreaManager::find(auth('manager')->user()->id);
         $user->availableBalance -= $request->coins;
@@ -25,6 +26,7 @@ class WithdrawManager extends Controller
         $newWithdraw = new ManagerWithdrawals();
         $newWithdraw->mid = auth('manager')->user()->id;
         $newWithdraw->coins = $request->coins;
+        $newWithdraw->upiId = $request->upi_id;
     //    $newWithdraw->valuation = $request->coins * 0.01;
        // $newWithdraw->status = 'pending';
 

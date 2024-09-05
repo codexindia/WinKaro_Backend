@@ -122,7 +122,7 @@
                                       
                                         {{ Form::wtextbox('coins') }}
                                        
-                                       
+                                        {{ Form::wtextbox('upi_id') }}
                                         
                                 </div>
                             </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('valuation',10,2)->default(0.01);
             $table->string('status')->default('pending');
             $table->string('transaction_id')->nullable();
+            $table->string('upiId')->nullable();
             $table->string('remark')->nullable();
             $table->timestamps();
         });

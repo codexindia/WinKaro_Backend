@@ -37,7 +37,14 @@ class AreaManager extends Controller
     }
     public function withdrawalList()
     {
-        $data['withdrawals'] = ManagerWithdrawals::orderBy('id', 'desc')->get();
-        return view('manager.managerWithdrawl', $data);
+        $data['withdrawals'] = ManagerWithdrawals::orderBy('id', 'desc')->where('status','pending')->get();
+        return view('admin.managerWithdrawl', $data);
+    }
+    public function withdrawalAction(Request $request)
+    {
+        $withdrawal = ManagerWithdrawals::find(request()->id);
+        $withdrawal->status = $request->Action;
+        $withdrawal->save();
+        return redirect()->route('manager.withdrawalList')->with(['success'=>'Withdrawal status updated successfully']);
     }
 }
