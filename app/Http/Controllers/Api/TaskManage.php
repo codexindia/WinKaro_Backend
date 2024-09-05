@@ -177,15 +177,16 @@ class TaskManage extends Controller
                             $newCom = new ManagerCommision();
                             $newCom->mid = $getManager->id;
                             $newCom->user_id = $request->user()->id;
-                            $newCom->coins = $get_task->reward_coin * 0.1;
+                            $newCom->coins = 1;
                             $newCom->fromPincode = $getPin;
                             $newCom->claimed = 'yes';
                             $newCom->save();
+                            $getManager->increment('availableBalance', $newCom->coins);
                         } else {
                             $newCom = new ManagerCommision();
                             $newCom->mid = null;
                             $newCom->user_id = $request->user()->id;
-                            $newCom->coins = $get_task->reward_coin * 0.1;
+                            $newCom->coins = 1;
                             $newCom->fromPincode = $getPin;
                             $newCom->claimed = 'no';
                             $newCom->save();

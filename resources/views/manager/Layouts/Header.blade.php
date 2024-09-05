@@ -64,7 +64,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="{{ route('dashboard') }}" class="app-brand-link">
+                    <a href="{{ route('manager.dashboard') }}" class="app-brand-link">
                         <img style="max-width:50px;"
                             src="{{ asset('AdminAssets/assets/img/logo.png') }}" alt="">
                         <span class="app-brand-text demo menu-text fw-bolder ms-2" style="font-size: 1.2rem;">1Apportunity</span>
@@ -86,7 +86,12 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-
+                    <li class="menu-item {{ request()->is('Manager/withdraw*') ? 'active' : '' }}">
+                        <a href="{{ route('manager.withdraw') }}" class="menu-link">
+                            <i class="menu-icon fa-solid fa-money-bill"></i>
+                            <div data-i18n="Analytics">Withdraw</div>
+                        </a>
+                    </li>
                    
                 </ul>
             </aside>
