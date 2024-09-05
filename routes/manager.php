@@ -10,5 +10,6 @@ Route::middleware('manager.auth')->group(function(){
     Route::get('/logout','DashboardController@logout')->name('manager.logout');
     Route::prefix('withdraw')->controller('WithdrawManager')->group(function(){
          Route::get('/','WithdrawManager@index')->name('manager.withdraw');
+         Route::post('/','WithdrawManager@submitWithdraw')->name('manager.withdraw.submit');
     });
 });

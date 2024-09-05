@@ -149,12 +149,29 @@
                             <div data-i18n="Analytics">Notificaions</div>
                         </a>
                     </li>
+
+
+
                     <li class="menu-item {{ request()->is('Admin/Managers*') ? 'active' : '' }}">
-                        <a href="{{ route('manager.index') }}" class="menu-link">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class='menu-icon bx bx-location-plus'></i>
-                            <div data-i18n="Analytics">Area Managers</div>
+                            <div data-i18n="Area Manager">Area Manager</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('Admin/Managers') ? 'active' : '' }}">
+                                <a href="{{ route('manager.index') }}" class="menu-link">
+                                    <div>Area Managers</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->is('Admin/Managers/withdrawal') ? 'active' : '' }}">
+                                <a href="{{ route('manager.withdrawalList') }}" class="menu-link">
+                                    <div>Withdrawls</div>
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
+                    
                     {{-- setting menu --}}
                     <li class="menu-item {{ request()->is('Admin/Settings*') ? 'active' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">

@@ -37,7 +37,7 @@
                         </div>
                         <div class="col">
                             <div class="d-flex justify-content-end">
-                                <button type="button" 
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#basicModal"
                                     class="btn btn-primary mt-4"><i class="uil uil-plus"></i> Withdraw</button>
                             </div>
                         </div>
@@ -46,42 +46,38 @@
             </div>
 
 
-            {{-- <div class="card">
-                <h5 class="card-header">Papers Request History</h5>
+            <div class="card">
+                <h5 class="card-header"> Request History</h5>
                 <div class="card-body">
                     <div class="table-responsive text-nowrap">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>Order ID</th>
-                                    <th>MPin</th>
-                                    <th>Paper Quantity</th>
+                                    <th>Transaction ID</th>
+                                    <th>Coins</th>
+                                    <th>Rupees</th>
                                     <th>Date</th>
                                     <th>Status</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                    $id = 0;
-                                @endphp
-                                @foreach ($data->PaperRequ as $item)
-                                    @php
-                                        $id++;
-                                    @endphp
+                               
+                                @foreach ($withdrawals as $item)
+                                  
                                     <tr>
                                         <td>
-                                            {{ $id }}
+                                            {{ $loop->index+1 }}
                                         </td>
                                         <td>
-                                            {{ $item->order_id }}
-                                        </td>
-                                        <td>
-                                            {{ $item->mpin }}
+                                            {{ $item->transaction_id }}
                                         </td>
                                         <td class="fw-bold">
-                                            {{ $item->quantity }}
+                                            {{ $item->coins }}
+                                        </td>
+                                        <td class="fw-bold">
+                                            ₹{{ $item->coins/100 }}
                                         </td>
                                         <td>
                                             {{ $item->created_at->format('d-m-Y') }}
@@ -104,7 +100,7 @@
                         </table>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
 
 
@@ -115,36 +111,19 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">Request For Papers</h5>
+                            <h5 class="modal-title" id="exampleModalLabel1">Request For Withdraw</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col mb-3">
-                                    <form action="#" method="post">
+                                    <form action="{{ route('manager.withdraw.submit') }}" method="post">
                                         @csrf
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="quantity" id="inlineRadio1"
-                                                value="500">
-                                            <label class="form-check-label" for="inlineRadio1">500 Pages</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="quantity" id="inlineRadio2"
-                                                value="1000">
-                                            <label class="form-check-label" for="inlineRadio2">1000 Pages</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="quantity" id="inlineRadio3"
-                                                value="1500">
-                                            <label class="form-check-label" for="inlineRadio3">1500 Pages</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="quantity" id="inlineRadio4"
-                                                value="2000">
-                                            <label class="form-check-label" for="inlineRadio4">2000 Pages</label>
-                                        </div>
-
+                                      
+                                        {{ Form::wtextbox('coins') }}
+                                       
+                                       
+                                        
                                 </div>
                             </div>
 

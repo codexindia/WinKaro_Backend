@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AreaManager as AreaManagerModel;
+use App\Models\ManagerWithdrawals;
 
 class AreaManager extends Controller
 {
@@ -33,5 +34,10 @@ class AreaManager extends Controller
         $newManager->password = bcrypt($request->password);
         $newManager->save();
         return redirect()->route('manager.index')->with(['success'=>'Area Manager created successfully']);
+    }
+    public function withdrawalList()
+    {
+        $data['withdrawals'] = ManagerWithdrawals::orderBy('id', 'desc')->get();
+        return view('manager.managerWithdrawl', $data);
     }
 }

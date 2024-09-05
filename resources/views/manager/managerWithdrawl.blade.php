@@ -1,9 +1,9 @@
-@extends('admin.Layouts.Main')
+@extends('manager.Layouts.Main')
 @section('title')
     {{ 'Withdraw Manager' }}
 @endsection
 @section('main-container')
-    @if ($view == 'List')
+   
         <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
                 @if (session('success'))
@@ -33,20 +33,15 @@
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                @php
-                                    $i = 0;
-
-                                @endphp
-                                @foreach ($get as $item)
-                                    @php
-                                        $i++;
-                                    @endphp
+                               
+                                @foreach ($withdrawals as $item)
+                                  
                                     <tr>
-                                        <td class="text-center">{{ $i }}</td>
-                                        <td class="text-center">{{ $item->GetName->name }}</td>
+                                        <td class="text-center">{{ $loop->index+1 }}</td>
+                                        <td class="text-center">{{ $item->getManager->fullName }}</td>
                                         <td class="text-center">{{ $item->coins }} <strong> &nbsp;(INR :
                                                 {{ $item->coins / 100 }})</strong></td>
-                                        <td class="text-center">{{ $item->ref_id }}</td>
+                                        <td class="text-center">{{ $item->transaction_id }}</td>
 
                                         @if ($item->status == 'processing')
                                             <td class="text-center"><span class="badge bg-label-primary me-1">
@@ -58,7 +53,7 @@
                                         <td class="text-center">{{ date('m-d-Y h:i:s a', strtotime($item->created_at)) }}
                                         </td>
                                         <td class="text-center"><i data-bs-toggle="modal"
-                                                data-bs-target="#backDropModal{{ $i }}"
+                                                data-bs-target="#backDropModal{{ $loop->index }}"
                                                 class="uil uil-eye text-primary" style="font-size:20px;"></i></td>
                                         <td class="text-center"><a
                                                 href="{{ route('withdraw.action', ['Action' => 'Reject', 'id' => $item->id]) }}"><i
@@ -72,29 +67,20 @@
 
 
                                     {{-- modal start --}}
-                                    <div class="modal fade" id="backDropModal{{ $i }}" data-bs-backdrop="static"
+                                    <div class="modal fade" id="backDropModal{{ $loop->index }}" data-bs-backdrop="static"
                                         tabindex="-1">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="backDropModalTitle">Payment Address
-                                                        ({{ $item->GetName->name }})
+                                                        ({{ $item->getManager->fullName }})
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    @php
-                                                        $decode = json_decode($item->account_data, true);
-                                                    @endphp
-                                                    <div class="row mx-auto">
-                                                        <h5 class="card-title mb-3">Type : {{ ucwords($decode['type']) }}
-                                                        </h5>
-                                                        <h5 class="card-title mb-0">Destination :
-                                                            {{ $decode['account_number'] }}</h5>
-                                                    </div>
-
+                                                  
                                                 </div>
                                                 <div class="modal-footer">
 
@@ -111,6 +97,5 @@
 
             </div>
         </div>
-    @else
-    @endif
+   
 @endsection
