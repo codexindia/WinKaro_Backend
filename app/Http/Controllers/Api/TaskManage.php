@@ -226,7 +226,7 @@ class TaskManage extends Controller
         }
     }
     protected $commissionRates = [
-        DB::table('commissions')->pluck('rate')->toArray();
+        DB::table('commissions')->pluck('rate')->toArray()
     ];
     public function distributeCommission(User $user, int $amount)
     {
