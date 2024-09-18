@@ -16,7 +16,7 @@ use App\Models\ManagerCommision;
 use App\Models\AreaManager;
 use App\Http\Controllers\Api\GeocodingController;
 use App\Http\Controllers\Api\WalletManage;
-
+use App\Models\Commission;
 class TaskManage extends Controller
 {
     public function get_tasks(Request $request)
@@ -196,7 +196,7 @@ class TaskManage extends Controller
                         }
                         //distribute mlm commision
                         $this->distributeCommission($request->user(), $get_task->reward_coin);
-                        
+
 
                         //end commission share
 
@@ -225,18 +225,23 @@ class TaskManage extends Controller
             }
         }
     }
-    protected $commissionRates = DB::table('commissions')->pluck('rate')->toArray();
+    //  protected $commissionRates;
+
+
+   
+
     public function distributeCommission(User $user, int $amount)
     {
+        
         DB::transaction(function () use ($user, $amount) {
             $referrer = $user->referrer;
             $level = 0;
-
+            $commissionRates = Commission::pluck('percentage')->toArray();
             while ($referrer && $level < 10) {
-                $commission = ceil($amount * ($this->commissionRates[$level] / 100));
+                $commission = ceil($amount * ($commissionRates[$level] / 100));
 
                 // Update referrer's balance
-              //  $referrer->increment('balance', $commission);
+                //  $referrer->increment('balance', $commission);
                 $result = (new WalletManage)->AddPayment($referrer->id, $commission, "Level " . ($level + 1) . " commission from " . $user->name, 'commission');
                 // Create a transaction record
                 // Transaction::create([
