@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Api\WalletManage;
 use App\Http\Controllers\Controller;
+use App\Models\Commission;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -17,11 +18,10 @@ class UsersManage extends Controller
         ]);
         if ($request->type == 'debit') {
             $result = (new WalletManage)->CutPayment($request->user_id, $request->amount, 'Amount Debit By Admin', 'reward');
-          
         } elseif ($request->type == 'credit') {
             $result = (new WalletManage)->AddPayment($request->user_id, $request->amount, 'Amount Credit By Admin', 'reward');
         }
-        return back()->with(['success','Transaction Execute SuccessFully']);
+        return back()->with(['success', 'Transaction Execute SuccessFully']);
     }
     public function index(Request $request)
     {
@@ -46,7 +46,7 @@ class UsersManage extends Controller
     public function action_perform(Request $request)
     {
         if ($request->Action == 'Active') {
-          
+
             return back()->with(['success' => 'User Activated SuccessFully']);
         } else if ($request->Action == 'Deactive') {
             User::find($request->id)->UserBlocked()->create([
@@ -55,4 +55,53 @@ class UsersManage extends Controller
             return back()->with(['success' => 'User Deactivated SuccessFully']);
         }
     }
+    public function referralsIndex(Request $request)
+    {
+        return view('admin.mlm.referrals.index');
+    }
+    public function referralsSearch(Request $request)
+    {
+        $referCode = $request->input('refer_code');
+        $mainUser = User::where('refer_code', $referCode)->first();
+
+        if (!$mainUser) {
+            return redirect()->route('referrals.index')->with('error', 'User not found.');
+        }
+
+        $referrals = $this->getReferrals($mainUser, 10);
+
+        return view('admin.mlm.referrals.index', compact('mainUser', 'referrals'));
+    }
+    private function getReferrals($user, $level, $currentLevel = 1)
+    {
+        if ($currentLevel > $level) {
+            return [];
+        }
+
+        $referrals = $user->referrals()->with('referrals')->get();
+
+        foreach ($referrals as $referral) {
+            $referral->sub_referrals = $this->getReferrals($referral, $level, $currentLevel + 1);
+        }
+
+        return $referrals;
+    }
+    public function MlmCommissions(Request $request)
+    {
+        $commissions = Commission::all();
+        return view('admin.mlm.commissions.index', compact('commissions'));
+   }
+   public function SetMlmCommissions(Request $request)
+   {
+       $data = $request->validate([
+           'commissions' => 'required|array',
+           'commissions.*' => 'required|numeric|min:0|max:100',
+       ]);
+
+       foreach ($data['commissions'] as $level => $commission) {
+           Commission::updateOrCreate(['level' => $level + 1], ['percentage' => $commission]);
+       }
+
+       return redirect()->route('commissions.index')->with('success', 'Commissions updated successfully.');
+   }
 }

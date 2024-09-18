@@ -19,7 +19,7 @@ class WalletManage extends Controller
         $new->description = $description;
         $new->status = 'credit';
         $new->type = $type;
-        $new->ref_id = 'PXLPRO' . rand(1000000, 9999999);
+        $new->ref_id = 'ONEAP' . rand(1000000, 9999999);
         if ($new->save()) {
             User::find($user_id)->increment('balance', $amount);
         }

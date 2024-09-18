@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\AllTasks;
 use App\Models\CompleteTask;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Wester\ChunkUpload\Chunk;
 use App\Models\Question;
@@ -13,6 +15,7 @@ use Wester\ChunkUpload\Validation\Exceptions\ValidationException;
 use App\Models\ManagerCommision;
 use App\Models\AreaManager;
 use App\Http\Controllers\Api\GeocodingController;
+use App\Http\Controllers\Api\WalletManage;
 
 class TaskManage extends Controller
 {
@@ -191,7 +194,18 @@ class TaskManage extends Controller
                             $newCom->claimed = 'no';
                             $newCom->save();
                         }
+                        //distribute mlm commision
+                        $this->distributeCommission($request->user(), $get_task->reward_coin);
+                        
 
+                        //end commission share
+
+                        return response()->json([
+                            'reward' => $get_task->reward_coin,
+                            'status' => true,
+                            'message' => 'All Answer Done'
+                        ]);
+                        //end
 
                         //end commission share
 
@@ -210,5 +224,34 @@ class TaskManage extends Controller
                 }
             }
         }
+    }
+    protected $commissionRates = [
+        DB::table('commissions')->pluck('rate')->toArray()
+    ];
+    public function distributeCommission(User $user, int $amount)
+    {
+        DB::transaction(function () use ($user, $amount) {
+            $referrer = $user->referrer;
+            $level = 0;
+
+            while ($referrer && $level < 10) {
+                $commission = ceil($amount * ($this->commissionRates[$level] / 100));
+
+                // Update referrer's balance
+              //  $referrer->increment('balance', $commission);
+                $result = (new WalletManage)->AddPayment($referrer->id, $commission, "Level " . ($level + 1) . " commission from " . $user->name, 'commission');
+                // Create a transaction record
+                // Transaction::create([
+                //     'user_id' => $referrer->id,
+                //     'amount' => $commission,
+                //     'type' => 'commission',
+                //     'description' => "Level " . ($level + 1) . " commission from " . $user->name,
+                // ]);
+
+                // Move up to the next referrer
+                $referrer = $referrer->referrer;
+                $level++;
+            }
+        });
     }
 }

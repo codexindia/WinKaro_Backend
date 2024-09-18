@@ -49,18 +49,25 @@ class User extends Authenticatable
     ];
     public function getProfilePicAttribute($value)
     {
-        if(!$value == null)
-        {
+        if (!$value == null) {
             return asset(Storage::url($value));
         }
-       return asset('AdminAssets/assets/img/user.png.png');
+        return asset('AdminAssets/assets/img/user.png.png');
     }
     public function GetReferredBy()
     {
-        return $this->hasOne(User::class,'refer_code','referred_by');
+        return $this->hasOne(User::class, 'refer_code', 'referred_by');
     }
     public function UserBlocked()
     {
         return $this->hasOne(BlockedUser::class, 'user_id', 'id');
+    }
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referred_by', 'refer_code');
+    }
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referred_by', 'refer_code');
     }
 }

@@ -54,6 +54,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ url('AdminAssets/assets/js/config.js') }}"></script>
+@stack('styles')
 </head>
 
 <body>
@@ -150,6 +151,28 @@
                         </a>
                     </li>
 
+
+
+
+                    <li class="menu-item {{ request()->is('Admin/referrals*') ? 'active' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon fa-solid fa-diagram-project"></i>
+                            <div data-i18n="MLM">MLM Manager</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->is('Admin/referrals') ? 'active' : '' }}">
+                                <a href="{{ route('referrals.index') }}" class="menu-link">
+                                    <div>Refferrals Search</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->is('Admin/commissions') ? 'active' : '' }}">
+                                <a href="{{ route('commissions.index') }}" class="menu-link">
+                                    <div>Commissions</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
 
 
                     <li class="menu-item {{ request()->is('Admin/Managers*') ? 'active' : '' }}">
