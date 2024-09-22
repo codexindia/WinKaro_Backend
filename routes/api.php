@@ -35,7 +35,7 @@ Route::middleware('auth:sanctum','user.check')->group(function () {
         Route::post('/update_profile', 'update_profile');
     });
     Route::controller('ReferManage')->prefix('refer')->group(function () {
-        Route::post('/get_history', 'get_history');
+        Route::post('/get_history', 'getReferrals');
        
     });
 

@@ -3,25 +3,43 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Services\ReferralService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\ReferHistory;
 
 class ReferManage extends Controller
-{
-    public function get_history(Request $request)
+{  protected $referralService;
+
+    public function __construct(ReferralService $referralService)
     {
-        $main = ReferHistory::where('refer_by_user_id', $request->user()->id)->get(['refer_by_user_id', 'referred_user_id', 'status', 'reward_coin', 'created_at']);
-        $data = [];
+        $this->referralService = $referralService;
+    }
 
-        foreach ($main as $item) {
-            //  $item->GetName->makeHidden('updated_at','created_at','phone','email','balance','refer_code','referred_by');
-            $item->GetName->makeHidden('updated_at', 'created_at', 'phone', 'email', 'balance', 'refer_code', 'referred_by');
+    public function getReferrals(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        $level = $request->input('level', 1);
+        $perPage = $request->input('per_page', 15); // Default to 15 items per page
+        $page = $request->input('page', 1);
 
+        if ($level < 1 || $level > 10) {
+            return response()->json(['error' => 'Invalid level. Must be between 1 and 10.'], 400);
         }
+
+        $result = $this->referralService->getReferralsForLevel($user, $level, $perPage, $page);
+        $totalEarnings = $this->referralService->getTotalEarningsForLevel($user, $level);
+
         return response()->json([
-            'status' => true,
-            'data' => $main,
-            'message' => 'Refer History Fetched SuccessFully',
+            'level' => $level,
+            'referrals' => $result['referrals'],
+            'total_earnings' => $totalEarnings,
+            'pagination' => [
+                'total' => $result['total'],
+                'per_page' => $perPage,
+                'current_page' => $page,
+                'last_page' => ceil($result['total'] / $perPage),
+            ],
         ]);
     }
 }
