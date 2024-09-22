@@ -25,7 +25,7 @@ class ApiAuth extends Controller
             'email' => 'required|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'device_id' => 'required',
-            'refer_code' => 'min:10|max:10|exists:users,refer_code'
+            'refer_code' => 'min:11|max:11|exists:users,refer_code'
         ]);
         //checking if device already registerd
         $device_id = $request->device_id;
