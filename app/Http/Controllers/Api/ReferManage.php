@@ -20,7 +20,7 @@ class ReferManage extends Controller
     {
         $user = $request->user();
         $level = $request->input('level', 1);
-        $perPage = $request->input('per_page', 15); // Default to 15 items per page
+        $perPage = $request->input('per_page', 10); // Default to 15 items per page
         $page = $request->input('page', 1);
 
         if ($level < 1 || $level > 10) {
