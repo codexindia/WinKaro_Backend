@@ -71,7 +71,8 @@ Route::middleware('admin.auth')->group(function () {
         });
     Route::controller('UsersManage')->group(function () {
           Route::get('/referrals','referralsIndex')->name('referrals.index');
-        Route::post('/referrals/search','referralsSearch')->name('referrals.search');
+         
+          Route::post('/referrals/search','referralsSearch')->name('referrals.search');
         Route::get('/commissions', 'MlmCommissions')->name('commissions.index');
         Route::post('/commissions', 'SetMlmCommissions')->name('commissions.update');
     });
@@ -95,6 +96,10 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/createNewPage', 'createNewPage')->name('createNewPage');
         Route::post('/createNewSubmit', 'createNewSubmit')->name('createNewSubmit');
+       
+        Route::get('/Delete/{id}', 'deleteAreaManager')->name('deleteAreaManager');
+          Route::get('/Edit/{id}', 'editAreaManager')->name('editAreaManager');
+          Route::post('/Edit', 'editSubmitAreaManager')->name('editSubmitAreaManager');
         Route::get('/withdrawal', 'withdrawalList')->name('withdrawalList');
         Route::get('/withdrawal/Action/{Action}/{id}', 'withdrawalAction')->name('withdrawalAction');
     });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('assignedPincode');
             $table->string('phoneNumber', 10)->unique();
             $table->decimal('availableBalance', 10, 2)->default(0);
+            $table->integer(column: 'commissionPercentage')->default(0);
             $table->string('password');
             $table->timestamps();
         });

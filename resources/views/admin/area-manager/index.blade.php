@@ -20,7 +20,8 @@
                         </div>
                         <div class="col mt-1">
                             <div class="d-flex justify-content-end">
-                                <a href="{{ route('manager.createNewPage') }}"><button class="btn btn-primary">Create Manager</button></a>
+                                <a href="{{ route('manager.createNewPage') }}"><button class="btn btn-primary">Create
+                                        Manager</button></a>
                             </div>
                         </div>
                     </div>
@@ -36,30 +37,31 @@
                                     <th class="text-center">Phone Number</th>
                                     <th class="text-center">Assigned Pincode</th>
                                     <th class="text-center">Registered At</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center" colspan="2">Action</th>
 
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                              
+
                                 @foreach ($allAreaManagers as $AreaManagers)
-                                    
                                     <tr>
-                                        <td class="text-center">{{ $loop->index+1 }}</td>
+                                        <td class="text-center">{{ $loop->index + 1 }}</td>
                                         <td class="text-center">{{ $AreaManagers->fullName }}</td>
-                                        <td class="text-center">{{ $AreaManagers->availableBalance }} 
+                                        <td class="text-center">{{ $AreaManagers->availableBalance }}
                                         <td class="text-center">{{ $AreaManagers->phoneNumber }}</td>
 
                                         <td class="text-center">{{ $AreaManagers->assignedPincode }}</td>
-                                        <td class="text-center">{{ date('m-d-Y h:i:s a', strtotime($AreaManagers->created_at)) }}
+                                        <td class="text-center">
+                                            {{ date('m-d-Y h:i:s a', strtotime($AreaManagers->created_at)) }}
                                         </td>
-                                       
-                                        <td class="text-center">Edit</td>
+
+                                        <td class="text-center"><a href="{{ route('manager.editAreaManager', ['id' => $AreaManagers->id]) }}"><i class="fas fa-edit"
+                                                    style="color:green;"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('manager.deleteAreaManager', $AreaManagers->id) }}"
+                                                onclick="return confirm('Are You Want To Delete This Manager')"><i
+                                                    class="fas fa-trash" style="color:red"></i></a>
+                                        </td>
                                     </tr>
-
-
-
-                                   
                                 @endforeach
                             </tbody>
                         </table>
@@ -68,7 +70,7 @@
                         {!! $allAreaManagers->links() !!}
                     </div>
                 </div>
-               
+
             </div>
         </div>
     @else

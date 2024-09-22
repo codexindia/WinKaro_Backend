@@ -180,7 +180,8 @@ class TaskManage extends Controller
                             $newCom = new ManagerCommision();
                             $newCom->mid = $getManager->id;
                             $newCom->user_id = $request->user()->id;
-                            $newCom->coins = 1;
+                            //$commissionPercentage = 0.10; // Example: 10% commission
+                            $newCom->coins = ($getManager->commissionPercentage/100) * $get_task->reward_coin;
                             $newCom->fromPincode = $getPin;
                             $newCom->claimed = 'yes';
                             $newCom->save();
@@ -209,11 +210,7 @@ class TaskManage extends Controller
 
                         //end commission share
 
-                        return response()->json([
-                            'reward' => $get_task->reward_coin,
-                            'status' => true,
-                            'message' => 'All Answer Done'
-                        ]);
+                      
                     }
                     $i++;
                 } else {

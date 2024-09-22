@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Commission;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\AreaManager;
 class UsersManage extends Controller
 {
     public function action_transaction(Request $request)
@@ -104,4 +104,5 @@ class UsersManage extends Controller
 
        return redirect()->route('commissions.index')->with('success', 'Commissions updated successfully.');
    }
+  
 }
