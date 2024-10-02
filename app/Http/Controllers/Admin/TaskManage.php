@@ -174,8 +174,6 @@ class TaskManage extends Controller
          ]);
          $data = CompleteTask::findOrFail($request->proof_id);
          if ($data->status == 'processing') {
-
-
             $data->update([
                'status' => 'complete',
             ]);

@@ -32,6 +32,7 @@
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Available Balance</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Joined At</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -55,6 +56,12 @@
                                             <strong> <i style="font-size:1.3rem;" class="uil uil-coins text-warning"></i>
                                                 &nbsp;{{ $lists->balance }}</strong>
                                         </td>
+                                        <td class="text-center">
+                                            @if ($lists->UserBlocked()->count() > 0)
+                                                <span class="badge bg-danger">Deactive</span>
+                                            @else
+                                                <span class="badge bg-success">Active</span>
+                                            @endif
                                         <td class="text-center">
                                             <strong> {{ $lists->created_at->format('d/m/Y h:i:sA') }}</strong>
                                         </td>
@@ -162,8 +169,8 @@
                         <div class="card">
                             <h5 class="card-header">Deactive Account</h5>
                             <div class="card-body">
-
-                                @if ($data->UserBlocked()->exists())
+                               
+                                @if ($data->UserBlocked()->count() > 0)
                                     <div class="mb-3 col-12 mb-0">
                                         <div class="alert alert-info">
                                             <h6 class="alert-heading fw-bold mb-1">Are you sure you want to Activation

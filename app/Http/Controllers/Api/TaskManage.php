@@ -17,6 +17,7 @@ use App\Models\AreaManager;
 use App\Http\Controllers\Api\GeocodingController;
 use App\Http\Controllers\Api\WalletManage;
 use App\Models\Commission;
+
 class TaskManage extends Controller
 {
     public function get_tasks(Request $request)
@@ -181,7 +182,7 @@ class TaskManage extends Controller
                             $newCom->mid = $getManager->id;
                             $newCom->user_id = $request->user()->id;
                             //$commissionPercentage = 0.10; // Example: 10% commission
-                            $newCom->coins = ($getManager->commissionPercentage/100) * $get_task->reward_coin;
+                            $newCom->coins = ($getManager->commissionPercentage / 100) * $get_task->reward_coin;
                             $newCom->fromPincode = $getPin;
                             $newCom->claimed = 'yes';
                             $newCom->save();
@@ -210,7 +211,7 @@ class TaskManage extends Controller
 
                         //end commission share
 
-                      
+
                     }
                     $i++;
                 } else {
@@ -225,11 +226,11 @@ class TaskManage extends Controller
     //  protected $commissionRates;
 
 
-   
+
 
     public function distributeCommission(User $user, int $amount)
     {
-        
+
         DB::transaction(function () use ($user, $amount) {
             $referrer = $user->referrer;
             $level = 0;

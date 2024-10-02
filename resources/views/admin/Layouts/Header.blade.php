@@ -131,7 +131,7 @@
                     </li>
 
                     <li class="menu-item {{ request()->is('Admin/Withdrawls*') ? 'active' : '' }}">
-                        <a href="{{ route('withdraw.index') }}" class="menu-link">
+                        <a href="{{ route('withdraw.index','processing') }}" class="menu-link">
                             <i class="menu-icon uil uil-money-withdraw"></i>
                             <div data-i18n="Analytics">Withdraw Requests</div>
                         </a>

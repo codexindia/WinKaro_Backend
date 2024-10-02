@@ -46,7 +46,7 @@ class UsersManage extends Controller
     public function action_perform(Request $request)
     {
         if ($request->Action == 'Active') {
-
+            User::find($request->id)->UserBlocked()->delete();
             return back()->with(['success' => 'User Activated SuccessFully']);
         } else if ($request->Action == 'Deactive') {
             User::find($request->id)->UserBlocked()->create([

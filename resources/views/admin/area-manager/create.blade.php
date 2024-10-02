@@ -25,7 +25,7 @@
                                 {{ Form::wtextbox('assigned_pincode') }}
                             </div>
                             <div class="mb-3 col-md-6">
-                                {{ Form::wtextbox('commission') }}
+                                {{ Form::wtextbox('commission',$defaultCom) }}
                             </div>
                             <div class="mb-3 col-md-6">
                                 {{ Form::wtextbox('password') }}

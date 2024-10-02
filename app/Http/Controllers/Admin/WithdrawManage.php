@@ -9,31 +9,39 @@ use App\Models\WithdrawRequest;
 
 class WithdrawManage extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $get = WithdrawRequest::where('status', 'processing')->orderBy('id', 'desc')->get();
-        $view = 'List';
+        if ($request->status == 'processing')
+            $get = WithdrawRequest::where('status', 'processing')->orderBy('id', 'desc')->get();
+        elseif ($request->status == 'success')
+            $get = WithdrawRequest::where('status', 'success')->orderBy('id', 'desc')->get();
+        elseif ($request->status == 'rejected')
+            $get = WithdrawRequest::where('status', 'failed')->orderBy('id', 'desc')->get();
+        
+
+      $view = 'List';
+
         return view('admin.withdraw', compact('view', 'get'));
     }
     public function action(Request $request)
     {
         if ($request->Action == 'Reject') {
-            $main = WithdrawRequest::where('id',$request->id);
+            $main = WithdrawRequest::where('id', $request->id);
             $main->update([
-               'status' => 'failed',
+                'status' => 'failed',
             ]);
             $main = $main->first();
             $user_id = $main->user_id;
             $amount = $main->coins;
             $description = 'Refund For Rejected Requests If WWithdraws';
-           
-            $result = (new WalletManage)->AddPayment($user_id, $amount, $description,'reward');
+
+            $result = (new WalletManage)->AddPayment($user_id, $amount, $description, 'reward');
             return back()->with(['success' => 'Request Rejected Successfully']);
         } elseif ($request->Action == 'Approve') {
-            WithdrawRequest::where('id',$request->id)->update([
+            WithdrawRequest::where('id', $request->id)->update([
                 'status' => 'success',
-             ]);
-             return back()->with(['success' => 'Request Approved Successfully']);
+            ]);
+            return back()->with(['success' => 'Request Approved Successfully']);
         }
     }
 }

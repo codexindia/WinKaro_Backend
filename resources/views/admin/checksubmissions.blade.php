@@ -62,10 +62,13 @@
                                             {{ $item->reward_coin }}
                                         </td>
                                         @if ($item->status == 'processing')
-                                            <td class="text-center"><span class="badge bg-label-primary">
+                                            <td class="text-center"><span class="badge bg-primary">
+                                                    {{ $item->status }}</span></td>
+                                        @elseif($item->status == 'complete')
+                                            <td class="text-center"><span class="badge bg-success">
                                                     {{ $item->status }}</span></td>
                                         @else
-                                            <td class="text-center"><span class="badge bg-label-danger">
+                                            <td class="text-center"><span class="badge bg-danger">
                                                     {{ $item->status }}</span></td>
                                         @endif
                                         {{-- <td class="text-center"><a

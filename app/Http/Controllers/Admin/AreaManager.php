@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AreaManager as AreaManagerModel;
 use App\Models\ManagerWithdrawals;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AreaManager extends Controller
 {
@@ -15,9 +18,18 @@ class AreaManager extends Controller
         $data['allAreaManagers'] = AreaManagerModel::orderBy('id', 'desc')->paginate(10);
         return view('admin.area-manager.index', $data);
     }
+    public function saveOverAllCommission(Request $request)
+    {
+        $request->validate([
+            'commission' => 'required|numeric|lte:100',
+        ]);
+    DB::table('area_managers')->update(['commissionPercentage' => $request->commission]);
+        return redirect()->route('manager.index')->with(['success' => 'Commission updated successfully']);
+    }
     public function createNewPage(Request $request)
     {
-        return view('admin.area-manager.create');
+        $data['defaultCom'] = AreaManagerModel::first()->commissionPercentage??0;
+        return view('admin.area-manager.create',$data);
     }
     public function createNewSubmit(Request $request)
     {
@@ -61,25 +73,42 @@ class AreaManager extends Controller
         //   return  $areamanager;
         return view('admin.area-manager.edit', compact('areamanager'));
     }
-    public function editSubmitAreaManager(Request $request) {
-        $request->validate([
+    public function editSubmitAreaManager(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'full_name' => 'required',
-            'phone_number' => 'required|numeric|digits:10',
-            'assigned_pincode' => 'required|numeric|digits:6',
+            'phone_number' => [
+                'required',
+                'numeric',
+                'digits:10',
+                Rule::unique('area_managers','phoneNumber')->ignore($request->userId),
+            ],
+
+            'assigned_pincode' => [
+                'required',
+                'numeric',
+                'digits:6',
+                Rule::unique('area_managers', 'assignedPincode')->ignore($request->userId),
+            ],
             'password' => 'nullable|min:6|max:20',
-            'userId' =>'required|exists:area_managers,id',
+            'userId' => 'required|exists:area_managers,id',
             'commission' => 'required|numeric|lte:100',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $newManager = AreaManagerModel::find($request->userId);
         $newManager->fullName = $request->full_name;
         $newManager->phoneNumber = $request->phone_number;
         $newManager->assignedPincode = $request->assigned_pincode;
         $newManager->commissionPercentage = $request->commission;
-        if($request->has('password'))
-        {
+        if ($request->has('password')) {
             $newManager->password = bcrypt($request->password);
         }
-       
+
         $newManager->save();
         return redirect()->route('manager.index')->with(['success' => 'Area Manager Updated successfully']);
     }

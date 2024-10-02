@@ -14,7 +14,30 @@
                 <div class="card">
 
 
-                    <h5 class="card-header">Withdraw Requests</h5>
+                    <div class="row m-3">
+                        <div class="col">
+                            <h5 class="card-header">Withdraw Request</h5>
+                        </div>
+                        <div class="col mt-1">
+                            <div class="d-flex justify-content-end">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="{{ route('withdraw.index','processing') }}"><button class="btn btn-primary">Pending</button></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="{{ route('withdraw.index','rejected') }}"><button class="btn btn-danger">Rejected</button></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="{{ route('withdraw.index','success') }}"><button class="btn btn-success">Approved</button></a>
+                                    </div>
+                                   
+                                   
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+
 
 
                     <div class="table-responsive text-nowrap">
@@ -60,10 +83,10 @@
                                         <td class="text-center"><i data-bs-toggle="modal"
                                                 data-bs-target="#backDropModal{{ $i }}"
                                                 class="uil uil-eye text-primary" style="font-size:20px;"></i></td>
-                                        <td class="text-center"><a
+                                        <td class="text-center"><a onclick="return confirm('Are you sure? You want to reject?')"
                                                 href="{{ route('withdraw.action', ['Action' => 'Reject', 'id' => $item->id]) }}"><i
                                                     class="uil uil-ban text-danger" style="font-size:20px;"></i></a></td>
-                                        <td class="text-center"><a
+                                        <td class="text-center"><a onclick="return confirm('Are you sure? You want to approve?')"
                                                 href="{{ route('withdraw.action', ['Action' => 'Approve', 'id' => $item->id]) }}"><i
                                                     class="uil uil-check-circle text-success"
                                                     style="font-size:20px;"></i></a></td>

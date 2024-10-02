@@ -122,7 +122,7 @@ class WalletManage extends Controller
                 'user_id' => $user->id,
                 'coins' => $request->coin,
                 'status' => 'processing',
-                'ref_id' => 'WINCASH' . rand(100000, 999999),
+                'ref_id' => 'ONEAPP' . rand(100000, 999999),
                 'account_data' => $account,
             ]);
             return response()->json([

@@ -78,7 +78,7 @@ Route::middleware('admin.auth')->group(function () {
     });
 
     Route::controller('WithdrawManage')->prefix('Withdrawls')->group(function () {
-        Route::get('/', 'index')->name('withdraw.index');
+        Route::get('/{status}', 'index')->name('withdraw.index');
         Route::get('/Action/{Action}/{id}', 'action')->name('withdraw.action');
     });
 
@@ -96,7 +96,8 @@ Route::middleware('admin.auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/createNewPage', 'createNewPage')->name('createNewPage');
         Route::post('/createNewSubmit', 'createNewSubmit')->name('createNewSubmit');
-       
+        Route::post('/saveOverAllCommission', 'saveOverAllCommission')->name('saveOverAllCommission');
+
         Route::get('/Delete/{id}', 'deleteAreaManager')->name('deleteAreaManager');
           Route::get('/Edit/{id}', 'editAreaManager')->name('editAreaManager');
           Route::post('/Edit', 'editSubmitAreaManager')->name('editSubmitAreaManager');
