@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/privacy_policy','ExtraPages@privacy_policy');
 Route::get('/terms_and_conditions','ExtraPages@terms_and_conditions');
+Route::get('/about_us',function(){
+    return redirect('https://docs.google.com/document/d/1J_qBhaQ0pBEfulEjlwtS_NiBUrrG_rZh0My_Sa0if4Y');
+});
 
 Route::get('/test',function(){
     return view('test');
