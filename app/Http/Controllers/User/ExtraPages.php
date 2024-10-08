@@ -9,10 +9,12 @@ class ExtraPages extends Controller
 {
    public function privacy_policy()
    {
-    return view('users.privacy');
+      return redirect('https://docs.google.com/document/d/1J_qBhaQ0pBEfulEjlwtS_NiBUrrG_rZh0My_Sa0if4Y');
+    //return view('users.privacy');
    }
    public function terms_and_conditions()
    {
-    return view('users.terms_and_condition');
+      return redirect('https://docs.google.com/document/d/1J_qBhaQ0pBEfulEjlwtS_NiBUrrG_rZh0My_Sa0if4Y');
+  
    }
 }
